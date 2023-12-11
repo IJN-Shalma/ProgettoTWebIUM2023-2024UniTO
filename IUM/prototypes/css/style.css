@@ -18,15 +18,6 @@
     background-color: var(--bg-2);
 }
 
-.bgc-3 {
-    background-color: floralwhite;
-}
-
-.bgc-white{
-    background-color: floralwhite;
-}
-
-
 html {
     color: #222;
     font-family: 'Roboto', sans-serif;
@@ -55,16 +46,10 @@ h6 {
     font-family: 'Nova Square', sans-serif;
 }
 
-.league-card {
-    margin: 1rem;
-    background-color: floralwhite;
-}
-
 .index-player-card {
     font-size: 1em;
     text-align: center;
     width: 100%;
-    font-weight: bold;
 }
 
 .index-player-card img{
@@ -136,11 +121,10 @@ h6 {
 
 .breadcrumbs{
     --bs-breadcrumb-divider: '>';
-    background-color: #013521;
 }
 
-.breadcrumb > .active{
-    color: white;
+.breadcrumb{
+    width: fit-content;
 }
 
 .filter-heading{
