@@ -71,7 +71,7 @@ Static -> rarely changes
   - Last season
   - Datetime
   - Date
-  - Dateweek (Ignore?)
+  - Dateweek (Ignore)
   - Market value in eur
   - n ??? (always 1)
 
@@ -119,7 +119,7 @@ Static -> rarely changes
   - URL
   - home club formation (empty)
   - away club formation (empty)
-  - aggregate ????
+  - aggregate
   - Competition type (domestic/international league)
 
 ## Club games: (Dynamic -> mongoDB)
@@ -149,8 +149,8 @@ Static -> rarely changes
   - player id
   - description
 
-  - player in id ??
-  - player assist id ??
+  - player in id
+  - player assist id
 
 ## Game lineups: (Dynamic -> Mongodb)
   - game lineups id
@@ -162,5 +162,3 @@ Static -> rarely changes
   - player name
   - team captain (0/1)
   - position
-
-Chiedere chiarimenti su dati statici e dati dinamici per divisione database
