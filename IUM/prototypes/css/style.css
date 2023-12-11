@@ -3,6 +3,7 @@
     --bg-1: #2c4f33;
     --bg-2: #6a994e;
     --bg-3: #a7c957;
+    --bg-4: #3f744a;
 }
 
 .c-main {
@@ -18,7 +19,11 @@
 }
 
 .bgc-3 {
-    background-color: var(--bg-3);
+    background-color: floralwhite;
+}
+
+.bgc-white{
+    background-color: floralwhite;
 }
 
 
@@ -45,8 +50,6 @@ h6 {
     font-family: 'Nova Square', sans-serif;
     color: var(--bg-1)
 }
-
-
 
 .title {
     font-family: 'Nova Square', sans-serif;
@@ -105,7 +108,7 @@ h6 {
     line-height: 1em;
     border: 2px solid var(--bg-1);
 }
-
+  
 .navigation {
     height: 10%;
 }
@@ -131,9 +134,27 @@ h6 {
     background-color: #012014 !important;
 }
 
+.breadcrumbs{
+    --bs-breadcrumb-divider: '>';
+    background-color: #013521;
+}
+
+.breadcrumb > .active{
+    color: white;
+}
+
+.filter-heading{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.league-icon{
+    width: 3rem;
+}
+  
 .box-shadow {
     -moz-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
     -webkit-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
     box-shadow: 2px 4px 6px black, -2px 4px 6px black;
-    background-color: white
+    background-color: white;
 }
