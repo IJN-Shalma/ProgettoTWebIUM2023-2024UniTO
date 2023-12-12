@@ -2,9 +2,9 @@
 Dynamic -> changes frequently
 Static -> rarely changes
 ## Competitions: (Static -> Postgre)
-  - Competition ID = Competition Code
+  - Competition ID 
 
-  - Name
+  - Name = Competition Code
   - Type
   - Sub-Type
 
@@ -108,7 +108,6 @@ Static -> rarely changes
 
   - home club goals
   - away club goals
-  - home club position
   - home club position (league position)
   - away club position (league position)
   - home club manager name
@@ -122,7 +121,7 @@ Static -> rarely changes
   - aggregate
   - Competition type (domestic/international league)
 
-## Club games: (Dynamic -> mongoDB)
+## Club games: (Dynamic -> mongoDB) (Ridondante)
   - game id
   - club id
 

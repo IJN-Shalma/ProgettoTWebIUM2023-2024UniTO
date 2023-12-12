@@ -33,6 +33,11 @@ p {
     margin: 0.2em;
 }
 
+img{
+    text-align: center;
+    object-fit: contain;
+}
+
 h1,
 h2,
 h3,
@@ -166,22 +171,17 @@ h6 {
 .clickable:hover{
     background-color: rgb(241, 241, 241);
     border: 1px solid var(--bg-1);
-    
 }
 
-
-.clic kable:hover::after{
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgb(241, 241, 241);
-    border: 1px solid var(--bg-1);
-}
-  
 .box-shadow {
     -moz-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
     -webkit-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
     box-shadow: 2px 4px 6px black, -2px 4px 6px black;
     background-color: white;
+}
+
+.club-logo{
+    width: 5em;
+    max-width: 5em;
+    max-height: 5em;
 }
