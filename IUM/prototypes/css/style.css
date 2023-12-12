@@ -26,6 +26,7 @@ html {
 body {
     margin: 0;
     background-color: var(--bg-1);
+    user-select: none;
 }
 
 p {
@@ -50,10 +51,12 @@ h6 {
     font-size: 1em;
     text-align: center;
     width: 100%;
+    font-weight: bold;
 }
 
 .index-player-card img{
     width: 5em;
+    filter: drop-shadow(0px 0px 2px #222);
 }
 
 .index-league-box{
@@ -61,10 +64,8 @@ h6 {
 }
 
 .index-league-box h2{
-    font-size: 2em;
+    font-size: 1.8em;
 }
-
-
 
 .game-card {
     text-align: center;
@@ -149,6 +150,33 @@ h6 {
 
 .league-icon{
     width: 3rem;
+}
+
+.accent{
+    color: rgb(255, 132, 0);
+}
+
+.clickable{
+    cursor: pointer;
+    border-radius: 0.2em;
+    position: relative;
+    border: 1px solid transparent;
+}
+
+.clickable:hover{
+    background-color: rgb(241, 241, 241);
+    border: 1px solid var(--bg-1);
+    
+}
+
+
+.clic kable:hover::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(241, 241, 241);
+    border: 1px solid var(--bg-1);
 }
   
 .box-shadow {
