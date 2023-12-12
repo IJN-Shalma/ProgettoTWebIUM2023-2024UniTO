@@ -65,6 +65,11 @@ h6 {
     font-weight: bold;
 }
 
+.index-legue-card-score span{
+    font-weight: bold;
+    margin: 1em;
+}
+
 .bb-item-list>div {
     position: relative;
 }
@@ -112,7 +117,7 @@ h6 {
 }
 
 .club-logo {
-    filter: drop-shadow(0px 0px 5px #222);
+    filter: drop-shadow(0px 0px 2px #222);
 }
 
 .navbar-dark {
