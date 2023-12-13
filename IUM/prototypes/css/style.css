@@ -57,21 +57,24 @@ h6 {
 .filter-list li{
     border: 1px solid #ddd;
     margin-top: -1px;
-    background-color: #f6f6f6;
-    padding: 1em 1em;
+    color: white;
+    font-weight: bold;
+    background-color: var(--bg-1);
+    padding: 1em 3em;
     display: block;
 }
 
 .filter-list li:first-child {
-    border-radius: .2em .2em  0 0;
+    border-radius: .3em .3em  0 0;
 }
 
 .filter-list li:last-child {
-    border-radius: 0 0 .2em .2em;
+    border-radius: 0 0 .3em .3em;
 }
 
 .filter-list li:hover {
     background-color: #eee;
+    color: black;
   }
 
 .title {
