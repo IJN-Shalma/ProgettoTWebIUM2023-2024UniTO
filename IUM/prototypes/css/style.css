@@ -48,6 +48,32 @@ h6 {
     color: var(--bg-1)
 }
 
+.filter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.filter-list li{
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    background-color: #f6f6f6;
+    padding: 1em 1em;
+    display: block;
+}
+
+.filter-list li:first-child {
+    border-radius: .2em .2em  0 0;
+}
+
+.filter-list li:last-child {
+    border-radius: 0 0 .2em .2em;
+}
+
+.filter-list li:hover {
+    background-color: #eee;
+  }
+
 .title {
     font-family: 'Nova Square', sans-serif;
 }

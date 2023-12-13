@@ -54,43 +54,129 @@
         </div>
     </nav>
 
-    <div class="container d-lg-flex mt-3">
-        <section class="ratio-30 p-2">
-            <div class="d-flex flex-column bgc-white p-2 mb-2 box-shadow rounded-1">
-                <div>
-                    <h1>Filters</h1>
-                </div>
-                <form action="leagues.html" class="bgc-white p-3 dropdown">
-                    <button type="button" class="btn btn-secondary filter-heading dropdown-toggle"
-                        data-bs-toggle="dropdown" aria-expanded="false">Filter by country</button>
-                    <ul class="dropdown-menu" aria-labelledby="filterDropdownMenuButton">
-                        <li class="dropdown-item">
-                            <input class="form-check-input" type="checkbox" value="England" id="filterItaly">
-                            <label class="form-check-label" for="defaultCheck1">England</label>
-                        </li>
-                        <li class="dropdown-item">
-                            <input class="form-check-input" type="checkbox" value="Africa" id="filterAfrica">
-                            <label class="form-check-label" for="defaultCheck1">France</label>
-                        </li>
-                        <li class="dropdown-item">
-                            <input class="form-check-input" type="checkbox" value="Italy" id="filterItaly">
-                            <label class="form-check-label" for="defaultCheck2">Italy</label>
-                        </li>
-                    </ul>
-
-                    <div class="mt-3">
-                        <button type="submit" class="btn btn-primary">Apply</button>
-                        <button type="reset" class="btn btn-secondary">Reset</button>
-                    </div>
-                </form>
+    <div class="container mb-4">
+        <div class="box-shadow rounded-1 p-3 mb-3">
+            <h1>World Cup</h1>
+            <div class="table-responsive">
+                <table class="table table-borderless align-middle text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">League</th>
+                            <th scope="col">Year</th>
+                            <th scope="col">Home Win %</th>
+                            <th scope="col">Away Win %</th>
+                            <th scope="col">Draw %</th>
+                            <th scope="col">Avg Goals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="league-icon">
+                                <img class="d-inline league-icon" src="./assets/SerieaA.png" alt="Serie A logo">
+                            </td>
+                            <th scope="row"><a href="">Serie A</a></th>
+                            <td>2023</td>
+                            <td>44%</td>
+                            <td>28%</td>
+                            <td>28%</td>
+                            <td>2.57</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </section>
+        </div>
+    
+        <div class="box-shadow rounded-1 p-3 mb-3">
+            <h1>Cups</h1>
+            <div class="table-responsive">
+                <table class="table table-borderless align-middle text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">League</th>
+                            <th scope="col">Year</th>
+                            <th scope="col">Home Win %</th>
+                            <th scope="col">Away Win %</th>
+                            <th scope="col">Draw %</th>
+                            <th scope="col">Avg Goals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="league-icon">
+                                <img class="d-inline league-icon" src="./assets/SerieaA.png" alt="Serie A logo">
+                            </td>
+                            <th scope="row"><a href="">Serie A</a></th>
+                            <td>2023</td>
+                            <td>44%</td>
+                            <td>28%</td>
+                            <td>28%</td>
+                            <td>2.57</td>
+                        </tr>
+                        <tr>
+                            <td class="league-icon">
+                                <img class="d-inline league-icon" src="./assets/SerieaA.png" alt="Serie A logo">
+                            </td>
+                            <th scope="row"><a href="">Serie A</a></th>
+                            <td>2023</td>
+                            <td>44%</td>
+                            <td>28%</td>
+                            <td>28%</td>
+                            <td>2.57</td>
+                        </tr>
+                        <tr>
+                            <td class="league-icon">
+                                <img class="d-inline league-icon" src="./assets/SerieaA.png" alt="Serie A logo">
+                            </td>
+                            <th scope="row"><a href="">Serie A</a></th>
+                            <td>2023</td>
+                            <td>44%</td>
+                            <td>28%</td>
+                            <td>28%</td>
+                            <td>2.57</td>
+                        </tr>
+                        <tr>
+                            <td class="league-icon">
+                                <img class="d-inline league-icon" src="./assets/SerieaA.png" alt="Serie A logo">
+                            </td>
+                            <th scope="row"><a href="">Serie A</a></th>
+                            <td>2023</td>
+                            <td>44%</td>
+                            <td>28%</td>
+                            <td>28%</td>
+                            <td>2.57</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <main class="ratio-70 p-2">
-            <div class="d-flex flex-column p-2 box-shadow rounded-1">
-                <h1>World Leagues</h1>
-                <div class="table-responsive">
-                    <table class="table align-middle text-center">
+
+    <div class="container d-lg-flex flex-column box-shadow rounded-1 p-3 mb-3">
+        <div>
+            <h1>Leagues</h1>
+        </div>
+        <div class="d-flex flex-row bgc-white p-3 mb-2 justify-content-around">
+            <div class="d-flex flex-column bgc-white p-3 mb-2">
+                <ul class="filter-list">
+                        <li>
+                            England
+                        </li>
+                        <li>
+                            France
+                        </li>
+                        <li>
+                            Italy
+                        </li>
+                        <li>
+                            Spain
+                        </li>
+                </ul>
+            </div>
+    
+            <div class="d-flex flex-column p-3 table-responsive align-items-center flex-grow-1">
+                    <table class="table table-borderless align-middle text-center">
                         <thead>
                             <tr>
                                 <th scope="col"></th>
@@ -105,9 +191,7 @@
                         <tbody>
                             <tr>
                                 <td class="league-icon">
-                                    <img class="d-inline league-icon"
-                                    src="./assets/SerieaA.png"
-                                    alt="Serie A logo">
+                                    <img class="d-inline league-icon" src="./assets/SerieaA.png" alt="Serie A logo">
                                 </td>
                                 <th scope="row"><a href="">Serie A</a></th>
                                 <td>2023</td>
@@ -118,9 +202,7 @@
                             </tr>
                             <tr>
                                 <td class="league-icon">
-                                    <img class="d-inline league-icon"
-                                    src="./assets/ligue1.png"
-                                    alt="Ligue 1 logo">
+                                    <img class="d-inline league-icon" src="./assets/ligue1.png" alt="Ligue 1 logo">
                                 </td>
                                 <th scope="row"><a href="league.html">Ligue 1</a></th>
                                 <td>2023</td>
@@ -131,9 +213,8 @@
                             </tr>
                             <tr>
                                 <td class="league-icon">
-                                    <img class="d-inline league-icon"
-                                    src="./assets/Europaleague.png"
-                                    alt="Europa League logo">
+                                    <img class="d-inline league-icon" src="./assets/Europaleague.png"
+                                        alt="Europa League logo">
                                 </td>
                                 <th scope="row"><a href="">Europa League</a></th>
                                 <td>2023</td>
@@ -144,9 +225,8 @@
                             </tr>
                             <tr>
                                 <td class="league-icon">
-                                    <img class="d-inline league-icon"
-                                    src="./assets/uefa.png"
-                                    alt="UEFA Champions League logo">
+                                    <img class="d-inline league-icon" src="./assets/uefa.png"
+                                        alt="UEFA Champions League logo">
                                 </td>
                                 <th scope="row"><a href="">UEFA Champions League</a></th>
                                 <td>2023</td>
@@ -157,9 +237,9 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
             </div>
-        </main>
+        </div>
+        
     </div>
 </body>
 
