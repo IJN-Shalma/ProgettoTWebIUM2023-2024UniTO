@@ -55,18 +55,20 @@
     </nav>
 
     <div class="container">
-        <div class="d-flex flex-wrap">
-            <div class="d-flex flex-grow-1 flex-wrap flex-column"> <!-- Left Column -->
+        <div class="d-lg-flex">
+            <div class="d-lg-flex flex-grow-1 flex-column"> <!-- Left Column -->
                 <div class="d-flex flex-column box-shadow rounded-1 m-3 p-2"> <!-- Score events box -->
                     <h1>Champions League</h1>
-                    <div class="d-flex align-items-center justify-content-around text-center">
-                        <div class="d-flex flex-column align-items-center w-25">
-                            <img alt="home_team_logo" src="assets/R.png" height="70em">
-                            <p>Paris Saint-Germain</p>
+                    <div class="d-flex justify-content-around align-items-top text-center"> <!-- Centre Box -->
+                        <div class="d-flex flex-column w-25 align-items-center">
+                            <img alt="home-team logo" src="assets/R.png" class="club-logo" />
+                            <p>Paris Saint-Germain Football Club</p>
                         </div>
-                        <span class="game-score">1:1</span>
-                        <div class="d-flex flex-column align-items-center w-25">
-                            <img alt="home_team_logo" src="assets/newcastle.png" height="70em">
+                        <div class="game-card-score d-flex align-items-center">
+                            <span>1</span>-<span>1</span>
+                        </div>
+                        <div class="d-flex flex-column w-25 align-items-center">
+                            <img alt="away-team logo" src="assets/newcastle.png" class="club-logo" />
                             <p>Newcastle United Football Club</p>
                         </div>
                     </div>
@@ -87,51 +89,53 @@
                 </div>
             </div>
             <div class="flex-grow-1"> <!-- Right Column -->
-                <div class="d-flex box-shadow rounded-1 m-3 p-2 flex-wrap">
+                <div class="d-lg-flex box-shadow rounded-1 m-3 p-2">
                     <div class="d-flex flex-column flex-grow-1 p-1"> <!-- Home Team List -->
                         <h2>Home Team</h2>
                         <div class="flex-grow-1 bb-item-list">
-                            <div class="game-player-box d-flex align-items-center m-2 clickable p-1"> <!-- Player box-->
+                            <div class="game-player-box d-flex align-items-center m-3 clickable p-1"> <!-- Player box-->
                                 <img src="https://img.a.transfermarkt.technology/portrait/header/349066-1680791339.jpg?lm=1"
-                                    height="100em" class="rounded-1" alt="player-photo">
-                                <div class="flex-grow-1 p-1">
+                                    alt="player-photo" height="100em" class="rounded-1" alt="player-photo">
+                                <div class="flex-grow-1  p-1">
                                     <p><b>Alexander Isak</b></p>
                                     <p>Centre-Forward</p>
-                                    <p>
-                                        <span>🟥: 0</span>
-                                        <span>🟨: 0</span>
-                                        <span>⚽: 1</span>
-                                        <span>🤚: 0</span>
-                                        <span>🕐: 90</span>
-                                    </p>
+                                    <div class="d-flex flex-wrap">
+                                        <p>🟥: 0</p>
+                                        <p>🟨: 0</p>
+                                        <p>⚽: 1</p>
+                                        <p>🤚: 0</p>
+                                        <p>🕐: 90</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="game-player-box d-flex align-items-center m-2 clickable p-1"> <!-- Player box-->
-                                <img src="" alt="player-photo" height="100em" width="70em" class="rounded-1">
+                            <div class="game-player-box d-flex align-items-center m-3 clickable p-1"> <!-- Player box-->
+                                <img src="https://img.a.transfermarkt.technology/portrait/header/349066-1680791339.jpg"
+                                    alt="player-photo" height="100em" class="rounded-1">
                                 <div class="flex-grow-1 p-1">
                                     <p><b>Someone</b></p>
                                     <p>Some Role</p>
-                                    <p>
-                                        <span>🟥: 0</span>
-                                        <span>🟨: 0</span>
-                                        <span>⚽: 0</span>
-                                        <span>🤚: 0</span>
-                                        <span>🕐: 90</span>
-                                    </p>
+                                    <div class="d-flex flex-wrap">
+                                        <p>🟥: 0</p>
+                                        <p>🟨: 0</p>
+                                        <p>⚽: 0</p>
+                                        <p>🤚: 0</p>
+                                        <p>🕐: 90</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="game-player-box d-flex align-items-center m-2 clickable p-1"> <!-- Player box-->
-                                <img src="" alt="player-photo" height="100em" width="70em" class="rounded-1">
+                            <div class="game-player-box d-flex align-items-center m-3 clickable p-1"> <!-- Player box-->
+                                <img src="https://img.a.transfermarkt.technology/portrait/header/349066-1680791339.jpg"
+                                    alt="player-photo" height="100em" class="rounded-1">
                                 <div class="flex-grow-1 p-1">
-                                    <p><b><b>Someone</b></b></p>
+                                    <p><b>Someone</b></p>
                                     <p>Some Role</p>
-                                    <p>
-                                        <span>🟥: 0</span>
-                                        <span>🟨: 0</span>
-                                        <span>⚽: 0</span>
-                                        <span>🤚: 0</span>
-                                        <span>🕐: 90</span>
-                                    </p>
+                                    <div class="d-flex flex-wrap">
+                                        <p>🟥: 0</p>
+                                        <p>🟨: 0</p>
+                                        <p>⚽: 0</p>
+                                        <p>🤚: 0</p>
+                                        <p>🕐: 90</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -139,46 +143,49 @@
                     <div class="d-flex flex-column flex-grow-1 p-1"> <!-- Away Team List -->
                         <h2>Away Team</h2>
                         <div class="flex-grow-1 bb-item-list">
-                            <div class="game-player-box d-flex align-items-center m-2 clickable p-1"> <!-- Player box-->
-                                <img src="" alt="player-photo" height="100em" width="70em" class="rounded-1">
+                            <div class="game-player-box d-flex align-items-center m-3 clickable p-1"> <!-- Player box-->
+                                <img src="https://img.a.transfermarkt.technology/portrait/header/349066-1680791339.jpg"
+                                    alt="player-photo" height="100em" class="rounded-1">
                                 <div class="flex-grow-1 p-1">
                                     <p><b>Someone</b></p>
                                     <p>Some Role</p>
-                                    <p>
-                                        <span>🟥: 0</span>
-                                        <span>🟨: 0</span>
-                                        <span>⚽: 0</span>
-                                        <span>🤚: 0</span>
-                                        <span>🕐: 90</span>
-                                    </p>
+                                    <div class="d-flex flex-wrap">
+                                        <p>🟥: 0</p>
+                                        <p>🟨: 0</p>
+                                        <p>⚽: 0</p>
+                                        <p>🤚: 0</p>
+                                        <p>🕐: 90</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="game-player-box d-flex align-items-center m-3 clickable p-1"> <!-- Player box-->
+                                <img src="https://img.a.transfermarkt.technology/portrait/header/349066-1680791339.jpg"
+                                    alt="player-photo" height="100em" class="rounded-1">
+                                <div class="flex-grow-1 p-1">
+                                    <p><b>Someone</b></p>
+                                    <p>Some Role</p>
+                                    <div class="d-flex flex-wrap">
+                                        <p>🟥: 0</p>
+                                        <p>🟨: 0</p>
+                                        <p>⚽: 0</p>
+                                        <p>🤚: 0</p>
+                                        <p>🕐: 90</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="game-player-box d-flex align-items-center m-2 clickable p-1"> <!-- Player box-->
-                                <img src="" alt="player-photo" height="100em" width="70em" class="rounded-1">
+                                <img src="https://img.a.transfermarkt.technology/portrait/header/349066-1680791339.jpg"
+                                    alt="player-photo" height="100em" class="rounded-1">
                                 <div class="flex-grow-1 p-1">
                                     <p><b>Someone</b></p>
                                     <p>Some Role</p>
-                                    <p>
-                                        <span>🟥: 0</span>
-                                        <span>🟨: 0</span>
-                                        <span>⚽: 0</span>
-                                        <span>🤚: 0</span>
-                                        <span>🕐: 90</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="game-player-box d-flex align-items-center m-2 clickable p-1"> <!-- Player box-->
-                                <img src="" alt="player-photo" height="100em" width="70em" class="rounded-1">
-                                <div class="flex-grow-1 p-1">
-                                    <p><b>Someone</b></p>
-                                    <p>Some Role</p>
-                                    <p>
-                                        <span>🟥: 0</span>
-                                        <span>🟨: 0</span>
-                                        <span>⚽: 0</span>
-                                        <span>🤚: 0</span>
-                                        <span>🕐: 90</span>
-                                    </p>
+                                    <div class="d-flex flex-wrap">
+                                        <p>🟥: 0</p>
+                                        <p>🟨: 0</p>
+                                        <p>⚽: 0</p>
+                                        <p>🤚: 0</p>
+                                        <p>🕐: 90</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -187,12 +194,15 @@
             </div>
         </div>
     </div>
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-auto bg-dark navbar-dark" style="color: white;">
+    <footer class="d-flex justify-content-between align-items-center py-3 mt-auto bg-dark navbar-dark"
+        style="color: white;">
         <div class="col-md-4 d-flex align-items-center">
-          <a href="/" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
-            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-          </a>
-          <span class="mb-3 mb-md-0">© 2023 Caprara Zhou</span>
+            <a href="/" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
+                <svg class="bi" width="30" height="24">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+            <span class="mb-3 mb-md-0">2023 Caprara Zhou</span>
         </div>
     </footer>
 </body>
