@@ -21,12 +21,14 @@
 html {
     color: #222;
     font-family: 'Roboto', sans-serif;
+    height: 100%;
 }
 
 body {
     margin: 0;
     background-color: var(--bg-1);
     user-select: none;
+    min-height: 100vh;
 }
 
 p {
@@ -145,7 +147,7 @@ h6 {
 }
   
 .navigation {
-    height: 10%;
+    height: 5%;
 }
 
 .main-container {
