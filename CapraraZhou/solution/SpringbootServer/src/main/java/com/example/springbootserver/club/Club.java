@@ -20,28 +20,28 @@ public class Club {
     private String domesticCompetitionId;
 
     @Column(name = "total_market_value")
-    private int totalMarketValue;
+    private Integer totalMarketValue;
 
     @Column(name = "squad_size")
-    private int squadSize;
+    private Integer squadSize;
 
     @Column(name = "average_age")
     private double averageAge;
 
     @Column(name = "foreigners_number")
-    private int foreignersNumber;
+    private Integer foreignersNumber;
 
     @Column(name = "foreigners_percentage")
     private double foreignersPercentage;
 
     @Column(name = "national_team_players")
-    private int nationalTeamPlayers;
+    private Integer nationalTeamPlayers;
 
     @Column(name = "stadium_name")
     private String stadiumName;
 
     @Column(name = "stadium_seats")
-    private int stadiumSeats;
+    private Integer stadiumSeats;
 
     @Column(name = "net_transfer_record")
     private String netTransferRecord;
@@ -50,7 +50,7 @@ public class Club {
     private String coachName;
 
     @Column(name = "last_season")
-    private int lastSeason;
+    private Integer lastSeason;
 
     @Column(name = "url")
     private String url;
@@ -108,19 +108,19 @@ public class Club {
         this.domesticCompetitionId = domesticCompetitionId;
     }
 
-    public int getTotalMarketValue() {
+    public Integer getTotalMarketValue() {
         return totalMarketValue;
     }
 
-    public void setTotalMarketValue(int totalMarketValue) {
+    public void setTotalMarketValue(Integer totalMarketValue) {
         this.totalMarketValue = totalMarketValue;
     }
 
-    public int getSquadSize() {
+    public Integer getSquadSize() {
         return squadSize;
     }
 
-    public void setSquadSize(int squadSize) {
+    public void setSquadSize(Integer squadSize) {
         this.squadSize = squadSize;
     }
 
@@ -132,11 +132,11 @@ public class Club {
         this.averageAge = averageAge;
     }
 
-    public int getForeignersNumber() {
+    public Integer getForeignersNumber() {
         return foreignersNumber;
     }
 
-    public void setForeignersNumber(int foreignersNumber) {
+    public void setForeignersNumber(Integer foreignersNumber) {
         this.foreignersNumber = foreignersNumber;
     }
 
@@ -148,11 +148,11 @@ public class Club {
         this.foreignersPercentage = foreignersPercentage;
     }
 
-    public int getNationalTeamPlayers() {
+    public Integer getNationalTeamPlayers() {
         return nationalTeamPlayers;
     }
 
-    public void setNationalTeamPlayers(int nationalTeamPlayers) {
+    public void setNationalTeamPlayers(Integer nationalTeamPlayers) {
         this.nationalTeamPlayers = nationalTeamPlayers;
     }
 
@@ -164,11 +164,11 @@ public class Club {
         this.stadiumName = stadiumName;
     }
 
-    public int getStadiumSeats() {
+    public Integer getStadiumSeats() {
         return stadiumSeats;
     }
 
-    public void setStadiumSeats(int stadiumSeats) {
+    public void setStadiumSeats(Integer stadiumSeats) {
         this.stadiumSeats = stadiumSeats;
     }
 
@@ -188,11 +188,11 @@ public class Club {
         this.coachName = coachName;
     }
 
-    public int getLastSeason() {
+    public Integer getLastSeason() {
         return lastSeason;
     }
 
-    public void setLastSeason(int lastSeason) {
+    public void setLastSeason(Integer lastSeason) {
         this.lastSeason = lastSeason;
     }
 

@@ -5,9 +5,7 @@ import com.example.springbootserver.competition.CompetitionService;
 import com.example.springbootserver.player.Player;
 import com.example.springbootserver.player.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +26,15 @@ public class Controller {
     @GetMapping("/players/topPlayers")
     public List<Player> getTopPlayers(){
         return playerService.getTopPlayers();
+    }
+
+    @GetMapping("/players/{ids}")
+    public List<Player> getPlayerById(@PathVariable  List<Long> ids) {
+        return playerService.getPlayersById(ids);
+    }
+
+    @GetMapping("/players/club/{clubId}")
+    public List<Player> getPlayersByClub(@PathVariable  Long clubId) {
+        return playerService.getPlayersByClub(clubId);
     }
 }

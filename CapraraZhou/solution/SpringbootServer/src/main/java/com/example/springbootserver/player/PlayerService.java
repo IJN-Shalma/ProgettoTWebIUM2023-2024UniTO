@@ -17,4 +17,12 @@ public class PlayerService {
     public List<Player> getTopPlayers() {
         return playerRepository.getTopPlayers();
     }
+
+    public List<Player> getPlayersById(List<Long> ids){
+        return playerRepository.getPlayersById(ids);
+    }
+
+    public List<Player> getPlayersByClub(Long clubId) {
+        return playerRepository.getPlayersByClubId(clubId);
+    }
 }

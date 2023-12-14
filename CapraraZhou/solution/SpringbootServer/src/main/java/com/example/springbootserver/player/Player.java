@@ -1,10 +1,12 @@
 package com.example.springbootserver.player;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "players")
 public class Player {
     @Id
@@ -22,10 +24,10 @@ public class Player {
     private String playerName;
 
     @Column(name = "last_season")
-    private int lastSeason;
+    private Integer lastSeason;
 
     @Column(name = "current_club_id")
-    private int currentClubId;
+    private Integer currentClubId;
 
     @Column(name = "player_code")
     private String playerCode;
@@ -52,13 +54,13 @@ public class Player {
     private String foot;
 
     @Column(name = "height_in_cm")
-    private int heightInCm;
+    private Integer heightInCm;
 
     @Column(name = "market_value_in_eur")
-    private int marketValueInEur;
+    private Integer marketValueInEur;
 
     @Column(name = "highest_market_value_in_eur")
-    private int highestMarketValueInEur;
+    private Integer highestMarketValueInEur;
 
     @Column(name = "contract_expiration_date")
     private LocalDate contractExpirationDate;
@@ -138,19 +140,19 @@ public class Player {
         this.playerName = playerName;
     }
 
-    public int getLastSeason() {
+    public Integer getLastSeason() {
         return lastSeason;
     }
 
-    public void setLastSeason(int lastSeason) {
+    public void setLastSeason(Integer lastSeason) {
         this.lastSeason = lastSeason;
     }
 
-    public int getCurrentClubId() {
+    public Integer getCurrentClubId() {
         return currentClubId;
     }
 
-    public void setCurrentClubId(int currentClubId) {
+    public void setCurrentClubId(Integer currentClubId) {
         this.currentClubId = currentClubId;
     }
 
@@ -218,27 +220,27 @@ public class Player {
         this.foot = foot;
     }
 
-    public int getHeightInCm() {
+    public Integer getHeightInCm() {
         return heightInCm;
     }
 
-    public void setHeightInCm(int heightInCm) {
+    public void setHeightInCm(Integer heightInCm) {
         this.heightInCm = heightInCm;
     }
 
-    public int getMarketValueInEur() {
+    public Integer getMarketValueInEur() {
         return marketValueInEur;
     }
 
-    public void setMarketValueInEur(int marketValueInEur) {
+    public void setMarketValueInEur(Integer marketValueInEur) {
         this.marketValueInEur = marketValueInEur;
     }
 
-    public int getHighestMarketValueInEur() {
+    public Integer getHighestMarketValueInEur() {
         return highestMarketValueInEur;
     }
 
-    public void setHighestMarketValueInEur(int highestMarketValueInEur) {
+    public void setHighestMarketValueInEur(Integer highestMarketValueInEur) {
         this.highestMarketValueInEur = highestMarketValueInEur;
     }
 
