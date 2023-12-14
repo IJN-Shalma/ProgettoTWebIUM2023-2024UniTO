@@ -8,10 +8,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Open+Sans&family=Roboto&display=swap"
-        rel="stylesheet">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css" />
@@ -37,8 +33,8 @@
                         <a class="nav-link" href="leagues.html">Leagues</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-5" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-5" type="search" placeholder="Search League, Club, Player" aria-label="Search leagues, clubs or players" aria-placeholder="Search League, Club, Player">
                 </form>
             </div>
         </div>
@@ -60,14 +56,14 @@
                 <div class="d-flex flex-column box-shadow rounded-1 m-3 p-2"> <!-- Score events box -->
                     <h1>Champions League</h1>
                     <div class="d-flex justify-content-around align-items-top text-center"> <!-- Centre Box -->
-                        <div class="d-flex flex-column w-25 align-items-center">
+                        <div class="d-flex flex-column w-25 align-items-center clickable">
                             <img alt="home-team logo" src="assets/R.png" class="club-logo" />
                             <p>Paris Saint-Germain Football Club</p>
                         </div>
                         <div class="game-card-score d-flex align-items-center">
                             <span>1</span>-<span>1</span>
                         </div>
-                        <div class="d-flex flex-column w-25 align-items-center">
+                        <div class="d-flex flex-column w-25 align-items-center clickable">
                             <img alt="away-team logo" src="assets/newcastle.png" class="club-logo" />
                             <p>Newcastle United Football Club</p>
                         </div>
@@ -194,15 +190,9 @@
             </div>
         </div>
     </div>
-    <footer class="d-flex justify-content-between align-items-center py-3 mt-auto bg-dark navbar-dark"
-        style="color: white;">
-        <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
-                <svg class="bi" width="30" height="24">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
-            <span class="mb-3 mb-md-0">2023 Caprara Zhou</span>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-auto bg-dark navbar-dark" style="color: white;">
+        <div class="col-md-4 d-flex align-items-center mx-5">
+          <span class="mb-3 mb-md-0">2023 Caprara Zhou</span>
         </div>
     </footer>
 </body>

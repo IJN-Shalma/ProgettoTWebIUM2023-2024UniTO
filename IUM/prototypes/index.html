@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8">
@@ -8,10 +8,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Open+Sans&family=Roboto&display=swap"
-        rel="stylesheet">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css" />
@@ -19,227 +15,272 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand mx-5 title" href="index.html">Football X Data</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <header>
+        <a href="#topleagues" class="skip">Skip to main content</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand mx-5 title" href="index.html" aria-label="Page title and home link">Football X
+                    Data</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="leagues.html">Leagues</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-5" type="search" placeholder="Search League, Club, Player" aria-label="Search" aria-placeholder="Search League, Club, Player">
-                </form>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="leagues.html">Leagues</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input name="searchbar" class="form-control me-5" type="search"
+                            placeholder="Search League, Club, Player" aria-label="Search leagues, clubs or players"
+                            aria-placeholder="Search League, Club, Player">
+                    </form>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
+
 
     <div class="container d-lg-flex my-3">
         <div class="ratio-70 p-2">
-            <div class="rounded-1 p-2 box-shadow">
+            <main id="topleagues" class="rounded-1 p-2 box-shadow" aria-label="Top Leagues" role="main">
                 <h1>Top Leagues</h1>
                 <div class="d-flex flex-wrap justify-content-evenly ">
-                    <div class="d-flex flex-column m-3 index-league-box p-2 clickable"> <!-- League box -->
-                        <div class="d-flex align-items-center justify-content-between">
-                            <h2 class="m-2 accent">Uefa Champions League</h2>
-                            <img alt="League logo" src="assets/uefa.png" height="100em">
-                        </div>
-                        <div class="d-flex flex-column mt-2">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-row align-items-center">
-                                    <img alt="home-team logo" src="assets/bayern.png" width="20em"
-                                        class="club-logo-index mx-1" />
-                                    <p>FC Bayern München</p>
-                                </div>
-                                <p>0</p>
+                    <a href="" style="text-decoration: none; color: #000;" aria-label="Uefa Champions League webpage"
+                        title="Uefa Champions League webpage" role="button">
+                        <div class="d-flex flex-column m-3 index-league-box p-2 clickable"> <!-- League box -->
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h2 class="m-2 accent">Uefa Champions League</h2>
+                                <img alt="League logo" src="assets/uefa.png" class="league-logo-index">
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-row align-items-center">
-                                    <img alt="home-team logo" src="assets/Logo_FC_Kopenhagen.svg.png" width="20em"
-                                        class="club-logo-index mx-1" />
-                                    <p>Football Club København</p>
+                            <div class="d-flex flex-column mt-2">
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <img alt="home-team logo" src="assets/bayern.png"
+                                            class="club-logo-index mx-1" />
+                                        <p>FC Bayern München</p>
+                                    </div>
+                                    <p>0</p>
                                 </div>
-                                <p>0</p>
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <img alt="home-team logo" src="assets/Logo_FC_Kopenhagen.svg.png"
+                                            class="club-logo-index mx-1" />
+                                        <p>Football Club København</p>
+                                    </div>
+                                    <p>0</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="d-flex flex-column m-3 index-league-box p-2 clickable"> <!-- League box -->
-                        <div class="d-flex align-items-center justify-content-between">
+                    </a>
+                    <a href="" style="text-decoration: none; color: #000;" aria-label="Europa League webpage"
+                        title="Europ League webpage" role="button">
+                        <div class="d-flex flex-column m-3 index-league-box p-2 clickable"> <!-- League box -->
+                            <div class="d-flex align-items-center justify-content-between">
 
-                            <h2 class="m-2 accent">Europa League</h2>
-                            <img alt="League logo" height="100em" src="assets/EuropaLeague.png">
-                        </div>
-                        <div class="d-flex flex-column mt-2">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-row align-items-center">
-                                    <img alt="home-team logo" src="assets/olympique-de-marseille-min.png" width="20em"
-                                        class="club-logo-index mx-1" />
-                                    <p>Olympique de Marseille</p>
-                                </div>
-                                <p>4</p>
+                                <h2 class="m-2 accent">Europa League</h2>
+                                <img alt="League logo" src="assets/EuropaLeague.png" class="league-logo-index">
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-row align-items-center">
-                                    <img alt="home-team logo" src="assets/logo-ajax-2.png" width="20em"
-                                        class="club-logo-index mx-1" />
-                                    <p>AFC Ajax Amsterdam</p>
+                            <div class="d-flex flex-column mt-2">
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <img alt="home-team logo" src="assets/olympique-de-marseille-min.png"
+                                            class="club-logo-index mx-1" />
+                                        <p>Olympique de Marseille</p>
+                                    </div>
+                                    <p>4</p>
                                 </div>
-                                <p>3</p>
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <img alt="home-team logo" src="assets/logo-ajax-2.png"
+                                            class="club-logo-index mx-1" />
+                                        <p>AFC Ajax Amsterdam</p>
+                                    </div>
+                                    <p>3</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="d-flex flex-column m-3 index-league-box p-2 clickable"> <!-- League box -->
-                        <div class="d-flex align-items-center justify-content-between">
+                    </a>
+                    <a href="" style="text-decoration: none; color: #000;" aria-label="Serie A webpage"
+                        title="Serie A webpage" role="button">
+                        <div class="d-flex flex-column m-3 index-league-box p-2 clickable"> <!-- League box -->
+                            <div class="d-flex align-items-center justify-content-between">
 
-                            <h2 class="m-2 accent">Serie A</h2>
-                            <img alt="League logo" src="assets/SerieaA.png" height="100em">
-                        </div>
-                        <div class="d-flex flex-column mt-2">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-row align-items-center">
-                                    <img alt="home-team logo" src="assets/verona_hellas.png" width="20em"
-                                        class="club-logo-index mx-1" />
-                                    <p>Verona Hellas Football Club</p>
-                                </div>
-                                <p>2</p>
+                                <h2 class="m-2 accent">Serie A</h2>
+                                <img alt="League logo" src="assets/SerieaA.png" class="league-logo-index">
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-row align-items-center">
-                                    <img alt="home-team logo" src="assets/Unione Sportiva Lecce.png" width="20em"
-                                        class="club-logo-index mx-1" />
-                                    <p>Unione Sportiva Lecce</p>
+                            <div class="d-flex flex-column mt-2">
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <img alt="home-team logo" src="assets/verona_hellas.png"
+                                            class="club-logo-index mx-1" />
+                                        <p>Verona Hellas Football Club</p>
+                                    </div>
+                                    <p>2</p>
                                 </div>
-                                <p>2</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-column m-3 index-league-box p-2 clickable"> <!-- League box -->
-                        <div class="d-flex align-items-center justify-content-between">
-                            <h2 class="m-2 accent">Ligue 1</h2>
-                            <img alt="League logo" src="assets/ligue1.png" height="100em">
-                        </div>
-                        <div class="d-flex flex-column mt-2">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-row align-items-center">
-                                    <img alt="home-team logo" src="assets/montpellier.png" width="20em"
-                                        class="club-logo-index mx-1" />
-                                    <p>Montpellier Hérault Sport Club</p>
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <img alt="home-team logo" src="assets/UnioneSportivaLecce.png"
+                                            class="club-logo-index mx-1" />
+                                        <p>Unione Sportiva Lecce</p>
+                                    </div>
+                                    <p>2</p>
                                 </div>
-                                <p>1</p>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-row align-items-center">
-                                    <img alt="home-team logo" src="assets/CLERMONT_FOOT.png" width="20em"
-                                        class="club-logo-index mx-1" />
-                                    <p>Clermont Foot 63</p>
-                                </div>
-                                <p>1</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
+                    <a href="league.html" style="text-decoration: none; color: #000;" aria-label="Ligue 1 webpage"
+                        title="Ligue 1 webpage" role="button">
+                        <div class="d-flex flex-column m-3 index-league-box p-2 clickable"> <!-- League box -->
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h2 class="m-2 accent">Ligue 1</h2>
+                                <img alt="League logo" src="assets/ligue1.png" class="league-logo-index">
+                            </div>
+                            <div class="d-flex flex-column mt-2">
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <img alt="home-team logo" src="assets/montpellier.png"
+                                            class="club-logo-index mx-1" />
+                                        <p>Montpellier Hérault Sport Club</p>
+                                    </div>
+                                    <p>1</p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <img alt="home-team logo" src="assets/CLERMONT_FOOT.png"
+                                            class="club-logo-index mx-1" />
+                                        <p>Clermont Foot 63</p>
+                                    </div>
+                                    <p>1</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </div>
+            </main>
         </div>
 
         <div class="ratio-30 p-2">
-            <div class="d-flex flex-column rounded-1 p-2 mb-3 box-shadow bb-item-list">
+            <aside class="d-flex flex-column rounded-1 p-2 mb-3 box-shadow bb-item-list"
+                aria-label="Recent football games" role="complementary">
                 <h1>Recent Games</h1>
-                <div class="game-card  rounded-1 mt-3 p-1 clickable"> <!-- Game box -->
-                    <p>EL</p>
-                    <div class="d-flex justify-content-around"> <!-- Centre Box -->
-                        <div class="d-flex flex-column w-25 align-items-center">
-                            <img alt="home-team logo" src="assets/olympique-de-marseille-min.png" width="80em"
-                                class="club-logo-index" />
+                <a href="" style="text-decoration: none; color: #000;" aria-label="Marseille vs Ajax match"
+                    title="Marseille vs Ajax match" role="button">
+                    <div class="game-card  rounded-1 mt-3 p-1 clickable"> <!-- Game box -->
+                        <p>EL</p>
+                        <div class="d-flex justify-content-around"> <!-- Centre Box -->
+                            <div class="d-flex flex-column w-25 align-items-center">
+                                <img alt="home-team logo" src="assets/olympique-de-marseille-min.png"
+                                    class="club-logo" />
+                            </div>
+                            <div class="game-card-score d-flex align-items-center">
+                                <span aria-label="Match score">4:3</span>
+                            </div>
+                            <div class="d-flex flex-column w-25 align-items-center">
+                                <img alt="away-team logo" src="assets/logo-ajax-2.png" class="club-logo" />
+                            </div>
                         </div>
-                        <div class="game-card-score d-flex align-items-center">
-                            <span>4:3</span>
-                        </div>
-                        <div class="d-flex flex-column w-25 align-items-center">
-                            <img alt="away-team logo" src="assets/logo-ajax-2.png" width="80em" class="club-logo-index" />
-                        </div>
+                        <p>2023-11-30</p>
                     </div>
-                    <p>2023-11-30</p>
-                </div>
-                <div class="game-card  rounded-1 mt-3 p-1 clickable"> <!-- Game box -->
-                    <p>EL</p>
-                    <div class="d-flex justify-content-around"> <!-- Centre Box -->
-                        <div class="d-flex flex-column w-25 align-items-center">
-                            <img alt="home-team logo" src="assets/Atalanta-icon.png" width="80em" class="club-logo-index" />
+                </a>
+                <a href="" style="text-decoration: none; color: #000;"
+                    aria-label="Atalanta vs Sporting club de portugal match"
+                    title="Atalanta vs Sporting club de portugal match" role="button">
+                    <div class="game-card  rounded-1 mt-3 p-1 clickable"> <!-- Game box -->
+                        <p>EL</p>
+                        <div class="d-flex justify-content-around"> <!-- Centre Box -->
+                            <div class="d-flex flex-column w-25 align-items-center">
+                                <img alt="home-team logo" src="assets/Atalanta-icon.png"
+                                    class="club-logo" />
+                            </div>
+                            <div class="game-card-score d-flex align-items-center">
+                                <span aria-label="Match score">1:1</span>
+                            </div>
+                            <div class="d-flex flex-column w-25 align-items-center">
+                                <img alt="away-team logo" src="assets/sporting-clube-de-portugal-logo.png"
+                                    class="club-logo" />
+                            </div>
                         </div>
-                        <div class="game-card-score d-flex align-items-center">
-                            <span>1:1</span>
-                        </div>
-                        <div class="d-flex flex-column w-25 align-items-center">
-                            <img alt="away-team logo" src="assets/sporting-clube-de-portugal-logo.png" width="80em"
-                                class="club-logo-index" />
-                        </div>
+                        <p>2023-11-30</p>
                     </div>
-                    <p>2023-11-30</p>
-                </div>
-                <div class="game-card  rounded-1 mt-3 p-1 clickable"> <!-- Game box -->
-                    <p>EL</p>
-                    <div class="d-flex justify-content-around"> <!-- Centre Box -->
-                        <div class="d-flex flex-column w-25 align-items-center">
-                            <img alt="home-team logo" src="assets/toulouseFC.png" width="80em" class="club-logo-index" />
+                </a>
+                <a href="" style="text-decoration: none; color: #000;"
+                    aria-label="toulouseFC vs Royale Union Saint-Gilloise match"
+                    title="toulouseFC vs Royale Union Saint-Gilloise match" role="button">
+                    <div class="game-card  rounded-1 mt-3 p-1 clickable"> <!-- Game box -->
+                        <p>EL</p>
+                        <div class="d-flex justify-content-around"> <!-- Centre Box -->
+                            <div class="d-flex flex-column w-25 align-items-center">
+                                <img alt="home-team logo" src="assets/toulouseFC.png"
+                                    class="club-logo" />
+                            </div>
+                            <div class="game-card-score d-flex align-items-center">
+                                <span aria-label="Match score">0:0</span>
+                            </div>
+                            <div class="d-flex flex-column w-25 align-items-center">
+                                <img alt="away-team logo" src="assets/RoyaleUnionSaint-Gilloise.png"
+                                    class="club-logo" />
+                            </div>
                         </div>
-                        <div class="game-card-score d-flex align-items-center">
-                            <span>0:0</span>
-                        </div>
-                        <div class="d-flex flex-column w-25 align-items-center">
-                            <img alt="away-team logo" src="assets/Royale Union Saint-Gilloise.png" width="80em"
-                                class="club-logo-index" />
-                        </div>
+                        <p>2023-11-30</p>
                     </div>
-                    <p>2023-11-30</p>
-                </div>
-            </div>
+                </a>
+            </aside>
 
-            <div class="rounded-1 p-2 mb-3 box-shadow">
-                <h1>Best Players</h1>
+            <aside class="rounded-1 p-2 mb-3 box-shadow" aria-label="Most valuable palyers ranking"
+                role="complementary">
+                <h1>Most Valuable Players</h1>
                 <div class="d-flex justify-content-evenly flex-row ">
-                    <div class="index-player-card d-flex flex-column align-items-center flex-grow-1 p-2 m-1 mt-3 clickable">
-                        <p>2°</p>
-                        <img alt="player_photo" class="rounded-1"
-                            src="https://img.a.transfermarkt.technology/portrait/header/342229-1682683695.jpg?lm=1" />
-                        <p>Kylian Mbappé</p>
-                    </div>
-                    <div class="index-player-card d-flex flex-column align-items-center flex-grow-1 p-2 m-1 clickable">
-                        <p>1°</p>
-                        <img alt="player_photo" class="rounded-1"
-                            src="https://img.a.transfermarkt.technology/portrait/header/418560-1694590614.jpg?lm=1" />
-                        <p>Erling Haaland</p>
-                    </div>
-                    <div class="index-player-card d-flex flex-column align-items-center flex-grow-1 p-2 m-1 mt-5 clickable">
-                        <p>3°</p>
-                        <img alt="player_photo" class="rounded-1"
-                            src="https://img.a.transfermarkt.technology/portrait/header/371998-1664869583.jpg?lm=1" />
-                        <p>Vinicius Junior</p>
-                    </div>
+                    <a href="" style="text-decoration: none; color: #000;"
+                        aria-label="Second most valuable player Kylian Mbappe"
+                        title="Second most valuable player Kylian Mbappe" role="button">
+                        <div
+                            class="index-player-card d-flex flex-column align-items-center flex-grow-1 p-2 m-1 mt-3 clickable">
+                            <p>2°</p>
+                            <img alt="player_photo" class="rounded-1"
+                                src="https://img.a.transfermarkt.technology/portrait/header/342229-1682683695.jpg?lm=1" />
+                            <p>Kylian Mbappé</p>
+                        </div>
+                    </a>
+                    <a href="" style="text-decoration: none; color: #000;"
+                        aria-label="Most valuable player Erling Haaland" title="Most valuable player Erling Haaland"
+                        role="button">
+                        <div
+                            class="index-player-card d-flex flex-column align-items-center flex-grow-1 p-2 m-1 clickable">
+                            <p>1°</p>
+                            <img alt="player_photo" class="rounded-1"
+                                src="https://img.a.transfermarkt.technology/portrait/header/418560-1694590614.jpg?lm=1" />
+                            <p>Erling Haaland</p>
+                        </div>
+                    </a>
+                    <a href="" style="text-decoration: none; color: #000;"
+                        aria-label="Third most valuable player Vinicius Junior"
+                        title="Third most valuable player Vinicius Junior" role="button">
+                        <div
+                            class="index-player-card d-flex flex-column align-items-center flex-grow-1 p-2 m-1 mt-5 clickable">
+                            <p>3°</p>
+                            <img alt="player_photo" class="rounded-1"
+                                src="https://img.a.transfermarkt.technology/portrait/header/371998-1664869583.jpg?lm=1" />
+                            <p>Vinicius Junior</p>
+                        </div>
+                    </a>
                 </div>
-            </div> 
+            </aside>
         </div>
     </div>
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-auto bg-dark navbar-dark" style="color: white;">
-        <div class="col-md-4 d-flex align-items-center">
-          <a href="/" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
-            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-          </a>
-          <span class="mb-3 mb-md-0">2023 Caprara Zhou</span>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-auto bg-dark navbar-dark">
+        <div class="col-md-4 d-flex align-items-center mx-5">
+            <span class="mb-3 mb-md-0" style="color: white;">2023 Caprara Zhou</span>
         </div>
-      </footer>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+
 
 </html>

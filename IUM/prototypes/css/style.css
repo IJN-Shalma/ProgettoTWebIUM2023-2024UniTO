@@ -1,253 +1,293 @@
-:root {
-    --main: #bc4749;
-    --bg-1: #2c4f33;
-    --bg-2: #6a994e;
-    --bg-3: #a7c957;
-    --bg-4: #3f744a;
-    --dark: #012014;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
 
-.c-main {
-    background-color: var(--main);
-}
+        :root {
+            --bg-1: #4e3650;
+            --dark: #340c5a;
+            --link: rgb(141, 93, 185);
+            --visited: rgb(153, 48, 48);
+            --accent: rgb(255, 132, 0);
+            --title: rgb(52, 12, 90);
+        }
 
-.bgc-1 {
-    background-color: var(--bg-1);
-}
+        *:focus {
+            outline: solid rgb(255, 0, 0) !important;
+        }
 
-.bgc-2 {
-    background-color: var(--bg-2);
-}
+        .active {
+            color: var(--accent) !important;
+        }
 
-html {
-    color: #222;
-    font-family: 'Roboto', sans-serif;
-    height: 100%;
-}
+        .nav-link {
+            color: white;
+        }
 
-body {
-    margin: 0;
-    background-color: var(--bg-1);
-    user-select: none;
-    min-height: 100vh;
-}
+        html {
+            color: #000;
+            font-family: 'Roboto', sans-serif;
+            height: 100%;
+        }
 
-p {
-    margin: 0.2em;
-}
+        body {
+            margin: 0;
+            background-color: var(--bg-1);
+            user-select: none;
+            min-height: 100vh;
+        }
 
-img{
-    text-align: center;
-    object-fit: contain;
-}
+        p {
+            margin: 0.2em;
+        }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Nova Square', sans-serif;
-    color: var(--bg-1)
-}
+        img {
+            text-align: center;
+            object-fit: contain;
+        }
 
-.filter-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--title)
+        }
 
-.filter-list li{
-    border: 1px solid #ddd;
-    margin-top: -1px;
-    color: var(--bg-1);
-    font-weight: bold;
-    background-color: white;
-    padding: 1em 5em 1em 1em;
-    display: block;
-}
+        a {
+            color: var(--link);
+        }
 
-.filter-list li:first-child {
-    border-radius: .3em .3em  0 0;
-}
+        a:hover {
+            color: var(--accent);
+        }
 
-.filter-list li:last-child {
-    border-radius: 0 0 .3em .3em;
-}
+        .skip {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
 
-.filter-list li:hover {
-    background-color: #eee;
-  }
+        .skip:focus {
+            position: static;
+            width: auto;
+            height: auto;
+        }
 
-.title {
-    font-family: 'Nova Square', sans-serif;
-}
+        .table>tbody>tr>td,
+        th {
+            background-color: rgba(0, 0, 0, 0) !important;
+        }
 
-.index-player-card {
-    font-size: 1em;
-    text-align: center;
-    width: 100%;
-    font-weight: bold;
-}
+        .link:visited {
+            color: var(--visited);
+        }
 
-.index-player-card img{
-    width: 5em;
-    filter: drop-shadow(0px 0px 2px #222);
-}
+        .filter-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-.index-league-box{
-    width: 25em;
-}
+        .filter-list li {
+            border: 1px solid #ddd;
+            margin-top: -1px;
+            color: var(--bg-1);
+            font-weight: bold;
+            background-color: white;
+            padding: 1em 5em 1em 1em;
+            display: block;
+        }
 
-.index-league-box h2{
-    font-size: 1.8em;
-}
+        .filter-list li:first-child {
+            border-radius: .3em .3em 0 0;
+        }
 
-.game-card {
-    text-align: center;
-}
+        .filter-list li:last-child {
+            border-radius: 0 0 .3em .3em;
+        }
 
-.game-card-score {
-    font-size: 2em;
-    font-weight: bold;
-}
+        .filter-list li:hover {
+            background-color: #eee;
+        }
 
-.index-legue-card-score span{
-    font-weight: bold;
-    margin: 1em;
-}
+        .title {
+            font-family: 'Nova Square', sans-serif;
+        }
 
-.bb-item-list>div {
-    position: relative;
-}
+        .index-player-card {
+            font-size: 1em;
+            text-align: center;
+            width: 100%;
+            font-weight: bold;
+        }
 
-.bb-item-list>div::after {
-    content: ' ';
-    text-decoration: none;
-    position: absolute;
-    width: 90%;
-    height: 1%;
-    left: 0;
-    top: 105%;
-    margin-left: 5%;
-    border-bottom: solid 2px var(--bg-1);
-}
+        .index-player-card img {
+            width: 5em;
+            filter: drop-shadow(0px 0px 2px #222);
+        }
 
-.bb-item-list>div:last-child:after {
-    border-bottom: solid 0px var(--bg-1);
-}
+        .index-league-box {
+            width: 25em;
+        }
 
-.round-fa {
-    border-radius: 50%;
-    height: 2em;
-    width: 2em;
-    text-align: center;
-    line-height: 1em;
-    border: 2px solid var(--bg-1);
-}
-  
-.navigation {
-    height: 5%;
-}
+        .index-league-box h2 {
+            font-size: 1.8em;
+        }
 
-.main-container {
-    height: 90%;
-    padding: 0 10% 0 10%;
-}
+        .game-card {
+            text-align: center;
+        }
 
-.ratio-70 {
-    flex: 7 0 70%;
-}
+        .game-card-score {
+            font-size: 2em;
+            font-weight: bold;
+        }
 
-.ratio-30 {
-    flex: 3 1 auto;
-}
+        .index-legue-card-score span {
+            font-weight: bold;
+            margin: 1em;
+        }
 
-.club-logo-index {
-    filter: drop-shadow(0px 0px 2px #222);
-}
+        .bb-item-list>div {
+            position: relative;
+        }
 
-.game-score{
-    font-size: 2em;
-    font-weight: bold;
-}
+        .bb-item-list>div::after {
+            content: ' ';
+            text-decoration: none;
+            position: absolute;
+            width: 90%;
+            height: 1%;
+            left: 0;
+            top: 105%;
+            margin-left: 5%;
+            border-bottom: solid 2px var(--bg-1);
+        }
 
-.navbar-dark {
-    background-color: var(--dark) !important;
-}
+        .bb-item-list>div:last-child:after {
+            border-bottom: solid 0px var(--bg-1);
+        }
 
-.breadcrumbs{
-    --bs-breadcrumb-divider: '>';
-}
+        .round-fa {
+            border-radius: 50%;
+            height: 2em;
+            width: 2em;
+            text-align: center;
+            line-height: 1em;
+            border: 2px solid var(--bg-1);
+        }
 
-.breadcrumb{
-    width: fit-content;
-}
+        .navigation {
+            height: 5%;
+        }
 
-.filter-heading{
-    font-size: 1.2em;
-    font-weight: bold;
-}
+        .main-container {
+            height: 90%;
+            padding: 0 10% 0 10%;
+        }
 
-.league-icon{
-    width: 3rem;
-}
+        .ratio-70 {
+            flex: 7 0 70%;
+        }
 
-.accent{
-    color: rgb(255, 132, 0);
-}
+        .ratio-30 {
+            flex: 3 1 auto;
+        }
 
-.clickable{
-    cursor: pointer;
-    border-radius: 0.2em;
-    position: relative;
-    border: 1px solid transparent;
-}
+        .club-logo-index {
+            width: 1.5rem;
+            filter: drop-shadow(0px 0px 2px #222);
+        }
 
-.clickable:hover{
-    background-color: rgb(241, 241, 241);
-    border: 1px solid var(--bg-1);
-}
+        .league-logo-index {
+            height: 7rem;
+        }
 
-.box-shadow {
-    -moz-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
-    -webkit-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
-    box-shadow: 2px 4px 6px black, -2px 4px 6px black;
-    background-color: white;
-}
+        .game-score {
+            font-size: 2em;
+            font-weight: bold;
+        }
 
-.club-logo{
-    width: 5em;
-    max-width: 5em;
-    max-height: 5em;
-}
+        .navbar-dark {
+            background-color: var(--dark) !important;
+        }
 
-/* Firefox */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--bg-1) #DFE9EB;
-  }
-  
-  /* Chrome, Edge and Safari */
-  *::-webkit-scrollbar {
-    height: 7px;
-    width: 7px;
-  }
-  *::-webkit-scrollbar-track {
-    border-radius: 0px;
-    background-color: #DFE9EB;
-  }
-  
-  *::-webkit-scrollbar-track:hover {
-    background-color: #B8C0C2;
-  }
-  
-  *::-webkit-scrollbar-track:active {
-    background-color: #B8C0C2;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    border-radius: 0px;
-    background-color: var(--dark);
-  }
-  
+        .breadcrumbs {
+            --bs-breadcrumb-divider: '>';
+        }
+
+        .breadcrumb {
+            width: fit-content;
+        }
+
+        .filter-heading {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .league-icon {
+            width: 3rem;
+        }
+
+        .accent {
+            color: var(--title);
+        }
+
+        .clickable {
+            cursor: pointer;
+            border-radius: 0.2em;
+            position: relative;
+            border: 1px solid transparent;
+        }
+
+        .clickable:hover {
+            background-color: rgb(241, 241, 241);
+            border: 1px solid var(--bg-1);
+        }
+
+        .box-shadow {
+            -moz-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
+            -webkit-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
+            box-shadow: 2px 4px 6px black, -2px 4px 6px black;
+            background-color: #eee;
+        }
+
+        .club-logo {
+            width: 5em;
+            max-width: 5em;
+            max-height: 5em;
+        }
+
+        /* Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--bg-1) #DFE9EB;
+        }
+
+        /* Chrome, Edge and Safari */
+        *::-webkit-scrollbar {
+            height: 7px;
+            width: 7px;
+        }
+
+        *::-webkit-scrollbar-track {
+            border-radius: 0px;
+            background-color: #DFE9EB;
+        }
+
+        *::-webkit-scrollbar-track:hover {
+            background-color: #B8C0C2;
+        }
+
+        *::-webkit-scrollbar-track:active {
+            background-color: #B8C0C2;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            border-radius: 0px;
+            background-color: var(--dark);
+        }

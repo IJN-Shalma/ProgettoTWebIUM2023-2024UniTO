@@ -8,10 +8,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Open+Sans&family=Roboto&display=swap"
-        rel="stylesheet">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <script src="https://kit.fontawesome.com/a9b54e8130.js" crossorigin="anonymous"></script>
@@ -38,8 +34,8 @@
                         <a class="nav-link active" href="leagues.html">Leagues</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-5" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-5" type="search" placeholder="Search League, Club, Player" aria-label="Search leagues, clubs or players" aria-placeholder="Search League, Club, Player">
                 </form>
             </div>
         </div>
@@ -75,7 +71,7 @@
                             <td class="league-icon">
                                 <img class="d-inline league-icon" src="assets/worldcup.png" alt="Serie A logo">
                             </td>
-                            <th scope="row"><a href="">World Cup</a></th>
+                            <th scope="row"><a href="" class="link">World Cup</a></th>
                             <td>2023</td>
                             <td>44%</td>
                             <td>28%</td>
@@ -107,7 +103,7 @@
                             <td class="league-icon">
                                 <img class="d-inline league-icon" src="./assets/uefa.png" alt="Champions League Logo">
                             </td>
-                            <th scope="row"><a href="">Champions League</a></th>
+                            <th scope="row"><a href="" class="link">Champions League</a></th>
                             <td>2023</td>
                             <td>44%</td>
                             <td>28%</td>
@@ -118,7 +114,7 @@
                             <td class="league-icon">
                                 <img class="d-inline league-icon" src="./assets/EuropaLeague.png" alt="Europa League Logo">
                             </td>
-                            <th scope="row"><a href="">Europa League</a></th>
+                            <th scope="row"><a href="" class="link">Europa League</a></th>
                             <td>2023</td>
                             <td>44%</td>
                             <td>28%</td>
@@ -129,7 +125,7 @@
                             <td class="league-icon">
                                 <img class="d-inline league-icon" src="./assets/Conference.png" alt="Conference Leauge Logo">
                             </td>
-                            <th scope="row"><a href="">Conference League</a></th>
+                            <th scope="row"><a href="" class="link">Conference League</a></th>
                             <td>2023</td>
                             <td>44%</td>
                             <td>28%</td>
@@ -146,8 +142,8 @@
             <div>
                 <h1>National Leagues</h1>
             </div>
-             <div class="d-lg-flex flex-row bgc-white p-3 mb-2 justify-content-around">
-                <div class="bgc-white p-3 mt-3">
+             <div class="d-lg-flex flex-row p-3 mb-2 justify-content-around">
+                <div class="p-3 mt-3">
                     <h2>Filter</h2>
                     <ul class="filter-list">
                         <li>
@@ -165,7 +161,7 @@
                     </ul>
                 </div>
 
-                <div class="d-flex flex-column p-3 table-responsive align-items-center flex-grow-1">
+                <div class="p-3 table-responsive align-items-center flex-grow-1">
                     <table class="table table-borderless align-middle text-center">
                         <thead>
                             <tr>
@@ -183,7 +179,7 @@
                                 <td class="league-icon">
                                     <img class="d-inline league-icon" src="./assets/SerieaA.png" alt="Serie A logo">
                                 </td>
-                                <th scope="row"><a href="">Serie A</a></th>
+                                <th scope="row"><a href="" class="link">Serie A</a></th>
                                 <td>2023</td>
                                 <td>44%</td>
                                 <td>28%</td>
@@ -194,30 +190,34 @@
                                 <td class="league-icon">
                                     <img class="d-inline league-icon" src="./assets/ligue1.png" alt="Ligue 1 logo">
                                 </td>
-                                <th scope="row"><a href="league.html">Ligue 1</a></th>
+                                <th scope="row"><a href="league.html" class="link">Ligue 1</a></th>
                                 <td>2023</td>
                                 <td>58%</td>
                                 <td>23%</td>
                                 <td>20%</td>
                                 <td>2.21</td>
                             </tr>
+                            <tr>
+                                <td class="league-icon">
+                                    <img class="d-inline league-icon" src="./assets/laliga.png" alt="laliga 1 logo">
+                                </td>
+                                <th scope="row"><a href="" class="link">La Liga</a></th>
+                                <td>2023</td>
+                                <td>55%</td>
+                                <td>20%</td>
+                                <td>26%</td>
+                                <td>2.06</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-auto bg-dark navbar-dark"
-        style="color: white;">
-        <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
-                <svg class="bi" width="30" height="24">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
-            <span class="mb-3 mb-md-0">2023 Caprara Zhou</span>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-auto bg-dark navbar-dark" style="color: white;">
+        <div class="col-md-4 d-flex align-items-center mx-5">
+          <span class="mb-3 mb-md-0">2023 Caprara Zhou</span>
         </div>
     </footer>
 </body>
