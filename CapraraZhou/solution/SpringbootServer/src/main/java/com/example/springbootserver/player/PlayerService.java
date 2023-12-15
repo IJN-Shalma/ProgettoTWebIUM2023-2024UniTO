@@ -1,5 +1,6 @@
 package com.example.springbootserver.player;
 
+import com.example.springbootserver.competition.Competition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

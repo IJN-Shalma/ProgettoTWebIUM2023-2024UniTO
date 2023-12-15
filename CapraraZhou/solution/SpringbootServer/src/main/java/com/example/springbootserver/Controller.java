@@ -1,6 +1,7 @@
 package com.example.springbootserver;
 
 import com.example.springbootserver.club.ClubService;
+import com.example.springbootserver.competition.Competition;
 import com.example.springbootserver.competition.CompetitionService;
 import com.example.springbootserver.player.Player;
 import com.example.springbootserver.player.PlayerService;
@@ -36,5 +37,15 @@ public class Controller {
     @GetMapping("/players/club/{clubId}")
     public List<Player> getPlayersByClub(@PathVariable  Long clubId) {
         return playerService.getPlayersByClub(clubId);
+    }
+
+    @GetMapping("/competitions/domestic")
+    public List<Competition> getDomesticCompetitions() {
+        return competitionService.getDomesticCompetitions();
+    }
+
+    @GetMapping("/competitions/international")
+    public List<Competition> getInternationalCompetitions() {
+        return competitionService.getInternationalCompetitions();
     }
 }
