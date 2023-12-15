@@ -1,293 +1,299 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
 
-        :root {
-            --bg-1: #4e3650;
-            --dark: #340c5a;
-            --link: rgb(141, 93, 185);
-            --visited: rgb(153, 48, 48);
-            --accent: rgb(255, 132, 0);
-            --title: rgb(52, 12, 90);
-        }
+@supports not selector(:focus-visible) {
+    *:focus {
+        outline: solid rgb(255, 0, 0) !important;
+    }
+}
 
-        *:focus {
-            outline: solid rgb(255, 0, 0) !important;
-        }
+:root {
+    --bg-1: #4e3650;
+    --dark: #340c5a;
+    --link: rgb(141, 93, 185);
+    --visited: rgb(153, 48, 48);
+    --accent: rgb(255, 132, 0);
+    --title: rgb(52, 12, 90);
+}
 
-        .active {
-            color: var(--accent) !important;
-        }
+*:focus-visible {
+    outline: solid rgb(255, 0, 0) !important;
+}
 
-        .nav-link {
-            color: white;
-        }
+.active {
+    color: var(--accent) !important;
+}
 
-        html {
-            color: #000;
-            font-family: 'Roboto', sans-serif;
-            height: 100%;
-        }
+.nav-link {
+    color: white;
+}
 
-        body {
-            margin: 0;
-            background-color: var(--bg-1);
-            user-select: none;
-            min-height: 100vh;
-        }
+html {
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
 
-        p {
-            margin: 0.2em;
-        }
+body {
+    margin: 0;
+    background-color: var(--bg-1);
+    user-select: none;
+    min-height: 100vh;
+}
 
-        img {
-            text-align: center;
-            object-fit: contain;
-        }
+p {
+    margin: 0.2em;
+}
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            color: var(--title)
-        }
+img {
+    text-align: center;
+    object-fit: contain;
+}
 
-        a {
-            color: var(--link);
-        }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--title)
+}
 
-        a:hover {
-            color: var(--accent);
-        }
+a {
+    color: var(--link);
+}
 
-        .skip {
-            position: absolute;
-            left: -10000px;
-            top: auto;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
+a:hover {
+    color: var(--accent);
+}
 
-        .skip:focus {
-            position: static;
-            width: auto;
-            height: auto;
-        }
+.skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
 
-        .table>tbody>tr>td,
-        th {
-            background-color: rgba(0, 0, 0, 0) !important;
-        }
+.skip:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
 
-        .link:visited {
-            color: var(--visited);
-        }
+.table>tbody>tr>td,
+th {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
 
-        .filter-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+.link:visited {
+    color: var(--visited);
+}
 
-        .filter-list li {
-            border: 1px solid #ddd;
-            margin-top: -1px;
-            color: var(--bg-1);
-            font-weight: bold;
-            background-color: white;
-            padding: 1em 5em 1em 1em;
-            display: block;
-        }
+.filter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .filter-list li:first-child {
-            border-radius: .3em .3em 0 0;
-        }
+.filter-list li {
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    color: var(--bg-1);
+    font-weight: bold;
+    background-color: white;
+    padding: 1em 5em 1em 1em;
+    display: block;
+}
 
-        .filter-list li:last-child {
-            border-radius: 0 0 .3em .3em;
-        }
+.filter-list li:first-child {
+    border-radius: .3em .3em 0 0;
+}
 
-        .filter-list li:hover {
-            background-color: #eee;
-        }
+.filter-list li:last-child {
+    border-radius: 0 0 .3em .3em;
+}
 
-        .title {
-            font-family: 'Nova Square', sans-serif;
-        }
+.filter-list li:hover {
+    background-color: #eee;
+}
 
-        .index-player-card {
-            font-size: 1em;
-            text-align: center;
-            width: 100%;
-            font-weight: bold;
-        }
+.title {
+    font-family: 'Nova Square', sans-serif;
+}
 
-        .index-player-card img {
-            width: 5em;
-            filter: drop-shadow(0px 0px 2px #222);
-        }
+.index-player-card {
+    font-size: 1em;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
 
-        .index-league-box {
-            width: 25em;
-        }
+.index-player-card img {
+    width: 5em;
+    filter: drop-shadow(0px 0px 2px #222);
+}
 
-        .index-league-box h2 {
-            font-size: 1.8em;
-        }
+.index-league-box {
+    width: 25em;
+}
 
-        .game-card {
-            text-align: center;
-        }
+.index-league-box h2 {
+    font-size: 1.8em;
+}
 
-        .game-card-score {
-            font-size: 2em;
-            font-weight: bold;
-        }
+.game-card {
+    text-align: center;
+}
 
-        .index-legue-card-score span {
-            font-weight: bold;
-            margin: 1em;
-        }
+.game-card-score {
+    font-size: 2em;
+    font-weight: bold;
+}
 
-        .bb-item-list>div {
-            position: relative;
-        }
+.index-legue-card-score span {
+    font-weight: bold;
+    margin: 1em;
+}
 
-        .bb-item-list>div::after {
-            content: ' ';
-            text-decoration: none;
-            position: absolute;
-            width: 90%;
-            height: 1%;
-            left: 0;
-            top: 105%;
-            margin-left: 5%;
-            border-bottom: solid 2px var(--bg-1);
-        }
+.bb-item-list>div {
+    position: relative;
+}
 
-        .bb-item-list>div:last-child:after {
-            border-bottom: solid 0px var(--bg-1);
-        }
+.bb-item-list>div::after {
+    content: ' ';
+    text-decoration: none;
+    position: absolute;
+    width: 90%;
+    height: 1%;
+    left: 0;
+    top: 105%;
+    margin-left: 5%;
+    border-bottom: solid 2px var(--bg-1);
+}
 
-        .round-fa {
-            border-radius: 50%;
-            height: 2em;
-            width: 2em;
-            text-align: center;
-            line-height: 1em;
-            border: 2px solid var(--bg-1);
-        }
+.bb-item-list>div:last-child:after {
+    border-bottom: solid 0px var(--bg-1);
+}
 
-        .navigation {
-            height: 5%;
-        }
+.round-fa {
+    border-radius: 50%;
+    height: 2em;
+    width: 2em;
+    text-align: center;
+    line-height: 1em;
+    border: 2px solid var(--bg-1);
+}
 
-        .main-container {
-            height: 90%;
-            padding: 0 10% 0 10%;
-        }
+.navigation {
+    height: 5%;
+}
 
-        .ratio-70 {
-            flex: 7 0 70%;
-        }
+.main-container {
+    height: 90%;
+    padding: 0 10% 0 10%;
+}
 
-        .ratio-30 {
-            flex: 3 1 auto;
-        }
+.ratio-70 {
+    flex: 7 0 70%;
+}
 
-        .club-logo-index {
-            width: 1.5rem;
-            filter: drop-shadow(0px 0px 2px #222);
-        }
+.ratio-30 {
+    flex: 3 1 auto;
+}
 
-        .league-logo-index {
-            height: 7rem;
-        }
+.club-logo-index {
+    width: 1.5rem;
+    filter: drop-shadow(0px 0px 2px #222);
+}
 
-        .game-score {
-            font-size: 2em;
-            font-weight: bold;
-        }
+.league-logo-index {
+    height: 7rem;
+}
 
-        .navbar-dark {
-            background-color: var(--dark) !important;
-        }
+.game-score {
+    font-size: 2em;
+    font-weight: bold;
+}
 
-        .breadcrumbs {
-            --bs-breadcrumb-divider: '>';
-        }
+.navbar-dark {
+    background-color: var(--dark) !important;
+}
 
-        .breadcrumb {
-            width: fit-content;
-        }
+.breadcrumbs {
+    --bs-breadcrumb-divider: '>';
+}
 
-        .filter-heading {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
+.breadcrumb {
+    width: fit-content;
+}
 
-        .league-icon {
-            width: 3rem;
-        }
+.filter-heading {
+    font-size: 1.2em;
+    font-weight: bold;
+}
 
-        .accent {
-            color: var(--title);
-        }
+.league-icon {
+    width: 3rem;
+}
 
-        .clickable {
-            cursor: pointer;
-            border-radius: 0.2em;
-            position: relative;
-            border: 1px solid transparent;
-        }
+.accent {
+    color: var(--title);
+}
 
-        .clickable:hover {
-            background-color: rgb(241, 241, 241);
-            border: 1px solid var(--bg-1);
-        }
+.clickable {
+    cursor: pointer;
+    border-radius: 0.2em;
+    position: relative;
+    border: 1px solid transparent;
+}
 
-        .box-shadow {
-            -moz-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
-            -webkit-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
-            box-shadow: 2px 4px 6px black, -2px 4px 6px black;
-            background-color: #eee;
-        }
+.clickable:hover {
+    background-color: rgb(241, 241, 241);
+    border: 1px solid var(--bg-1);
+}
 
-        .club-logo {
-            width: 5em;
-            max-width: 5em;
-            max-height: 5em;
-        }
+.box-shadow {
+    -moz-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
+    -webkit-box-shadow: 2px 4px 6px black, -2px 4px 6px black;
+    box-shadow: 2px 4px 6px black, -2px 4px 6px black;
+    background-color: #eee;
+}
 
-        /* Firefox */
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: var(--bg-1) #DFE9EB;
-        }
+.club-logo {
+    width: 5em;
+    max-width: 5em;
+    max-height: 5em;
+}
 
-        /* Chrome, Edge and Safari */
-        *::-webkit-scrollbar {
-            height: 7px;
-            width: 7px;
-        }
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-1) #DFE9EB;
+}
 
-        *::-webkit-scrollbar-track {
-            border-radius: 0px;
-            background-color: #DFE9EB;
-        }
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+}
 
-        *::-webkit-scrollbar-track:hover {
-            background-color: #B8C0C2;
-        }
+*::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: #DFE9EB;
+}
 
-        *::-webkit-scrollbar-track:active {
-            background-color: #B8C0C2;
-        }
+*::-webkit-scrollbar-track:hover {
+    background-color: #B8C0C2;
+}
 
-        *::-webkit-scrollbar-thumb {
-            border-radius: 0px;
-            background-color: var(--dark);
-        }
+*::-webkit-scrollbar-track:active {
+    background-color: #B8C0C2;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: var(--dark);
+}
