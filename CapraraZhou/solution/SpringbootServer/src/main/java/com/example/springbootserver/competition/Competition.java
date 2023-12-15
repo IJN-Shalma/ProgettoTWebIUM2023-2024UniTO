@@ -1,8 +1,10 @@
 package com.example.springbootserver.competition;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "competitions")
 public class Competition {
     @Id

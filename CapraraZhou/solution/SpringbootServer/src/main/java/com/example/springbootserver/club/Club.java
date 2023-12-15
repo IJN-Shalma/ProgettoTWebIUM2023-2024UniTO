@@ -1,8 +1,10 @@
 package com.example.springbootserver.club;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "clubs")
 public class Club {
     @Id
@@ -26,13 +28,13 @@ public class Club {
     private Integer squadSize;
 
     @Column(name = "average_age")
-    private double averageAge;
+    private Double averageAge;
 
     @Column(name = "foreigners_number")
     private Integer foreignersNumber;
 
     @Column(name = "foreigners_percentage")
-    private double foreignersPercentage;
+    private Double foreignersPercentage;
 
     @Column(name = "national_team_players")
     private Integer nationalTeamPlayers;
@@ -124,11 +126,11 @@ public class Club {
         this.squadSize = squadSize;
     }
 
-    public double getAverageAge() {
+    public Double getAverageAge() {
         return averageAge;
     }
 
-    public void setAverageAge(double averageAge) {
+    public void setAverageAge(Double averageAge) {
         this.averageAge = averageAge;
     }
 
@@ -140,11 +142,11 @@ public class Club {
         this.foreignersNumber = foreignersNumber;
     }
 
-    public double getForeignersPercentage() {
+    public Double getForeignersPercentage() {
         return foreignersPercentage;
     }
 
-    public void setForeignersPercentage(double foreignersPercentage) {
+    public void setForeignersPercentage(Double foreignersPercentage) {
         this.foreignersPercentage = foreignersPercentage;
     }
 

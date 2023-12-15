@@ -15,15 +15,15 @@ public class CompetitionService {
         this.competitionRepository = competitionRepository;
     }
 
-    public List<Competition> getCompetitions() {
-        return competitionRepository.findAll();
-    }
-
     public List<Competition> getDomesticCompetitions() {
         return competitionRepository.findAllByDomesticLeagueCodeIsNotNull();
     }
 
     public List<Competition> getInternationalCompetitions() {
         return competitionRepository.findAllByDomesticLeagueCodeIsNull();
+    }
+
+    public Competition getCompetitionById(String competitionId) {
+        return competitionRepository.getReferenceById(competitionId);
     }
 }
