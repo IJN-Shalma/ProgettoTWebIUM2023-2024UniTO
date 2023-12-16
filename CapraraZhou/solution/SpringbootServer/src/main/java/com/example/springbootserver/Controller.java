@@ -79,6 +79,4 @@ public class Controller {
     public Club getClubById(@PathVariable Long clubId){
         return clubService.getClubById(clubId);
     }
-
-    //TODO: Get clubs by league
 }
