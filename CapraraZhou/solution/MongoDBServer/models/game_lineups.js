@@ -40,4 +40,4 @@ const GameLineup = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('GameLineup', GameLineup);
+module.exports = mongoose.model('game_lineup', GameLineup);

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const gamesController = require('../controllers/games');
 
-router.get('/:game_id', async (req, res) => {
+router.get('/game/:game_id', async (req, res) => {
     try {
         const game = await gamesController.findByGameId(req.params.game_id);
         res.json(game);

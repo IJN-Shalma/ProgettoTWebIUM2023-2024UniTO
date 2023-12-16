@@ -1,8 +1,8 @@
 const GameLineup = require('../models/game_lineups');
 
-function findByGame(gameId){
+function findByGameAndClub(gameId, clubId){
     return new Promise((resolve, reject) =>{
-        GameLineup.find({game_id : gameId})
+        GameLineup.find({game_id : gameId, club_id: clubId})
             .then((result) => {
                 resolve(result);
             })
@@ -12,4 +12,4 @@ function findByGame(gameId){
     });
 }
 
-module.exports.findByGame = findByGame;
+module.exports.findByGameAndClub = findByGameAndClub;

@@ -42,4 +42,4 @@ const GameEvent = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('GameEvent', GameEvent);
+module.exports = mongoose.model('game_event', GameEvent);

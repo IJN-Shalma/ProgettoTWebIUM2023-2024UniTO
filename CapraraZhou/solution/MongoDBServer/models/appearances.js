@@ -57,4 +57,4 @@ const Appearance = new mongoose.Schema(
         }
     }
 );
-module.exports = mongoose.model('Appearance', Appearance);
+module.exports = mongoose.model('Appearance',Appearance);

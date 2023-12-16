@@ -29,9 +29,15 @@ function findByCompetitionId(competitionId){
 module.exports.findByCompetitionId = findByCompetitionId;
 function getClubsByCompetitionId(competitionId){
     return new Promise((resolve, reject) =>{
-        Game.find({competition_id : competitionId},{home_club_id: 1, away_club_id: 1})
-            .then((result) => {
-                resolve(result);
+        Game.distinct('home_club_id', {competition_id : competitionId})
+            .then((homeResult) => {
+                Game.distinct('away_club_id', {competition_id : competitionId})
+                    .then(awayResult => {
+                        resolve([...new Set([...homeResult, ...awayResult])]);
+                    })
+                    .catch(error => {
+                        reject(error);
+                    })
             })
             .catch(error => {
                 reject(error);

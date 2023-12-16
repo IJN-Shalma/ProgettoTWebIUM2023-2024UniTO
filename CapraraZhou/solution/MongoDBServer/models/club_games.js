@@ -47,4 +47,4 @@ const ClubGame = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('ClubGame', ClubGame);
+module.exports = mongoose.model('club_game', ClubGame);
