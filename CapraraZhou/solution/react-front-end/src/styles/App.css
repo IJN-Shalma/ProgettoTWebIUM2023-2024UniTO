@@ -9,10 +9,11 @@
 :root {
   --bg-1: #4e3650;
   --dark: #340c5a;
-  --link: rgb(141, 93, 185);
+  --link: rgb(31, 97, 184);
   --visited: rgb(153, 48, 48);
   --accent: rgb(255, 132, 0);
   --title: rgb(52, 12, 90);
+  --sub-title: rgb(141, 93, 185);
 }
 
 *:focus-visible {
@@ -27,6 +28,14 @@
   color: white;
 }
 
+.navbar-brand {
+  font-size: 1.5em;
+}
+
+.search {
+  width: 15em;
+}
+
 html {
   color: #000;
   font-family: 'Roboto', sans-serif;
@@ -38,6 +47,10 @@ body {
   background-color: var(--bg-1);
   user-select: none;
   min-height: 100vh;
+}
+
+header {
+  font-size: 1.2em;
 }
 
 p {
@@ -66,6 +79,11 @@ a {
 
 a:hover {
   color: var(--accent);
+}
+
+.button-link{
+  text-decoration: none;
+  color: #000;
 }
 
 .skip {
@@ -241,7 +259,7 @@ th {
 }
 
 .accent {
-  color: var(--title);
+  color: var(--sub-title);
 }
 
 .clickable {
