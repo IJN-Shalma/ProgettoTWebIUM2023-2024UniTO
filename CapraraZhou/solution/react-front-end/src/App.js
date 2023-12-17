@@ -9,8 +9,8 @@ function App() {
         <Router>
             <Navbar/>
             <Routes>
-                <Route path="/" exact component={Home}/>
-                <Route path="/leagues" component={Leagues}/>
+                <Route path="/" exact element={<Home/>}/>
+                <Route path="/leagues" element={<Leagues/>}/>
             </Routes>
             <Footer/>
         </Router>
