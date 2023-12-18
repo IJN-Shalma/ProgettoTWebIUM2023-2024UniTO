@@ -15,10 +15,10 @@ function App() {
             <Routes>
                 <Route path="/" exact element={<Home/>}/>
                 <Route path="/leagues" element={<Leagues/>}/>
-                <Route path="/league/:id" element={<League/>}/>
-                <Route path="/club/:id" element={<Club/>}/>
-                <Route path="/game/:id" element={<Game/>}/>
-                <Route path="/player/:id" element={<Player/>}/>
+                <Route path="/leagues/league/:leagueId" element={<League/>}/>
+                <Route path="/leagues/league/:leagueId/club/:clubName" element={<Club/>}/>
+                <Route path="/leagues/league/:leagueId/game/:gameId" element={<Game/>}/>
+                <Route path="/leagues/league/:leagueId/club/:clubId/player/:playerName" element={<Player/>}/>
             </Routes>
             <Footer/>
         </Router>

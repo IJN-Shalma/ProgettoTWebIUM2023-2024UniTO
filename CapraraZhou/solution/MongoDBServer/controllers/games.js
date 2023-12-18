@@ -27,6 +27,7 @@ function findByCompetitionId(competitionId){
 }
 
 module.exports.findByCompetitionId = findByCompetitionId;
+
 function getClubsByCompetitionId(competitionId){
     return new Promise((resolve, reject) =>{
         Game.distinct('home_club_id', {competition_id : competitionId})
@@ -46,3 +47,37 @@ function getClubsByCompetitionId(competitionId){
 }
 
 module.exports.getClubsByCompetitionId = getClubsByCompetitionId;
+
+function getLastGamesForCompetition(competitionId, n){
+    return new Promise((resolve, reject) =>{
+        Game
+            .find({competition_id : competitionId})
+            .sort({date:-1})
+            .limit(n)
+            .then((result) => {
+                resolve(result);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
+
+module.exports.getLastGamesForCompetition = getLastGamesForCompetition;
+
+function getLastGames(n){
+    return new Promise((resolve, reject) => {
+        Game
+            .find()
+            .sort({date:-1})
+            .limit(n)
+            .then((result) => {
+                resolve(result);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
+
+module.exports.getLastGames = getLastGames;

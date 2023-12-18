@@ -1,29 +1,35 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 import LeagueCard from "./LeagueCard";
+import Loading from "./Loading";
 
 function LeagueCardList(){
     const [intLeagues, setIntLeagues] = useState(null);
+    const [loading, setLoading] = useState(true);
+
 
     useEffect(() => {
-        axios.get("http://localhost:8081/competitions/international")
+        axios.get("/sql/competitions/international")
             .then((response) => {
-                /*setIntLeagues(response.data)*/ console.log(response.data);})
+                console.log(response.data);
+                setIntLeagues(response.data);
+                setLoading(false);
+            })
             .catch((e) => console.log(e));
     }, []);
 
-    useEffect(() => {
-        return (
-            intLeagues ? (
-                intLeagues.map((intLeague) => (
-                    <LeagueCard league={intLeague} />
-                ))
-            ) : (
-               () => {<>Error</>}
+    return (
+        loading ?
+            (
+                <Loading/>
             )
-        );
-    }, [intLeagues]);
-
+            :
+            (
+                intLeagues.map((intLeague,i) => (
+                        !intLeague.name.includes("qualifikation") && <LeagueCard league={intLeague} key={i}/>
+                    ))
+            )
+    );
 }
 
 
