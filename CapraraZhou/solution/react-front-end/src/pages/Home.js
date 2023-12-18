@@ -1,7 +1,8 @@
-import LeagueCard from '../components/LeagueCard';
 import GameCard from '../components/GameCard';
+import LeagueCardList from "../components/LeagueCardList";
 
 function Home() {
+    /*
     let league = {
         leagueName: "Uefa Champions League",
         homeTeam: "FC Bayern München",
@@ -9,6 +10,7 @@ function Home() {
         homeTeamScore: 0,
         awayTeamScore: 0
     };
+    */
 
     let game = {
         id: 111111,
@@ -26,6 +28,8 @@ function Home() {
                     <main id="topleagues" className="rounded-1 p-2 box-shadow">
                         <h1>Top Leagues</h1>
                         <div className="d-flex flex-wrap justify-content-evenly ">
+                            <LeagueCardList/>
+                            {/*
                             <LeagueCard league={league}/>
                             <LeagueCard league={league}/>
                             <LeagueCard league={league}/>
@@ -34,6 +38,7 @@ function Home() {
                             <LeagueCard league={league}/>
                             <LeagueCard league={league}/>
                             <LeagueCard league={league}/>
+                            */}
                         </div>
                     </main>
                 </div>

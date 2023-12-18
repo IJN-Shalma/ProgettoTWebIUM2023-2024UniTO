@@ -222,13 +222,13 @@ th {
   flex: 3 1 auto;
 }
 
-.club-logo-index {
-  width: 1.5rem;
+.index-club-logo {
+  width: 1.5em;
   filter: drop-shadow(0px 0px 2px #222);
 }
 
-.league-logo-index {
-  height: 7rem;
+.index-league-logo {
+  height: 5em;
 }
 
 .game-score {
