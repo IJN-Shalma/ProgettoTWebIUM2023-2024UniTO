@@ -25,4 +25,6 @@ public class PlayerService {
     public List<Player> getPlayersByClub(Long clubId) {
         return playerRepository.getPlayersByClubId(clubId);
     }
+
+    public List<PlayerName> getPlayerNameById(Long id) {return playerRepository.getPlayerNameById(id);}
 }

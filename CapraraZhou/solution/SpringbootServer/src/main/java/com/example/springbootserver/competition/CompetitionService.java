@@ -26,4 +26,14 @@ public class CompetitionService {
     public Competition getCompetitionById(String competitionId) {
         return competitionRepository.getReferenceById(competitionId);
     }
+
+    public List<Competition> getCompetitionsByNation(String countryName){
+        return competitionRepository.findCompetitionByCountryNameIs(countryName);
+    }
+
+    public List<CompetitionCountry> getAllCountries() {
+        return competitionRepository.findAllCountries();
+    }
+
+    public List<Competition> getAllCompetitions(){return competitionRepository.findAll();}
 }

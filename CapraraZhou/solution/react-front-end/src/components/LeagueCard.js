@@ -22,13 +22,13 @@ function LeagueCard({league}){
                 setLoading(false);
             })
             .catch((error) => console.log(error));
-    },[])
+    },[league])
 
     return (
         loading
             ? (<Loading/>)
             : (
-                <Link to={"/league/" + league.name} className="button-link">
+                <Link to={"/leagues/league/" + league.id} className="button-link">
                     <div className="d-flex flex-column m-3 index-league-box p-2 clickable">
                         <div className="d-flex align-items-center justify-content-between">
                             <img alt="League Logo" src="/images/default.png" className="index-league-logo"/>

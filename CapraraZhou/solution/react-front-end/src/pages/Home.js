@@ -1,5 +1,5 @@
 import GameCardList from '../components/GameCardList';
-import LeagueCardList from "../components/LeagueCardList";
+import IndexLeagueCardList from "../components/IndexLeagueCardList";
 import IndexPlayerList from "../components/IndexPlayerList";
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
                     <main id="topleagues" className="rounded-1 p-2 box-shadow">
                         <h1>Top Leagues</h1>
                         <div className="d-flex flex-wrap justify-content-evenly ">
-                            <LeagueCardList/>
+                            <IndexLeagueCardList/>
                         </div>
                     </main>
                 </div>

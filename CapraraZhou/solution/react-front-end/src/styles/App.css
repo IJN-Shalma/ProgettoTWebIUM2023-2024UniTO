@@ -117,6 +117,7 @@ th {
 }
 
 .filter-list li {
+  cursor: pointer;
   border: 1px solid #ddd;
   margin-top: -1px;
   color: var(--bg-1);

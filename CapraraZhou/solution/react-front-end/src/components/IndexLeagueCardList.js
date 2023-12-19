@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import LeagueCard from "./LeagueCard";
 import Loading from "./Loading";
 
-function LeagueCardList(){
+function IndexLeagueCardList(){
     const [intLeagues, setIntLeagues] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -32,4 +32,4 @@ function LeagueCardList(){
 }
 
 
-export default LeagueCardList;
+export default IndexLeagueCardList;

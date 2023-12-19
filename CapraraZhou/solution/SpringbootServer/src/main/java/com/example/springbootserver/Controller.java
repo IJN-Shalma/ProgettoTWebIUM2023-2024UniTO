@@ -3,9 +3,11 @@ package com.example.springbootserver;
 import com.example.springbootserver.club.Club;
 import com.example.springbootserver.club.ClubService;
 import com.example.springbootserver.competition.Competition;
+import com.example.springbootserver.competition.CompetitionCountry;
 import com.example.springbootserver.competition.CompetitionService;
 import com.example.springbootserver.player.Player;
 import com.example.springbootserver.player.PlayerService;
+import com.example.springbootserver.player.PlayerName;
 import com.example.springbootserver.playerValuation.PlayerValuation;
 import com.example.springbootserver.playerValuation.PlayerValuationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +49,15 @@ public class Controller {
         return playerService.getPlayersByClub(clubId);
     }
 
+    @GetMapping("/players/name/{id}")
+    public List<PlayerName> getPlayerNameById(@PathVariable Long id) {return playerService.getPlayerNameById(id);}
+
     /* Competition */
+    @GetMapping("/competitions/")
+    public List<Competition> getCompetitions() {
+        return competitionService.getAllCompetitions();
+    }
+
     @GetMapping("/competitions/{competitionId}")
     public Competition getCompetitionById(@PathVariable String competitionId) {
         return competitionService.getCompetitionById(competitionId);
@@ -61,6 +71,11 @@ public class Controller {
     @GetMapping("/competitions/international")
     public List<Competition> getInternationalCompetitions() {
         return competitionService.getInternationalCompetitions();
+    }
+
+    @GetMapping("/competitions/countries")
+    public List<CompetitionCountry> getCountries() {
+        return competitionService.getAllCountries();
     }
 
     /* PlayerValuation */

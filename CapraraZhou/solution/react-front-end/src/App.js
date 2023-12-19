@@ -16,7 +16,7 @@ function App() {
                 <Route path="/" exact element={<Home/>}/>
                 <Route path="/leagues" element={<Leagues/>}/>
                 <Route path="/leagues/league/:leagueId" element={<League/>}/>
-                <Route path="/leagues/league/:leagueId/club/:clubName" element={<Club/>}/>
+                <Route path="/leagues/league/:leagueId/club/:clubId" element={<Club/>}/>
                 <Route path="/leagues/league/:leagueId/game/:gameId" element={<Game/>}/>
                 <Route path="/leagues/league/:leagueId/club/:clubId/player/:playerName" element={<Player/>}/>
             </Routes>

@@ -1,5 +1,5 @@
 import GameEventList from "../components/GameEventList";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import Breadcrumb from "../components/Breadcrumb";
 import PlayerCardList from "../components/PlayerCardList";
 
@@ -15,16 +15,21 @@ function Game() {
                     <div className="d-flex flex-column box-shadow rounded-1 m-3 p-2"> {/* Score events box */}
                         <h1>{game.competition_id}</h1>
                         <div className="d-flex justify-content-around align-items-top text-center"> {/* Centre Box */}
-                            <div className="d-flex flex-column w-25 align-items-center clickable">
-                                <img alt="home-team logo" src="/images/default.png" className="club-logo"/>
-                                <p>{game.home_club_name || "Unavailable"}</p>
+                            <div className="d-flex flex-column w-25 align-items-center">
+                                <Link to={"/leagues/league/" + game.competition_id + "/club/" + game.home_club_id} className="button-link">
+                                    <img alt="home-team logo" src="/images/default.png" className="club-logo"/>
+                                    <p>{game.home_club_name || "Unavailable"}</p>
+                                </Link>
                             </div>
+
                             <div className="game-card-score d-flex align-items-center">
                                 <span>{game.aggregate}</span>
                             </div>
-                            <div className="d-flex flex-column w-25 align-items-center clickable">
-                                <img alt="away-team logo" src="/images/default.png" className="club-logo"/>
-                                <p>{game.away_club_name || "Unavailable"}</p>
+                            <div className="d-flex flex-column w-25 align-items-center">
+                                <Link to={"/leagues/league/" + game.competition_id + "/club/" + game.away_club_id} className="button-link">
+                                    <img alt="away-team logo" src="/images/default.png" className="club-logo"/>
+                                    <p>{game.away_club_name || "Unavailable"}</p>
+                                </Link>
                             </div>
                         </div>
                         <div className="m-auto">2023-11-28</div>
