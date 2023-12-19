@@ -43,7 +43,7 @@ public class Controller {
     }
 
     @GetMapping("/players/club/{clubId}")
-    public List<Player> getPlayersByClubId(@PathVariable  Long clubId) {
+    public List<Player> getPlayersByClubId(@PathVariable Long clubId) {
         return playerService.getPlayersByClub(clubId);
     }
 
