@@ -2,7 +2,7 @@ const GameEvent = require('../models/game_events');
 
 function findByGameId(gameId){
     return new Promise((resolve, reject) =>{
-        GameEvent.find({game_id : gameId})
+        GameEvent.find({game_id : gameId}).sort('minute')
             .then((result) => {
                 resolve(result);
             })

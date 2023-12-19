@@ -11,7 +11,6 @@ function LeagueCardList(){
     useEffect(() => {
         axios.get("/sql/competitions/international")
             .then((response) => {
-                console.log(response.data);
                 setIntLeagues(response.data);
                 setLoading(false);
             })

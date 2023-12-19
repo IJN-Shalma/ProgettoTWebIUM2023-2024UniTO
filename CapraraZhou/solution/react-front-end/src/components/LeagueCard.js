@@ -19,7 +19,6 @@ function LeagueCard({league}){
         axios.get('/mongo/games/competition/' + league.competitionId + '/last_games?n=1')
             .then(result => {
                 setGame(result.data[0]);
-                console.log(result.data[0]);
                 setLoading(false);
             })
             .catch((error) => console.log(error));
