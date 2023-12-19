@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState, useLocation} from "react";
 import axios from "axios";
 import Loading from "./Loading";
 
@@ -45,11 +45,11 @@ function PlayerCard({player,gameId}) {
                                 :
                                 (
                                     <div className="d-flex flex-wrap">
-                                        <p>🟥: {(gameEvent && gameEvent.red_cards) ? gameEvent.red_cards : "?"}</p>
-                                        <p>🟨: {(gameEvent && gameEvent.yellow_cards) ? gameEvent.yellow_cards : "?"}</p>
-                                        <p>⚽: {(gameEvent && gameEvent.goals) ? gameEvent.goals : "?"}</p>
-                                        <p>🤚: {(gameEvent && gameEvent.assists) ? gameEvent.assists : "?"}</p>
-                                        <p>🕐: {(gameEvent && gameEvent.minutes_played) ? gameEvent.minutes_played : "?"}</p>
+                                        <p>🟥: {(gameEvent && gameEvent.red_cards) ? gameEvent.red_cards : "0"}</p>
+                                        <p>🟨: {(gameEvent && gameEvent.yellow_cards) ? gameEvent.yellow_cards : "0"}</p>
+                                        <p>⚽: {(gameEvent && gameEvent.goals) ? gameEvent.goals : "0"}</p>
+                                        <p>🤚: {(gameEvent && gameEvent.assists) ? gameEvent.assists : "0"}</p>
+                                        <p>🕐: {(gameEvent && gameEvent.minutes_played) ? gameEvent.minutes_played : "0"}</p>
                                     </div>
                                 )
                         )

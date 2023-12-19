@@ -28,7 +28,7 @@ function LeagueCard({league}){
         loading
             ? (<Loading/>)
             : (
-                <Link to={"/leagues/league/" + league.id} className="button-link">
+                <Link to={"/leagues/league/" + league.competitionId}  state={{league:league}} className="button-link">
                     <div className="d-flex flex-column m-3 index-league-box p-2 clickable">
                         <div className="d-flex align-items-center justify-content-between">
                             <img alt="League Logo" src="/images/default.png" className="index-league-logo"/>

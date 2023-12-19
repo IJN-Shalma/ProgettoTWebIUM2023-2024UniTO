@@ -13,7 +13,10 @@ router.get('/game/:game_id', async (req, res) => {
 
 router.get('/competition/:competition_id', async (req, res) => {
     try {
-        const games = await gamesController.findByCompetitionId(req.params.competition_id);
+        const competitionId = req.params.competition_id;
+        const year = req.query.year;
+
+        const games = await gamesController.findByCompetitionId(competitionId, year);
         res.json(games);
     } catch (err) {
         res.status(500).json({ message: err.message });

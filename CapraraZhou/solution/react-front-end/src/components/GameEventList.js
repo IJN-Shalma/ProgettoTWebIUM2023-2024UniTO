@@ -51,22 +51,24 @@ function GameEventList({gameId}) {
     }, []);
 
     return (
-        loading ?
-            (
-                <Loading/>
-            )
-            :
-            (
-                events.map((event) => (
-                    <p><b>{event.minute}'</b>: {
-                        (event.type == "Goals" && <>⚽ {event.playerName} scores
-                            with {event.playerAssistName} assist</>) ||
-                        (event.type == "Substitutions" && <>↔️ {event.playerName} subsituted
-                            for {event.playerInName}</>) ||
-                        (event.type == "Cards" && <>{event.description.includes("Yellow") ? <>🟨</> : <>🟥</>} {event.playerName} {event.description}</>)
-                    }</p>))
-            )
-    )
+        loading ? (
+            <Loading />
+        ) : (
+            events.map((event) => (
+                event.minute == "-1" ? (
+                    <></>
+                ) : (
+                    <p key={event.id}>
+                        <b>{event.minute}'</b>: {
+                        (event.type === "Goals" && <>⚽ {event.playerName} scores with {event.playerAssistName} assist</>) ||
+                        (event.type === "Substitutions" && <>↔️ {event.playerName} substituted for {event.playerInName}</>) ||
+                        (event.type === "Cards" && <>{event.description.includes("Yellow") ? <>🟨</> : <>🟥</>} {event.playerName} {event.description}</>)
+                    }
+                    </p>
+                )
+            ))
+        )
+    );
 }
 
 export default GameEventList;

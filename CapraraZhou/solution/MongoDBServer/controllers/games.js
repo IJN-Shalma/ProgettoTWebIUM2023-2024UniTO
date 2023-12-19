@@ -14,13 +14,17 @@ function findByGameId(gameId){
 
 module.exports.findByGameId = findByGameId;
 
-function findByCompetitionId(competitionId){
-    return new Promise((resolve, reject) =>{
-        Game.find({competition_id : competitionId})
+function findByCompetitionId(competitionId, year){
+    return new Promise((resolve, reject) => {
+        let query = { competition_id: competitionId };
+
+        if (year) {query.date = { $gte: new Date(`${year}-01-01`), $lt: new Date(`${parseInt(year) + 1}-01-01`) };}
+
+        Game.find(query).sort({date: -1})
             .then((result) => {
                 resolve(result);
             })
-            .catch(error => {
+            .catch((error) => {
                 reject(error);
             });
     });
