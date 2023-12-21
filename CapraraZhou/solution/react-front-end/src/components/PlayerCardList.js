@@ -5,6 +5,7 @@ import PlayerCard from "./PlayerCard";
 
 function PlayerCardList({gameId, clubId}) {
 
+    const [playersLineups, setPlayersLineups] = useState(null);
     const [players, setPlayers] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -14,7 +15,7 @@ function PlayerCardList({gameId, clubId}) {
             console.log("From Game")
             axios.get('/mongo/game_lineups/game/' + gameId + '/club/' + clubId)
                 .then(response => {
-                    setPlayers(response.data);
+                    setPlayersLineups(response.data);
                     setLoading(false);
                 })
         } else {
@@ -35,9 +36,20 @@ function PlayerCardList({gameId, clubId}) {
             )
             :
             (
-                players.map((player, i) =>
-                    <PlayerCard player={player} gameId={gameId}/>
-                )
+                gameId
+                    ?
+                    (
+                        playersLineups.map((playerLineup, i) =>
+                            <PlayerCard playerLineup={playerLineup} gameId={gameId} key={i}/>
+                        )
+                    )
+                    :
+                    (
+                        players.map((player, i) =>
+                            <PlayerCard playerP={player} key={i}/>
+                        )
+                    )
+
             )
     )
 }

@@ -14,7 +14,7 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
     @Query(value = "SELECT * FROM players p WHERE p.player_id IN(:ids)", nativeQuery = true)
     List<Player> getPlayersById(List<Long> ids);
 
-    @Query(value = "SELECT * FROM players p WHERE p.current_club_id = :clubId", nativeQuery = true)
+    @Query(value = "SELECT * FROM players p WHERE p.current_club_id = :clubId ORDER BY p.last_season DESC", nativeQuery = true)
     List<Player> getPlayersByClubId(Long clubId);
 
     @Query(value = "SELECT name as playerName, player_id as id FROM players p WHERE p.player_id = :id", nativeQuery = true)

@@ -1,6 +1,6 @@
 function Loading(){
     return (
-        <div className="w-100 d-flex align-items-center">
+        <div className="w-100 d-flex align-items-center my-4">
             <div className="spinner-border m-auto" role="status">
                 <span className="sr-only"></span>
             </div>

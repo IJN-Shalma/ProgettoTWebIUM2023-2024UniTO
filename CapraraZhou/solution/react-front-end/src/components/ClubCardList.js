@@ -24,8 +24,8 @@ function ClubCardList({request}) {
             )
             :
             (
-                clubs.map((club) =>
-                    <ClubCard club={club}/>
+                clubs.map((club,i) =>
+                    <ClubCard club={club} key={i}/>
                 )
             )
 

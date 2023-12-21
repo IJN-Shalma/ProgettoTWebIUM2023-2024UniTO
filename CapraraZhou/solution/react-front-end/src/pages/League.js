@@ -10,10 +10,6 @@ function League() {
     const league = state.league;
     const [year, setYear] = useState("2023")
 
-
-    useEffect(() => {
-        console.log(league)
-    })
     return (
         <>
             <Breadcrumb/>

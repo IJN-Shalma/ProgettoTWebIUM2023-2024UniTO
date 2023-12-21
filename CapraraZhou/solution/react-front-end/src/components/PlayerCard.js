@@ -1,72 +1,99 @@
 import {useEffect, useState, useLocation} from "react";
 import axios from "axios";
 import Loading from "./Loading";
+import {Link} from "react-router-dom";
 
-/*Problem with data consistency: From lineup, player id has name "player_id". From club, player id has "id"*/
+/* Pass the component a player object or a lineup with an Id to fetch the player from */
+/* Players might still return as undefined because their id isn't in the players dataset */
 
-function PlayerCard({player, gameId}) {
-    const [playerImage, setPlayerImage] = useState("/images/default.png")
+function PlayerCard({playerLineup, playerP, gameId}) {
+    const [player, setPlayer] = useState(playerP || null);
+    const [loadingPlayer, setLoadingPlayer] = useState(true);
     const [gameEvent, setGameEvent] = useState(null);
     const [loadingGameEvents, setLoadingGameEvents] = useState(true);
 
-    console.log("PlayerCard - player: " + player.toString() + " gameId: " + gameId)
-
     useEffect(() => {
-
-        axios.get('/sql/players/' + ((gameId) ? player.player_id : player.id))
-            .then((response) => {
-                if (response.data && response.data[0] && response.data[0].imageUrl) {
-                    setPlayerImage(response.data[0].imageUrl)
-                }
-            })
-            .catch((e) => {
-                setPlayerImage("/images/default.png")
-            })
+        if (!playerP) {
+            axios.get('/sql/players/' + playerLineup.player_id)
+                .then((response) => {
+                    setPlayer(response.data[0])
+                    setLoadingPlayer(false);
+                })
+                .catch((e) => console.log(e))
+        } else {
+            setLoadingPlayer(false)
+        }
     }, []);
 
     useEffect(() => {
-        if(gameId){
-            axios.get('/mongo/appearances/game/' + gameId + '/player/' + player.player_id)
+        if (player && gameId) {
+            axios.get('/mongo/appearances/game/' + gameId + '/player/' + player.id)
                 .then((response) => {
                     setGameEvent(response.data[0]);
                     setLoadingGameEvents(false);
                 })
+                .catch((e) => console.log(e))
         }
-    }, []);
+    }, [player]);
 
     return (
-        <div className="game-player-box d-flex align-items-center m-3 clickable p-1"> {/* Player box*/}
-            <img
-                src={playerImage}
-                alt="player" height="100em" className="rounded-1"/>
-            <div className="flex-grow-1  p-1">
-                <p><b>{((gameId) ? player.player_name : player.playerName) || "Unknown"}</b></p>
-                <p>{player.position}</p>
-                {
-                    gameId ?
-                        (
-                            loadingGameEvents ?
-                                (
-                                    <Loading/>
-                                )
-                                :
-                                (
-                                    <div className="d-flex flex-wrap">
-                                        <p>🟥: {(gameEvent && gameEvent.red_cards) ? gameEvent.red_cards : "0"}</p>
-                                        <p>🟨: {(gameEvent && gameEvent.yellow_cards) ? gameEvent.yellow_cards : "0"}</p>
-                                        <p>⚽: {(gameEvent && gameEvent.goals) ? gameEvent.goals : "0"}</p>
-                                        <p>🤚: {(gameEvent && gameEvent.assists) ? gameEvent.assists : "0"}</p>
-                                        <p>🕐: {(gameEvent && gameEvent.minutes_played) ? gameEvent.minutes_played : "0"}</p>
-                                    </div>
-                                )
-                        )
-                        :
-                        (
-                            <></>
-                        )
-                }
-            </div>
-        </div>
+        loadingPlayer
+            ?
+            (
+                <div className="my-5">
+                    <Loading/>
+                </div>
+            )
+            :
+            (
+                player ? (
+                        <Link
+                            to={"/leagues/league/" + player.currentClubDomesticCompetitionId + "/club/" + player.currentClubId + "/player/" + player.playerName}
+                            state={{player: player}} className="button-link">
+                            <div className="game-player-box d-flex align-items-center m-3 clickable p-1">
+
+                                <img
+                                    src={player.imageUrl || "/images/default.png"}
+                                    alt="player" height="100em" className="rounded-1"/>
+                                <div className="flex-grow-1  p-1">
+
+                                    <p><b>{player.playerName || "Unknown"}</b></p>
+
+                                    <p>{player.position}</p>
+                                    {(gameId) ? <></> : <p>{"Last year: " + player.lastSeason}</p>}
+                                    {
+                                        gameId ?
+                                            (
+                                                loadingGameEvents ?
+                                                    (
+                                                        <Loading/>
+                                                    )
+                                                    :
+                                                    (
+                                                        <div className="d-flex flex-wrap">
+                                                            <p>🟥: {(gameEvent && gameEvent.red_cards) ? gameEvent.red_cards : "0"}</p>
+                                                            <p>🟨: {(gameEvent && gameEvent.yellow_cards) ? gameEvent.yellow_cards : "0"}</p>
+                                                            <p>⚽: {(gameEvent && gameEvent.goals) ? gameEvent.goals : "0"}</p>
+                                                            <p>🤚: {(gameEvent && gameEvent.assists) ? gameEvent.assists : "0"}</p>
+                                                            <p>🕐: {(gameEvent && gameEvent.minutes_played) ? gameEvent.minutes_played : "0"}</p>
+                                                        </div>
+                                                    )
+                                            )
+                                            :
+                                            (
+                                                <></>
+                                            )
+                                    }
+                                </div>
+                            </div>
+                        </Link>
+                    )
+                    :
+                    (
+                        <></>
+                    )
+
+            )
     );
 }
 

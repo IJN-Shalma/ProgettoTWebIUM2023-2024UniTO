@@ -29,7 +29,7 @@ module.exports.findByGameId = findByGameId;
 
 function findByPlayerId(playerId){
     return new Promise((resolve, reject) =>{
-        Appearance.find({player_id : playerId})
+        Appearance.find({player_id : playerId}).sort({date:-1}).limit(10)
             .then((result) => {
                 resolve(result);
             })

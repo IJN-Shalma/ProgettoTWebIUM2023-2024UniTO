@@ -5,7 +5,7 @@ const gamesController = require('../controllers/games');
 router.get('/game/:game_id', async (req, res) => {
     try {
         const games = await gamesController.findByGameId(req.params.game_id);
-        res.json(game);
+        res.json(games);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
