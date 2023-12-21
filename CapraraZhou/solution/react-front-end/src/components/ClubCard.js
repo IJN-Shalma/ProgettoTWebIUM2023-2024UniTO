@@ -1,6 +1,17 @@
-function ClubCard(){
+import {Link} from "react-router-dom";
+
+function ClubCard({club}) {
     return (
-        <></>
+        <Link to={"/leagues/league/" + club.domesticCompetitionId + "/club/" + club.id} state={{clubId: club.id}} className="button-link">
+            <div className="rounded-1 mt-3 p-1 clickable">
+                <div className="d-flex align-items-center">
+                    <img alt="Paris Saint-Germain logo" src="/images/default.png" className="rounded-1 club-logo"/>
+                    <div className="p-2">
+                        <b>{club.name}</b>
+                    </div>
+                </div>
+            </div>
+        </Link>
     )
 }
 

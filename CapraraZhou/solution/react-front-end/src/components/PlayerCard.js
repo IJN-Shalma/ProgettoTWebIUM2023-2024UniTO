@@ -2,15 +2,20 @@ import {useEffect, useState, useLocation} from "react";
 import axios from "axios";
 import Loading from "./Loading";
 
-function PlayerCard({player,gameId}) {
+/*Problem with data consistency: From lineup, player id has name "player_id". From club, player id has "id"*/
+
+function PlayerCard({player, gameId}) {
     const [playerImage, setPlayerImage] = useState("/images/default.png")
     const [gameEvent, setGameEvent] = useState(null);
-    const [loadingGameEvents , setLoadingGameEvents] = useState(true);
+    const [loadingGameEvents, setLoadingGameEvents] = useState(true);
+
+    console.log("PlayerCard - player: " + player.toString() + " gameId: " + gameId)
 
     useEffect(() => {
-        axios.get('/sql/players/'+player.player_id)
+
+        axios.get('/sql/players/' + ((gameId) ? player.player_id : player.id))
             .then((response) => {
-                if(response.data && response.data[0] && response.data[0].imageUrl){
+                if (response.data && response.data[0] && response.data[0].imageUrl) {
                     setPlayerImage(response.data[0].imageUrl)
                 }
             })
@@ -20,11 +25,13 @@ function PlayerCard({player,gameId}) {
     }, []);
 
     useEffect(() => {
-        axios.get('/mongo/appearances/game/' +  gameId + '/player/' + player.player_id)
-            .then((response) => {
-                setGameEvent(response.data[0]);
-                setLoadingGameEvents(false);
-            })
+        if(gameId){
+            axios.get('/mongo/appearances/game/' + gameId + '/player/' + player.player_id)
+                .then((response) => {
+                    setGameEvent(response.data[0]);
+                    setLoadingGameEvents(false);
+                })
+        }
     }, []);
 
     return (
@@ -33,14 +40,14 @@ function PlayerCard({player,gameId}) {
                 src={playerImage}
                 alt="player" height="100em" className="rounded-1"/>
             <div className="flex-grow-1  p-1">
-                <p><b>{player.player_name || "Unknown"}</b></p>
+                <p><b>{((gameId) ? player.player_name : player.playerName) || "Unknown"}</b></p>
                 <p>{player.position}</p>
                 {
                     gameId ?
                         (
                             loadingGameEvents ?
                                 (
-                                    <Loading />
+                                    <Loading/>
                                 )
                                 :
                                 (

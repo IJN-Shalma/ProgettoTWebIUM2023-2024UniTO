@@ -2,6 +2,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import {useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 import GameCardList from "../components/GameCardList";
+import ClubCardList from "../components/ClubCardList";
 
 function League() {
 
@@ -51,13 +52,27 @@ function League() {
                         <div className="me-lg-3 my-3">
                             <div className="rounded-1 p-3 box-shadow">
                                 <h1>Clubs</h1>
+                                {
+                                    league.domesticLeagueCode
+                                        ?
+                                        (
+                                            <ClubCardList request={"/sql/clubs/competition/" + league.domesticLeagueCode}/>
+                                        )
+                                        :
+                                        (
+                                            <p>Can't load clubs in international leagues</p>
+                                        )
+                                }
+
                             </div>
                         </div>
 
                         <div className="flex-grow-1 ms-lg-3 my-3">
                             <div className="rounded-1 p-3 box-shadow bb-item-list">
                                 <h1>Games</h1>
-                                <GameCardList request={'/mongo/games/competition/' + league.competitionId + '?year=' + year} type={"league"} />
+                                <GameCardList
+                                    request={'/mongo/games/competition/' + league.competitionId + '?year=' + year}
+                                    type={"league"}/>
                             </div>
                         </div>
                     </div>

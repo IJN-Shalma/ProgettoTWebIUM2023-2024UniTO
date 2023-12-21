@@ -14,6 +14,20 @@ function findByGameId(gameId){
 
 module.exports.findByGameId = findByGameId;
 
+function findGamesByClubId(club_id) {
+    return new Promise((resolve, reject) => {
+        Game.find({$or : [{home_club_id: club_id},{away_club_id: club_id}]}).sort({date: -1}).limit(10)
+            .then((result) => {
+                resolve(result);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    })
+}
+
+module.exports.findGamesByClubId = findGamesByClubId;
+
 function findByCompetitionId(competitionId, year){
     return new Promise((resolve, reject) => {
         let query = { competition_id: competitionId };

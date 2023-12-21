@@ -3,30 +3,40 @@ import axios from "axios";
 import Loading from "./Loading";
 import PlayerCard from "./PlayerCard";
 
-function PlayerCardList({gameId,clubId}){
+function PlayerCardList({gameId, clubId}) {
 
-    const [lineup, setLineup] = useState(null);
+    const [players, setPlayers] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('/mongo/game_lineups/game/' + gameId + '/club/' + clubId)
-            .then(response => {
-                setLineup(response.data);
-                setLoading(false);
-            })
+        console.log("PlayerCardList - clubId: " + clubId + " gameId: " + gameId)
+        if (clubId && gameId) {
+            console.log("From Game")
+            axios.get('/mongo/game_lineups/game/' + gameId + '/club/' + clubId)
+                .then(response => {
+                    setPlayers(response.data);
+                    setLoading(false);
+                })
+        } else {
+            console.log("From Club")
+            axios.get('/sql/players/club/' + clubId)
+                .then(response => {
+                    setPlayers(response.data);
+                    setLoading(false);
+                })
+        }
     }, []);
-
 
 
     return (
         loading ?
             (
-                <Loading />
+                <Loading/>
             )
             :
             (
-                lineup.map((player, i) =>
-                    <PlayerCard player={player} gameId={gameId} />
+                players.map((player, i) =>
+                    <PlayerCard player={player} gameId={gameId}/>
                 )
             )
     )
