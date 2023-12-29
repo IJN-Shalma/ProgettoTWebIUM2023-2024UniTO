@@ -1,5 +1,5 @@
 import Breadcrumb from "../components/Breadcrumb";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import AppearanceList from "../components/AppearanceList";
 
 
@@ -14,7 +14,7 @@ function Player() {
         <>
             <Breadcrumb/>
             <div className="container">
-                <div className="m-auto mx-lg-5 rounded-1  mt-3 d-lg-flex p-3 box-shadow">
+                <div className="m-auto mx-lg-5 rounded-1 align-items-center mt-3 d-lg-flex p-3 box-shadow">
                     <div className="d-flex flex-column justify-content-center align-items-center">
                         <img
                             src={player.imageUrl || "/images/default.png"}
@@ -24,7 +24,7 @@ function Player() {
                         <h1>{player.playerName}</h1>
                         <p><b>Nationality</b>: {player.countryOfBirth}</p>
                         <p><b>Date of Birth</b>: {player.dateOfBirth}</p>
-                        <p><b>Height</b>: {player.heightInCm+"cm"}</p>
+                        <p><b>Height</b>: {player.heightInCm + "cm"}</p>
                         <p><b>Role</b>: {player.subPosition}</p>
                         <p><b>Club</b>: {player.currentClubName}</p>
                         <p><b>Goals</b>: {"-"}</p>
@@ -33,7 +33,11 @@ function Player() {
                         <p><b>Assists</b>: {"-"}</p>
                         <p><b>Average Assists/Game</b>: {"-"}</p>
                     </div>
-                    <img src="/images/default.png" alt={player.CurrentClubName + " logo"} className="align-self-center" height="200em"/>
+                    <Link to={"/leagues/league/" + null + "/club/" + player.currentClubId}
+                          state={{clubId: player.currentClubId}} className="button-link">
+                        <img src="/images/default.png" alt={player.CurrentClubName + " logo"}
+                             className="align-self-center" height="200em"/>
+                    </Link>
                 </div>
 
                 <div className="m-auto mx-lg-5 d-lg-flex">
@@ -52,7 +56,7 @@ function Player() {
                 </div>
             </div>
         </>
-)
+    )
 }
 
 export default Player;
