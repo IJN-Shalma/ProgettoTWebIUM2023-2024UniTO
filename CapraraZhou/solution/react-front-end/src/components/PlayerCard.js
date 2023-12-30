@@ -49,7 +49,7 @@ function PlayerCard({playerLineup, playerP, gameId}) {
                 player ? (
                         <Link
                             to={"/leagues/league/" + player.currentClubDomesticCompetitionId + "/club/" + player.currentClubId + "/player/" + player.playerName}
-                            state={{player: player}} className="button-link">
+                            state={{player: player}} className="button-link link-list-item">
                             <div className="game-player-box d-flex align-items-center m-3 clickable p-1">
 
                                 <img

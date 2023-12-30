@@ -16,7 +16,7 @@ function League() {
             <div className="container">
                 <div className="m-auto mx-lg-5 rounded-1 mt-3 d-lg-flex p-3 box-shadow">
                     <div className="d-flex flex-column align-items-center justify-content-center">
-                        <img src="/images/default.png" alt="Ligue 1 logo" width="180em"/>
+                        <img  src={"https://tmssl.akamaized.net/images/logo/header/" + league.competitionId.toLowerCase() + ".png" || "/images/default.png"} alt="Ligue 1 logo" width="180em"/>
                     </div>
                     <div className="p-3">
                         <h1>{league.name.replaceAll("-", " ").toUpperCase()}</h1>

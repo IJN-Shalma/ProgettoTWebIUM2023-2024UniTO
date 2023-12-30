@@ -39,7 +39,7 @@ function Club() {
                             <>
                                 <div className="m-auto mx-lg-5 rounded-1 mt-3 d-lg-flex p-3 box-shadow">
                                     <div className="d-flex flex-column align-items-center">
-                                        <img src="/images/default.png" alt="club_photo" width="250em" height="250em"/>
+                                        <img src={"https://tmssl.akamaized.net/images/wappen/normquad/" + club.id + ".png" || "/images/default.png"} alt="club_photo" width="250em" height="250em"/>
                                     </div>
                                     <div className="p-3">
                                         <h1>{club.name || "-"}</h1>

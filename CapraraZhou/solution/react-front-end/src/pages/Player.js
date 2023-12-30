@@ -35,7 +35,7 @@ function Player() {
                     </div>
                     <Link to={"/leagues/league/" + null + "/club/" + player.currentClubId}
                           state={{clubId: player.currentClubId}} className="button-link">
-                        <img src="/images/default.png" alt={player.CurrentClubName + " logo"}
+                        <img src={"https://tmssl.akamaized.net/images/wappen/normquad/" + player.currentClubId+ ".png" || "/images/default.png"} alt={player.CurrentClubName + " logo"}
                              className="align-self-center" height="200em"/>
                     </Link>
                 </div>

@@ -71,7 +71,7 @@ function getLastGamesForCompetition(competitionId, n){
         Game
             .find({competition_id : competitionId})
             .sort({date:-1})
-            .limit(n)
+            .limit(n ? n : 10)
             .then((result) => {
                 resolve(result);
             })
@@ -88,7 +88,7 @@ function getLastGames(n){
         Game
             .find()
             .sort({date:-1})
-            .limit(n)
+            .limit(n ? n : 10)
             .then((result) => {
                 resolve(result);
             })
