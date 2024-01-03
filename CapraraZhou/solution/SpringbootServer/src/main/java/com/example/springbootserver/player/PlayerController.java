@@ -41,5 +41,13 @@ public class PlayerController {
 
     @Operation(summary = "Get player's name by id")
     @GetMapping("/players/name/{id}")
-    public List<PlayerName> getPlayerNameById(@PathVariable Long id) {return playerService.getPlayerNameById(id);}
+    public List<PlayerName> getPlayerNameById(@PathVariable Long id) {
+        return playerService.getPlayerNameById(id);
+    }
+
+    @Operation(summary = "Get list of suggested players by Name")
+    @GetMapping("/players/suggestions/{term}")
+    public List<Player> getPlayerNameBySuggestion(@PathVariable String term) {
+        return playerService.getPlayersSuggestions(term);
+    }
 }

@@ -10,17 +10,24 @@ import Loading from "../components/Loading";
 function Club() {
 
     const {state} = useLocation();
-    const clubId = state.clubId;
-    const [club, setClub] = useState(null);
+    const [club, setClub] = useState(state.club);
+    const clubId = state.clubId || state.club.id;
     const [loading, setLoading] = useState(true)
     console.log(clubId)
 
     useEffect(() => {
-        axios.get('/sql/clubs/' + clubId)
-            .then((response) => {
-                setClub(response.data)
-                setLoading(false)
-            })
+        if (!club) {
+            console.log("Have just club Id")
+            axios.get('/sql/clubs/' + clubId)
+                .then((response) => {
+                    setClub(response.data)
+                    setLoading(false)
+                })
+        }
+        else{
+            console.log("Have full club")
+            setLoading(false)
+        }
     }, []);
 
 
@@ -39,7 +46,9 @@ function Club() {
                             <>
                                 <div className="m-auto mx-lg-5 rounded-1 mt-3 d-lg-flex p-3 box-shadow">
                                     <div className="d-flex flex-column align-items-center">
-                                        <img src={"https://tmssl.akamaized.net/images/wappen/normquad/" + club.id + ".png" || "/images/default.png"} alt="club_photo" width="250em" height="250em"/>
+                                        <img
+                                            src={"https://tmssl.akamaized.net/images/wappen/normquad/" + club.id + ".png" || "/images/default.png"}
+                                            alt="club_photo" width="250em" height="250em"/>
                                     </div>
                                     <div className="p-3">
                                         <h1>{club.name || "-"}</h1>

@@ -1,5 +1,6 @@
 package com.example.springbootserver.competition;
 
+import com.example.springbootserver.player.PlayerName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,4 +37,8 @@ public class CompetitionService {
     }
 
     public List<Competition> getAllCompetitions(){return competitionRepository.findAll();}
+
+    public List<Competition> getCompetitionsSuggestions(String term) {
+        return competitionRepository.getCompetitionsSuggestions(term);
+    }
 }

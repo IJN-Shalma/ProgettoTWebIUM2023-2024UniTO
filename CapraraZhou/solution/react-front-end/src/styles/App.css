@@ -34,6 +34,28 @@
 
 .search {
   width: 15em;
+  height: 2em;
+  position: relative !important;
+}
+
+#navbar-suggestion-list{
+  width: 14.5em;
+  top: 2em;
+  left: 0.25em;
+  position: absolute;
+  background-color: white;
+  border-bottom-left-radius: 0.2em;
+  border-bottom-right-radius: 0.2em;
+  z-index: 2;
+}
+
+#navbar-suggestion-list .divider{
+  font-weight: bold;
+  color: #4e3650;
+}
+
+#navbar-suggestion-list p{
+  color: black;
 }
 
 html {
@@ -151,12 +173,12 @@ th {
 }
 
 .index-player-card img {
-  width: 5em;
+  width: 4em;
   filter: drop-shadow(0px 0px 2px #222);
 }
 
 .index-league-box {
-  width: 25em;
+  width:25em;
 }
 
 .index-league-box h2 {
@@ -307,6 +329,13 @@ th {
   max-width: 5em;
   max-height: 5em;
 }
+
+@media (max-width: 425px) {
+  .index-league-box {
+    width: 18em;
+  }
+}
+
 
 /* Firefox */
 * {

@@ -56,7 +56,7 @@ function Appearance({appearance}) {
                     )
             }
 
-            <div class={"d-flex justify-content-center"}>
+            <div className={"d-flex justify-content-center"}>
                 <p>🟥: {appearance.yellow_cards}</p>
                 <p>🟨: {appearance.red_cards}</p>
                 <p>⚽: {appearance.goals}</p>

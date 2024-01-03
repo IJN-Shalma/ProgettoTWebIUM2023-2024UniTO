@@ -10,16 +10,13 @@ function PlayerCardList({gameId, clubId}) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        console.log("PlayerCardList - clubId: " + clubId + " gameId: " + gameId)
         if (clubId && gameId) {
-            console.log("From Game")
             axios.get('/mongo/game_lineups/game/' + gameId + '/club/' + clubId)
                 .then(response => {
                     setPlayersLineups(response.data);
                     setLoading(false);
                 })
         } else {
-            console.log("From Club")
             axios.get('/sql/players/club/' + clubId)
                 .then(response => {
                     setPlayers(response.data);

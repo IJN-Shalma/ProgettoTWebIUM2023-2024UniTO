@@ -1,5 +1,6 @@
 package com.example.springbootserver.club;
 
+import com.example.springbootserver.player.PlayerName;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,11 @@ public class ClubController {
     @GetMapping("/clubs/{clubId}")
     public Club getClubById(@PathVariable Long clubId){
         return clubService.getClubById(clubId);
+    }
+
+    @Operation(summary = "Get list of suggested clubs by Name")
+    @GetMapping("/clubs/suggestions/{term}")
+    public List<Club> getClubNameBySuggestion(@PathVariable String term) {
+        return clubService.getClubsSuggestions(term);
     }
 }

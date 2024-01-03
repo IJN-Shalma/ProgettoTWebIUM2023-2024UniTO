@@ -27,4 +27,8 @@ public class PlayerService {
     }
 
     public List<PlayerName> getPlayerNameById(Long id) {return playerRepository.getPlayerNameById(id);}
+
+    public List<Player> getPlayersSuggestions(String term) {
+        return playerRepository.getPlayersSuggestions(term);
+    }
 }

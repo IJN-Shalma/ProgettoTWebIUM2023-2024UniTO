@@ -53,7 +53,7 @@ function Leagues() {
                             </ul>
                         </div>
 
-                        <div className="p-3 align-items-start justify-content-between flex-grow-1 d-flex flex-wrap ">
+                        <div className="p-3 align-items-start justify-content-around flex-grow-1 d-flex flex-wrap ">
                             <LeaguesLeagueList query={"/sql/competitions/"} filter={activeFilter}/>
                         </div>
                     </div>

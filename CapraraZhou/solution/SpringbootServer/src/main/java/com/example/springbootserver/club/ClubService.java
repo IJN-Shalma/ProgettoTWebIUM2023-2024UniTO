@@ -21,4 +21,8 @@ public class ClubService {
     public Club getClubById(Long clubId) {
         return clubRepository.getReferenceById(clubId);
     }
+
+    public List<Club> getClubsSuggestions(String term) {
+        return clubRepository.getClubsSuggestions(term);
+    }
 }

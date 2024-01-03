@@ -1,5 +1,6 @@
 package com.example.springbootserver.competition;
 
+import com.example.springbootserver.player.PlayerName;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,12 @@ public class CompetitionController {
     @GetMapping("/competitions/countries")
     public List<CompetitionCountry> getCountries() {
         return competitionService.getAllCountries();
+    }
+
+    @Operation(summary = "Get list of suggested competitions by Name")
+    @GetMapping("/competitions/suggestions/{term}")
+    public List<Competition> getCompetitionsNameBySuggestion(@PathVariable String term) {
+        term = term.toLowerCase();
+        return competitionService.getCompetitionsSuggestions(term);
     }
 }
