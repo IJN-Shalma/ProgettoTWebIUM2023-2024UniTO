@@ -35,7 +35,7 @@
 .search {
   width: 15em;
   height: 2em;
-  position: relative !important;
+  position: relative;
 }
 
 #navbar-suggestion-list{
@@ -332,7 +332,7 @@ th {
 
 @media (max-width: 425px) {
   .index-league-box {
-    width: 18em;
+    width: 16em;
   }
 }
 

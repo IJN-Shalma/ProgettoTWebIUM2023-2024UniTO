@@ -4,17 +4,18 @@ import axios from "axios";
 import GameCard from "./GameCard";
 import app from "../App";
 
-function AppearanceList({request}) {
+function AppearanceList({playerId}) {
     const [appearances, setAppearances] = useState(null)
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(request)
+        setLoading(true)
+        axios.get('/mongo/appearances/player/' + playerId)
             .then((response) => {
                 setAppearances(response.data)
                 setLoading(false)
             })
-    }, []);
+    }, [playerId]);
 
     return (
         loading ?
@@ -42,7 +43,7 @@ function Appearance({appearance}) {
                 setGame(response.data[0])
                 setLoadingGame(false)
             })
-    }, []);
+    }, [appearance]);
 
     return (
         <div className="d-flex flex-column">

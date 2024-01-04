@@ -8,7 +8,6 @@ import axios from "axios";
 import Loading from "../components/Loading";
 
 function Club() {
-
     const {state} = useLocation();
     const [club, setClub] = useState(state.club);
     const clubId = state.clubId || state.club.id;

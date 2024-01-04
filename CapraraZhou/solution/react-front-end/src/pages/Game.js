@@ -35,7 +35,7 @@ function Game() {
                         <div className="m-auto">2023-11-28</div>
                         <div className="mt-3">
                             <h2>Event list</h2>
-                            <GameEventList gameId={game.game_id}/>
+                            <GameEventList game={game} />
                         </div>
                     </div>
                     <div className="box-shadow rounded-1 m-3 p-2"> {/* Other Info box */}

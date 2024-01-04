@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import {useLocation, Link} from 'react-router-dom';
 
 const Breadcrumb = () => {
     const location = useLocation();
@@ -14,7 +14,7 @@ const Breadcrumb = () => {
                         <Link to="/">Home</Link>
                     </li>
                     {pathnames.map((name, index) => {
-                        if(!ignoredPaths.includes(name)){
+                        if (!ignoredPaths.includes(name)) {
                             const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
                             const isLast = index === pathnames.length - 1;
 
@@ -32,7 +32,7 @@ const Breadcrumb = () => {
                 </ol>
             </div>
         </nav>
-);
+    );
 };
 
 export default Breadcrumb;

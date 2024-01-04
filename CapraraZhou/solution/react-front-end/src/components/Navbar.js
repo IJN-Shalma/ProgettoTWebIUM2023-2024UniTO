@@ -67,7 +67,7 @@ function PlayersSuggestionList({searchTerm, setSearchTerm }) {
 
     useEffect(() => {
         if (searchTerm.trim() !== "") {
-            axios.get(`/sql/players/suggestions/${searchTerm}`)
+            axios.get(`/sql/players/suggestions/` + searchTerm)
                 .then((response) => {
                     setSuggestions(response.data);
                     setLoading(false);
@@ -84,8 +84,11 @@ function PlayersSuggestionList({searchTerm, setSearchTerm }) {
 
     return (
         <>
-            {(loading || suggestions.length <= 0) ?
-                null : (
+            {(loading || suggestions.length <= 0)
+                ?
+                null
+                :
+                (
                     <>
                         <p className="divider">Players</p>
                         {suggestions.map((suggestion, i) => (
@@ -108,7 +111,7 @@ function ClubsSuggestionList({searchTerm, setSearchTerm }) {
 
     useEffect(() => {
         if (searchTerm.trim() !== "") {
-            axios.get(`/sql/clubs/suggestions/${searchTerm}`)
+            axios.get(`/sql/clubs/suggestions/` + searchTerm)
                 .then((response) => {
                     setSuggestions(response.data);
                     setLoading(false);
@@ -148,7 +151,7 @@ function LeaguesSuggestionList({searchTerm, setSearchTerm }) {
 
     useEffect(() => {
         if (searchTerm.trim() !== "") {
-            axios.get(`/sql/competitions/suggestions/${searchTerm}`)
+            axios.get(`/sql/competitions/suggestions/` + searchTerm)
                 .then((response) => {
                     setSuggestions(response.data);
                     setLoading(false);

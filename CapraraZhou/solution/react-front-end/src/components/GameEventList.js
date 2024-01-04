@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import Loading from "./Loading";
 
-function GameEventList({gameId}) {
+function GameEventList({game}) {
 
     const [events, setEvents] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -33,7 +33,7 @@ function GameEventList({gameId}) {
      * Fetch game events
      */
     useEffect(() => {
-        axios.get('/mongo/game_events/game/' + gameId)
+        axios.get('/mongo/game_events/game/' + game.game_id)
             .then((response) => {
                 return response.data.reduce((promiseChain, event) => {
                     return promiseChain.then((processedEvents) => {
@@ -59,11 +59,12 @@ function GameEventList({gameId}) {
                     <></>
                 ) : (
                     <p key={event.id}>
-                        <b>{event.minute}'</b>: {
+                        <b>{event.minute}'</b>:
+                        {
                         (event.type === "Goals" && <>⚽ {event.playerName} scores with {event.playerAssistName} assist</>) ||
                         (event.type === "Substitutions" && <>↔️ {event.playerName} substituted for {event.playerInName}</>) ||
                         (event.type === "Cards" && <>{event.description.includes("Yellow") ? <>🟨</> : <>🟥</>} {event.playerName} {event.description}</>)
-                    }
+                        }
                     </p>
                 )
             ))
