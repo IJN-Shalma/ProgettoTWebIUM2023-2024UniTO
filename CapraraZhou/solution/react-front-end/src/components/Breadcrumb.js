@@ -3,9 +3,8 @@ import {useLocation, Link} from 'react-router-dom';
 
 const Breadcrumb = () => {
     const location = useLocation();
+    const ignoredPaths = "league game player club";
     const pathnames = location.pathname.split('/').filter((x) => x);
-    const ignoredPaths = "league game player";
-
     return (
         <nav aria-label="breadcrumb" className="breadcrumbs mt-3">
             <div className="container">
@@ -14,7 +13,7 @@ const Breadcrumb = () => {
                         <Link to="/">Home</Link>
                     </li>
                     {pathnames.map((name, index) => {
-                        if (!ignoredPaths.includes(name)) {
+                        if(!ignoredPaths.includes(name)){
                             const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
                             const isLast = index === pathnames.length - 1;
 

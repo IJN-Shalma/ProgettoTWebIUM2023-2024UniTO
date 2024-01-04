@@ -51,24 +51,45 @@ function GameEventList({game}) {
     }, []);
 
     return (
-        loading ? (
+        loading ?
+            (
             <Loading />
-        ) : (
-            events.map((event) => (
-                event.minute == "-1" ? (
-                    <></>
-                ) : (
-                    <p key={event.id}>
-                        <b>{event.minute}'</b>:
-                        {
-                        (event.type === "Goals" && <>⚽ {event.playerName} scores with {event.playerAssistName} assist</>) ||
-                        (event.type === "Substitutions" && <>↔️ {event.playerName} substituted for {event.playerInName}</>) ||
-                        (event.type === "Cards" && <>{event.description.includes("Yellow") ? <>🟨</> : <>🟥</>} {event.playerName} {event.description}</>)
-                        }
-                    </p>
-                )
-            ))
-        )
+            )
+            :
+            (
+                events.map((event) => (
+                    event.minute == "-1"
+                        ?
+                            null
+                        :
+                        (
+                            event.club_id == game.home_club_id
+                            ?
+                                (
+                                    <p key={event.id}>
+                                        <b>{event.minute}'</b>:
+                                        {
+                                            (event.type === "Goals" && <>⚽ {event.playerName} scores with {event.playerAssistName} assist</>) ||
+                                            (event.type === "Substitutions" && <>↔️ {event.playerName} substituted for {event.playerInName}</>) ||
+                                            (event.type === "Cards" && <>{event.description.includes("Yellow") ? <>🟨</> : <>🟥</>} {event.playerName} {event.description}</>)
+                                        }
+                                    </p>
+                                )
+                                :
+                                (
+                                    <p key={event.id} className="text-end">
+
+                                        {
+                                            (event.type === "Goals" && <>{event.playerName} scores with {event.playerAssistName} assist ⚽</>) ||
+                                            (event.type === "Substitutions" && <>{event.playerName} substituted for {event.playerInName} ↔️</>) ||
+                                            (event.type === "Cards" && <>{event.playerName} {event.description} {event.description.includes("Yellow") ? <>🟨</> : <>🟥</>}</>)
+                                        }
+                                        :'<b>{event.minute}</b>
+                                    </p>
+                                )
+                        )
+                ))
+            )
     );
 }
 

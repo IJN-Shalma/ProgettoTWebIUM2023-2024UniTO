@@ -12,6 +12,6 @@ import java.util.List;
 public interface ClubRepository extends JpaRepository<Club, Long> {
     List<Club> findAllByDomesticCompetitionId(String competitionId);
 
-    @Query(value = "SELECT * FROM clubs c WHERE c.name LIKE %:term% LIMIT 2", nativeQuery = true)
+    @Query(value = "SELECT * FROM clubs c WHERE LOWER(c.name) LIKE LOWER(concat('%', :term, '%')) LIMIT 2", nativeQuery = true)
     List<Club> getClubsSuggestions(String term);
 }

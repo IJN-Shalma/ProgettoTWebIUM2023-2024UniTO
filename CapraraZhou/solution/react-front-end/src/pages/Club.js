@@ -1,34 +1,29 @@
-import Breadcrumb from "../components/Breadcrumb";
-import {useLocation} from "react-router-dom";
-import PlayerCard from "../components/PlayerCard";
+import {useEffect, useState, useRef} from "react";
+import {useParams} from "react-router-dom";
+import axios from "axios";
 import PlayerCardList from "../components/PlayerCardList";
 import GameCardList from "../components/GameCardList";
-import {useEffect, useState} from "react";
-import axios from "axios";
+import Breadcrumb from "../components/Breadcrumb";
 import Loading from "../components/Loading";
 
-function Club() {
-    const {state} = useLocation();
-    const [club, setClub] = useState(state.club);
-    const clubId = state.clubId || state.club.id;
-    const [loading, setLoading] = useState(true)
-    console.log(clubId)
+
+
+function Club({clubData}) {
+    const [club, setClub] = useState(null);
+    const {clubId} = useParams();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (!club) {
-            console.log("Have just club Id")
+        if(clubData == null){
             axios.get('/sql/clubs/' + clubId)
                 .then((response) => {
-                    setClub(response.data)
-                    setLoading(false)
+                    setClub(response.data);
+                    setLoading(false);
                 })
+        } else {
+            setClub(clubData);
         }
-        else{
-            console.log("Have full club")
-            setLoading(false)
-        }
-    }, []);
-
+    }, [clubData, clubId]);
 
     return (
         <>

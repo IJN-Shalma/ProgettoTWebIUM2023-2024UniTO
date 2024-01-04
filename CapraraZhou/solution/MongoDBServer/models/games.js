@@ -204,5 +204,25 @@ const Game = new mongoose.Schema({
  *         competition_type: "domestic_league"
  */
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     CompetitionSeasons:
+ *       type: object
+ *       properties:
+ *         :
+ *           type: array
+ *           items:
+ *              type: integer
+ *           description: seasons the competition took place in.
+ *           example: [
+ *              2012,
+ *              2013
+ *           ]
+ *
+ *
+ */
+
 module.exports = mongoose.model('Game', Game);
 

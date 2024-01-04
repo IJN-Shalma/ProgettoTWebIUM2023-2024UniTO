@@ -4,8 +4,11 @@ import axios, {Axios} from "axios";
 
 function Navbar() {
     const location = useLocation();
-
     const [url, setUrl] = useState(null);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
 
     useEffect(() => {
         setUrl(location.pathname);
@@ -40,7 +43,7 @@ function Navbar() {
                                       className={"nav-link " + (url === '/leagues' ? "active" : "")}>Leagues</Link>
                             </li>
                         </ul>
-                        <form className="d-flex search" role="search">
+                        <form className="d-flex search" role="search" onSubmit={handleSubmit}>
                             <input className="form-control" type="search" placeholder="League, Club, Player"
                                    aria-label="Search leagues, clubs or players"
                                    aria-placeholder="Search League, Club, Player"
@@ -60,10 +63,8 @@ function Navbar() {
 }
 
 function PlayersSuggestionList({searchTerm, setSearchTerm }) {
-
     const [suggestions, setSuggestions] = useState(null);
     const [loading, setLoading] = useState(true);
-
 
     useEffect(() => {
         if (searchTerm.trim() !== "") {
@@ -84,20 +85,26 @@ function PlayersSuggestionList({searchTerm, setSearchTerm }) {
 
     return (
         <>
-            {(loading || suggestions.length <= 0)
+            {(loading)
                 ?
                 null
                 :
                 (
                     <>
                         <p className="divider">Players</p>
-                        {suggestions.map((suggestion, i) => (
-                            <Link
-                                to={"/leagues/league/" + suggestion.currentClubDomesticCompetitionId + "/club/" + suggestion.currentClubId + "/player/" + suggestion.playerName}
-                                state={{player: suggestion}} onClick={() => setSearchTerm('')} className="button-link" key={i}>
-                                <p>{suggestion.playerName}</p>
-                            </Link>
-                        ))}
+                        {
+                            suggestions.length <= 0
+                                ?
+                                <p>No Results</p>
+                                :
+                                suggestions.map((suggestion, i) => (
+                                <Link
+                                    to={"/leagues/league/" + suggestion.currentClubDomesticCompetitionId + "/club/" + suggestion.currentClubId + "/player/" + suggestion.playerName}
+                                    state={{player: suggestion}} onClick={() => setSearchTerm('')} className="button-link" key={i}>
+                                    <p>{suggestion.playerName}</p>
+                                </Link>
+                                ))
+                        }
                     </>
                 )}
         </>
@@ -128,16 +135,22 @@ function ClubsSuggestionList({searchTerm, setSearchTerm }) {
 
     return (
         <>
-            {(loading || suggestions.length <= 0) ?
+            {(loading) ?
                 null : (
                     <>
                         <p className="divider">Clubs</p>
-                        {suggestions.map((suggestion, i) => (
-                            <Link to={"/leagues/league/" + suggestion.domesticCompetitionId + "/club/" + suggestion.id}
-                                  state={{club: suggestion}} onClick={() => setSearchTerm('')} className="button-link" key={i}>
-                                <p>{suggestion.name}</p>
-                            </Link>
-                        ))}
+                        {
+                            suggestions.length <= 0
+                                ?
+                                <p>No Results</p>
+                                :
+                                suggestions.map((suggestion, i) => (
+                                    <Link to={"/leagues/league/" + suggestion.domesticCompetitionId + "/club/" + suggestion.id}
+                                          onClick={() => setSearchTerm('')} className="button-link" key={i}>
+                                        <p>{suggestion.name}</p>
+                                    </Link>
+                                ))
+                        }
                     </>
                 )}
         </>
@@ -168,17 +181,23 @@ function LeaguesSuggestionList({searchTerm, setSearchTerm }) {
 
     return (
         <>
-            {(loading || suggestions.length <= 0) ?
+            {(loading) ?
                 null :
                 (
                     <>
                         <p className="divider">Competitions</p>
-                        {suggestions.map((suggestion, i) => (
-                            <Link to={"/leagues/league/" + suggestion.competitionId} state={{league: suggestion}} onClick={() => setSearchTerm('')}
-                                  className="button-link" key={i}>
-                                <p>{suggestion.name}</p>
-                            </Link>
-                        ))}
+                        {
+                            suggestions.length <= 0
+                                ?
+                                <p>No Results</p>
+                                :
+                                suggestions.map((suggestion, i) => (
+                                <Link to={"/leagues/league/" + suggestion.competitionId} state={{league: suggestion}} onClick={() => setSearchTerm('')}
+                                      className="button-link" key={i}>
+                                    <p>{suggestion.name}</p>
+                                </Link>
+                                ))
+                        }
                     </>
                 )}
         </>

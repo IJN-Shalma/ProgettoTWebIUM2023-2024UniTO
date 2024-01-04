@@ -32,7 +32,7 @@ function Game() {
                                 </Link>
                             </div>
                         </div>
-                        <div className="m-auto">2023-11-28</div>
+                        <div className="m-auto">{parseDate(new Date(game.date))}</div>
                         <div className="mt-3">
                             <h2>Event list</h2>
                             <GameEventList game={game} />
@@ -66,6 +66,10 @@ function Game() {
             </div>
         </>
     )
+}
+
+function parseDate(date) {
+    return date.getUTCDay() + "/" + (date.getUTCMonth() + 1) + "/" + date.getUTCFullYear();
 }
 
 export default Game;

@@ -99,3 +99,19 @@ function getLastGames(n){
 }
 
 module.exports.getLastGames = getLastGames;
+
+function getSeasonsByCompetition(competitionId){
+    return new Promise((resolve, reject) => {
+        Game
+            .distinct('season',{competition_id : competitionId})
+            .sort({season:-1})
+            .then((result) => {
+                resolve(result);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
+
+module.exports.getSeasonsByCompetition = getSeasonsByCompetition;

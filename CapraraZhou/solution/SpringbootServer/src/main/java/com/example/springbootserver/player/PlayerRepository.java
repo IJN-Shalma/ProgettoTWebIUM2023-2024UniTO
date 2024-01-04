@@ -20,7 +20,7 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
     @Query(value = "SELECT name as playerName, player_id as id FROM players p WHERE p.player_id = :id", nativeQuery = true)
     List<PlayerName> getPlayerNameById(Long id);
 
-    @Query(value = "SELECT * FROM players p WHERE p.name LIKE %:term% LIMIT 2", nativeQuery = true)
+    @Query(value = "SELECT * FROM players p WHERE LOWER(p.name) LIKE LOWER(concat('%', :term, '%')) LIMIT 2", nativeQuery = true)
     List<Player> getPlayersSuggestions(String term);
 
 

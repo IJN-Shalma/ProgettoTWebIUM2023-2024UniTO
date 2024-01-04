@@ -195,4 +195,36 @@ router.get('/last_games', async (req, res) =>{
     }
 });
 
+/**
+ * @swagger
+ * /games/competition/{competitionId}/seasons:
+ *   get:
+ *     tags:
+ *       - Games
+ *     summary: Fetch all seasons a competition took place in
+ *     parameters:
+ *       - in: path
+ *         name: competitionId
+ *         required: true
+ *         description: The Id of the competition
+ *     responses:
+ *      200:
+ *        description: OK
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/CompetitionSeasons'
+ *            examples:
+ *              AppearanceExample:
+ *                $ref: '#/components/examples/CompetitionSeasonsExample'
+ */
+router.get('/competition/:competitionId/seasons', async (req, res) =>{
+    try {
+        const years = await gamesController.getSeasonsByCompetition(req.params.competitionId);
+        res.json(years);
+    } catch (err){
+        res.status(500).json({message: err.message});
+    }
+});
+
 module.exports = router;

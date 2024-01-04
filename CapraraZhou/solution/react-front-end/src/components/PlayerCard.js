@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 /* Players might still return as undefined because their id isn't in the players dataset */
 
 function PlayerCard({playerLineup, playerP, gameId}) {
-    const [player, setPlayer] = useState(playerP || null);
+    const [player, setPlayer] = useState(null);
     const [loadingPlayer, setLoadingPlayer] = useState(true);
     const [gameEvent, setGameEvent] = useState(null);
     const [loadingGameEvents, setLoadingGameEvents] = useState(true);
@@ -19,11 +19,12 @@ function PlayerCard({playerLineup, playerP, gameId}) {
                     setPlayer(response.data[0])
                     setLoadingPlayer(false);
                 })
-                .catch((e) => console.log(e))
+                .catch((e) => console.log(e));
         } else {
-            setLoadingPlayer(false)
+            setPlayer(playerP);
+            setLoadingPlayer(false);
         }
-    }, []);
+    }, [playerLineup, playerP]);
 
     useEffect(() => {
         if (player && gameId) {
@@ -34,10 +35,12 @@ function PlayerCard({playerLineup, playerP, gameId}) {
                 })
                 .catch((e) => console.log(e))
         }
-    }, [player]);
+    }, [gameId, player]);
 
     return (
-        loadingPlayer
+        <>
+
+            {loadingPlayer
             ?
             (
                 <div className="my-5">
@@ -48,10 +51,9 @@ function PlayerCard({playerLineup, playerP, gameId}) {
             (
                 player ? (
                         <Link
-                            to={"/leagues/league/" + player.currentClubDomesticCompetitionId + "/club/" + player.currentClubId + "/player/" + player.playerName}
+                            to={"/leagues/league/" + player.currentClubDomesticCompetitionId + "/club/" + player.currentClubId + "/player/" + player.id}
                             state={{player: player}} className="button-link link-list-item">
                             <div className="game-player-box d-flex align-items-center m-3 clickable p-1">
-
                                 <img
                                     src={player.imageUrl || "/images/default.png"}
                                     alt="player" height="100em" className="rounded-1"/>
@@ -89,11 +91,9 @@ function PlayerCard({playerLineup, playerP, gameId}) {
                         </Link>
                     )
                     :
-                    (
-                        <></>
-                    )
-
-            )
+                    null
+            )}
+        </>
     );
 }
 

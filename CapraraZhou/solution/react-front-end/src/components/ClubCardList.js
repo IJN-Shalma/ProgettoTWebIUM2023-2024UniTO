@@ -14,7 +14,7 @@ function ClubCardList({request}) {
                 setClubs(response.data);
                 setLoading(false);
             })
-    }, []);
+    }, [request]);
 
     return (
         loading

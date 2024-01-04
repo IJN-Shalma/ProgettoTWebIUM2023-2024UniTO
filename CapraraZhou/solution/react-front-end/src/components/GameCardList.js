@@ -3,18 +3,19 @@ import {useEffect, useState} from "react";
 import GameCard from "./GameCard";
 import Loading from "./Loading";
 
-function GameCardList({request, type}){
+function GameCardList({request, type, setYears}){
     const [games, setGames] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
+
         axios.get(request)
             .then(result => {
                 setGames(result.data);
                 setLoading(false);
             })
             .catch((error) => console.log(error));
-    },[]);
+    },[request]);
 
     return (
         loading ?

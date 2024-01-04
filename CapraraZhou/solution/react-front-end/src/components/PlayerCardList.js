@@ -2,9 +2,10 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import PlayerCard from "./PlayerCard";
+import game from "../pages/Game";
+import player from "../pages/Player";
 
 function PlayerCardList({gameId, clubId}) {
-
     const [playersLineups, setPlayersLineups] = useState(null);
     const [players, setPlayers] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -23,31 +24,42 @@ function PlayerCardList({gameId, clubId}) {
                     setLoading(false);
                 })
         }
-    }, []);
-
+    }, [clubId, gameId]);
 
     return (
-        loading ?
-            (
-                <Loading/>
-            )
-            :
-            (
-                gameId
-                    ?
-                    (
-                        playersLineups.map((playerLineup, i) =>
-                            <PlayerCard playerLineup={playerLineup} gameId={gameId} key={i}/>
+        <>
+            {
+                loading ?
+                (
+                    <Loading/>
+                )
+                :
+                (
+                    gameId
+                        ?
+                        (
+                            playersLineups.length > 0
+                                ?
+                                playersLineups.map((playerLineup, i) =>
+                                    <PlayerCard playerLineup={playerLineup} gameId={gameId} key={i}/>
+                                )
+                                :
+                                <p>No Data</p>
                         )
-                    )
-                    :
-                    (
-                        players.map((player, i) =>
-                            <PlayerCard playerP={player} key={i}/>
+                        :
+                        (
+                            players.length > 0
+                                ?
+                                players.map((player, i) =>
+                                    <PlayerCard playerP={player} key={i}/>
+                                )
+                                :
+                                <p>No Data</p>
                         )
-                    )
 
-            )
+                )
+            }
+        </>
     )
 }
 

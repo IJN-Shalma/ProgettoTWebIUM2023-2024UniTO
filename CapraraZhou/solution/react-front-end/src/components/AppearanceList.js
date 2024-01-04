@@ -12,9 +12,9 @@ function AppearanceList({playerId}) {
         setLoading(true)
         axios.get('/mongo/appearances/player/' + playerId)
             .then((response) => {
-                setAppearances(response.data)
-                setLoading(false)
-            })
+                setAppearances(response.data);
+                setLoading(false);
+            });
     }, [playerId]);
 
     return (

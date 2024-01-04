@@ -14,6 +14,10 @@ function Leagues() {
         setActiveFilter(val);
     }
 
+    let createList = () => {
+
+    }
+
     useEffect(()=>{
         axios.get("/sql/competitions/countries")
             .then((response) => {
@@ -46,9 +50,15 @@ function Leagues() {
                                 {
                                     loading
                                         ? <Loading/>
-                                        : filters.map((val, i) =>
-                                                <li onClick={()=>handleFilter(val.countryName)} value={val.countryName} key={i}>{val.countryName}</li>
-                                            )
+                                        :
+                                        <>
+                                        {
+                                            filters.map((val, i) =>
+                                                    <li onClick={()=>handleFilter(val.countryName)} value={val.countryName} key={i}>{val.countryName}</li>
+                                                )
+                                        }
+                                            <li onClick={()=>handleFilter("")} value={""}>Reset</li>
+                                        </>
                                 }
                             </ul>
                         </div>
