@@ -14,7 +14,7 @@ function IndexLeagueCardList({query, filter}){
                 setLoading(false);
             })
             .catch((e) => console.log(e));
-    }, []);
+    }, [query]);
 
     return (
         loading

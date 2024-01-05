@@ -14,10 +14,6 @@ function Leagues() {
         setActiveFilter(val);
     }
 
-    let createList = () => {
-
-    }
-
     useEffect(()=>{
         axios.get("/sql/competitions/countries")
             .then((response) => {

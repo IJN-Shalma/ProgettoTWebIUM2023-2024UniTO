@@ -3,12 +3,11 @@ import {useEffect, useState} from "react";
 import GameCard from "./GameCard";
 import Loading from "./Loading";
 
-function GameCardList({request, type, setYears}){
+function GameCardList({request, type}){
     const [games, setGames] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
-
         axios.get(request)
             .then(result => {
                 setGames(result.data);
