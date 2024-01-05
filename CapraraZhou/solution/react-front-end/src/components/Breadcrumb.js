@@ -1,7 +1,7 @@
 import React from 'react';
 import {useLocation, Link} from 'react-router-dom';
 
-const Breadcrumb = () => {
+function Breadcrumb() {
     const location = useLocation();
     const ignoredPaths = "league game player club";
     const pathnames = location.pathname.split('/').filter((x) => x);

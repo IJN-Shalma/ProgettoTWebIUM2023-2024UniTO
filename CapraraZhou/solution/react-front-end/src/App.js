@@ -7,6 +7,7 @@ import League from "./pages/League";
 import Club from "./pages/Club";
 import Game from "./pages/Game";
 import Player from "./pages/Player";
+import Chat from "./pages/Chat";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/leagues/league/:leagueId/club/:clubId" element={<Club/>}/>
                 <Route path="/leagues/league/:leagueId/game/:gameId" element={<Game/>}/>
                 <Route path="/leagues/league/:leagueId/club/:clubId/player/:playerId" element={<Player/>}/>
+                <Route path='/chat' element={<Chat/>}/>
             </Routes>
             <Footer/>
         </Router>

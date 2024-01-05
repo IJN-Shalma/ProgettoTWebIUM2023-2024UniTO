@@ -42,6 +42,10 @@ function Navbar() {
                                 <Link to="/leagues"
                                       className={"nav-link " + (url === '/leagues' ? "active" : "")}>Leagues</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link to="/chat"
+                                      className={"nav-link " + (url === '/chat' ? "active" : "")}>Chat</Link>
+                            </li>
                         </ul>
                         <form className="d-flex search" role="search" onSubmit={handleSubmit}>
                             <input className="form-control" type="search" placeholder="League, Club, Player"

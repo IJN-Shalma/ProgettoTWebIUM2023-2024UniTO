@@ -1,5 +1,4 @@
 import Breadcrumb from "../components/Breadcrumb";
-import IndexLeagueCardList from "../components/IndexLeagueCardList";
 import LeaguesLeagueList from "../components/LeaguesLeagueList";
 import {useEffect, useState} from "react";
 import axios from "axios";

@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import Loading from "./Loading";
 import axios from "axios";
 import GameCard from "./GameCard";
-import app from "../App";
 
 function AppearanceList({playerId}) {
     const [appearances, setAppearances] = useState(null)

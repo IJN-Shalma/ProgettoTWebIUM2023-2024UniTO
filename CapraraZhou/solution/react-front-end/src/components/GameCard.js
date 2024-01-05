@@ -1,7 +1,4 @@
 import {Link} from "react-router-dom";
-import {useEffect, useState} from "react";
-import axios from "axios";
-import Loading from "./Loading";
 
 function parseDate(date) {
     return date.getUTCDay() + "/" + (date.getUTCMonth() + 1) + "/" + date.getUTCFullYear();
