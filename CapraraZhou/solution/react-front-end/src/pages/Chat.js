@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { socket, sendMessage, joinRoom, leaveRoom } from '../javascript/chat';
+import React, {useEffect, useState} from 'react';
+import {socket, sendMessage, joinRoom, leaveRoom} from '../javascript/chat';
 import axios from "axios";
 
 function Chat() {
     const [roomId, setRoomId] = useState(null);
-    const [roomName, setRoomName] = useState("");
+    const [roomName, setRoomName] = useState(null);
     const [username, setUsername] = useState(null);
 
     useEffect(() => {
@@ -21,17 +21,18 @@ function Chat() {
 
     return (
         <div className="container d-flex align-items-center justify-content-center m-auto">
-            <div className="rounded-1 p-3 box-shadow d-lg-flex align-items-center justify-content-center">
-                {!(username && roomId) ? <LoginForm setUsername={setUsername} setRoomName={setRoomName} setRoomId={setRoomId} /> : <ChatRoom username={username} room={roomId} />}
-            </div>
+            {!(username && roomId) ?
+                <LoginForm setUsername={setUsername} setRoomName={setRoomName} setRoomId={setRoomId}/> :
+                <ChatRoom username={username} roomId={roomId} roomName={roomName}/>}
         </div>
     );
 }
 
-function LoginForm({ setUsername, setRoomId, setRoomName}) {
+function LoginForm({setUsername, setRoomId, setRoomName}) {
     const [usernameInput, setUsernameInput] = useState('');
     const [searchTerm, setSearchTerm] = useState('')
     const [showSuggestions, setShowSuggestions] = useState(true)
+
     function handleSubmit(e) {
         e.preventDefault();
         if (usernameInput.trim() !== '') {
@@ -47,12 +48,9 @@ function LoginForm({ setUsername, setRoomId, setRoomName}) {
 
     return (
         <>
-            <div>
+            <div className="rounded-1 p-3 box-shadow d-lg-flex align-items-center justify-content-center">
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
-                        <label htmlFor="inputUsername" className="form-label">
-                            Username
-                        </label>
                         <input
                             id="inputUsername"
                             className="form-control"
@@ -63,23 +61,29 @@ function LoginForm({ setUsername, setRoomId, setRoomName}) {
                         />
                     </div>
                     <div className="search mb-3">
-                    <input className="form-control" type="search" placeholder="Search room..."
-                           aria-label="Search leagues, clubs or players"
-                           aria-placeholder="Search leagues, clubs or players"
-                           value={searchTerm}
-                           onChange={handleSearchChange}/>
+                        <input className="form-control" type="search" placeholder="Search room..."
+                               aria-label="Search leagues, clubs or players"
+                               aria-placeholder="Search leagues, clubs or players"
+                               value={searchTerm}
+                               onChange={handleSearchChange}/>
                         {
                             showSuggestions
-                            ?
+                                ?
                                 (
                                     <div id="navbar-suggestion-list" className="box-shadow ">
-                                        <LeaguesSuggestionList searchTerm={searchTerm} setSearchTerm={setSearchTerm} setRoomId={setRoomId} setRoomName={setRoomName} setShowSuggestions={setShowSuggestions}/>
-                                        <ClubsSuggestionList searchTerm={searchTerm} setSearchTerm={setSearchTerm} setRoomId={setRoomId} setRoomName={setRoomName} setShowSuggestions={setShowSuggestions}/>
-                                        <PlayersSuggestionList searchTerm={searchTerm} setSearchTerm={setSearchTerm} setRoomId={setRoomId} setRoomName={setRoomName} setShowSuggestions={setShowSuggestions}/>
+                                        <LeaguesSuggestionList searchTerm={searchTerm} setSearchTerm={setSearchTerm}
+                                                               setRoomId={setRoomId} setRoomName={setRoomName}
+                                                               setShowSuggestions={setShowSuggestions}/>
+                                        <ClubsSuggestionList searchTerm={searchTerm} setSearchTerm={setSearchTerm}
+                                                             setRoomId={setRoomId} setRoomName={setRoomName}
+                                                             setShowSuggestions={setShowSuggestions}/>
+                                        <PlayersSuggestionList searchTerm={searchTerm} setSearchTerm={setSearchTerm}
+                                                               setRoomId={setRoomId} setRoomName={setRoomName}
+                                                               setShowSuggestions={setShowSuggestions}/>
                                     </div>
                                 )
                                 :
-                                    null
+                                null
                         }
 
                     </div>
@@ -94,55 +98,80 @@ function LoginForm({ setUsername, setRoomId, setRoomName}) {
     );
 }
 
-function ChatRoom({username, room}) {
+function ChatRoom({username, roomId, roomName}) {
     const [messages, setMessages] = useState([]);
     const [messageInput, setMessageInput] = useState('');
 
     useEffect(() => {
-        socket.on('chat message', (msg, name, room) => {
-            const newMessage = <b>{name === username ? 'Me' : name}</b> + {msg};
+        socket.on('chat message', (msg, name, roomId) => {
+            const newMessage = (
+                name === username
+                    ?
+                    (
+                        <p className="ms-auto d-inline chat-message p-2 rounded-2">
+                            {msg}
+                        </p>
+                    )
+                    :
+                    (
+                        <p className="me-auto d-inline chat-message p-2 rounded-2">
+                            <b>{username}</b> {msg}
+                        </p>
+                    )
+
+            );
             setMessages((prevMessages) => [...prevMessages, newMessage]);
         });
 
-        socket.on('create or join conversation', (name, room) => {
-            const joinMessage = <b>{name}</b> + "has joined the conversation";
+        socket.on('create or join conversation', (name, roomId) => {
+            const joinMessage = (
+                <p className="mx-auto d-inline chat-alert p-2 rounded-2">
+                    <b>{name}{name === username ? " (You)" : null}</b> has joined the conversation
+                </p>
+            );
             setMessages((prevMessages) => [...prevMessages, joinMessage]);
         });
 
-        return () => {
-            socket.off('chat message');
-            socket.off('create or join conversation');
+        return function unmount() {
+            if (username) {
+                setMessages([])
+                socket.off('chat message');
+                socket.off('create or join conversation');
+            }
         };
     }, [username]);
 
     function handleSubmit(e) {
         e.preventDefault();
         if (messageInput.trim() !== '') {
-            sendMessage(messageInput, username, room);
+            sendMessage(messageInput, username, roomId);
+            setMessageInput("")
         }
     }
 
     return (
         <>
-            <div>
-                <ul>
-                    {messages.map((message, index) => (
-                        <li key={index} dangerouslySetInnerHTML={{ __html: message }} />
+            <div className="rounded-1 p-3 box-shadow d-flex flex-column w-100">
+                <div className="d-flex justify-content-between">
+                    <h1>{roomName}</h1>
+                    <i className="fa-solid fa-right-from-bracket leave-button rounded-1"></i>
+                </div>
+                <div className="d-flex flex-column mb-3 message-box px-3">
+                    {messages.map((message, i) => (
+                        <div key={i} className="w-100 d-flex my-1">{message}</div>
                     ))}
-                </ul>
+                </div>
 
-                <form onSubmit={handleSubmit} className="d-flex">
-                    <div className="mb-3">
-                        <input
-                            className="form-control"
-                            type="text"
-                            placeholder="Message..."
-                            value={messageInput}
-                            onChange={(e) => setMessageInput(e.target.value)}
-                        />
-                    </div>
+                <form onSubmit={handleSubmit} className="d-flex align-items-center justify-content-between">
+                    <input
+                        className="form-control me-3"
+                        type="text"
+                        placeholder="Message..."
+                        value={messageInput}
+                        onChange={(e) => setMessageInput(e.target.value)}
+                    />
                     <button type="submit" className="btn btn-primary">
-                        Submit
+                        Send
                     </button>
                 </form>
             </div>
@@ -150,7 +179,7 @@ function ChatRoom({username, room}) {
     );
 }
 
-function PlayersSuggestionList({searchTerm, setSearchTerm, setRoomId,setRoomName, setShowSuggestions}) {
+function PlayersSuggestionList({searchTerm, setSearchTerm, setRoomId, setRoomName, setShowSuggestions}) {
     const [suggestions, setSuggestions] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -186,12 +215,12 @@ function PlayersSuggestionList({searchTerm, setSearchTerm, setRoomId,setRoomName
                                 <p>No Results</p>
                                 :
                                 suggestions.map((suggestion, i) => (
-                                        <p onClick={(e) => {
-                                            setRoomId(suggestion.id);
-                                            setRoomName(suggestion.playerName);
-                                            setSearchTerm(suggestion.playerName);
-                                            setShowSuggestions(false);
-                                        }}>{suggestion.playerName}</p>
+                                    <p onClick={(e) => {
+                                        setRoomId(suggestion.id);
+                                        setRoomName(suggestion.playerName);
+                                        setSearchTerm(suggestion.playerName);
+                                        setShowSuggestions(false);
+                                    }}>{suggestion.playerName}</p>
                                 ))
                         }
                     </>
@@ -200,7 +229,7 @@ function PlayersSuggestionList({searchTerm, setSearchTerm, setRoomId,setRoomName
     );
 }
 
-function ClubsSuggestionList({searchTerm, setSearchTerm, setRoomId,setRoomName, setShowSuggestions}) {
+function ClubsSuggestionList({searchTerm, setSearchTerm, setRoomId, setRoomName, setShowSuggestions}) {
     const [suggestions, setSuggestions] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -234,12 +263,12 @@ function ClubsSuggestionList({searchTerm, setSearchTerm, setRoomId,setRoomName, 
                                 <p>No Results</p>
                                 :
                                 suggestions.map((suggestion, i) => (
-                                        <p onClick={(e) => {
-                                            setRoomId(suggestion.id);
-                                            setRoomName(suggestion.name);
-                                            setSearchTerm(suggestion.name);
-                                            setShowSuggestions(false);
-                                        }}>{suggestion.name}</p>
+                                    <p onClick={(e) => {
+                                        setRoomId(suggestion.id);
+                                        setRoomName(suggestion.name);
+                                        setSearchTerm(suggestion.name);
+                                        setShowSuggestions(false);
+                                    }}>{suggestion.name}</p>
                                 ))
                         }
                     </>
@@ -283,12 +312,12 @@ function LeaguesSuggestionList({searchTerm, setSearchTerm, setRoomId, setRoomNam
                                 <p>No Results</p>
                                 :
                                 suggestions.map((suggestion, i) => (
-                                        <p onClick={(e) => {
-                                            setRoomId(suggestion.competitionId);
-                                            setRoomName(suggestion.name);
-                                            setSearchTerm(suggestion.name);
-                                            setShowSuggestions(false);
-                                        }}>{suggestion.name}</p>
+                                    <p onClick={(e) => {
+                                        setRoomId(suggestion.competitionId);
+                                        setRoomName(suggestion.name);
+                                        setSearchTerm(suggestion.name);
+                                        setShowSuggestions(false);
+                                    }}>{suggestion.name}</p>
                                 ))
                         }
                     </>
