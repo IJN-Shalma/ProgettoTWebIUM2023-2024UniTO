@@ -4,22 +4,16 @@ module.exports = function (app) {
     app.use(
         '/sql',
         createProxyMiddleware({
-            target: 'http://localhost:8081', //Springboot Local Server
-            changeOrigin: true,
-            pathRewrite: {
-                '^/sql' : '/'
-            }
+            target: 'http://localhost:8080', //Springboot Local Server
+            changeOrigin: true
         })
     );
 
     app.use(
         '/mongo',
         createProxyMiddleware({
-            target: 'http://localhost:8082', // Mongodb Local Server
-            changeOrigin: true,
-            pathRewrite: {
-                '^/mongo' : '/'
-            }
+            target: 'http://localhost:8080', // Mongodb Local Server
+            changeOrigin: true
         })
     );
 };

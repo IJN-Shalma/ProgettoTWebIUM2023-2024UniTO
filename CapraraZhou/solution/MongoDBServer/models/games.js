@@ -220,8 +220,24 @@ const Game = new mongoose.Schema({
  *              2012,
  *              2013
  *           ]
- *
- *
+ */
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     CompetitionClubs:
+ *       type: object
+ *       properties:
+ *         :
+ *           type: array
+ *           items:
+ *              type: integer
+ *           description: clubs playing in competition.
+ *           example: [
+ *              1245,
+ *              4323
+ *           ]
  */
 
 module.exports = mongoose.model('Game', Game);

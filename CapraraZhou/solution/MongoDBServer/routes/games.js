@@ -117,6 +117,29 @@ router.get('/competition/:competition_id', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /games/competition/{competitionId}/clubs:
+ *   get:
+ *     tags:
+ *       - Games
+ *     summary: Fetch all clubs in competition
+ *     parameters:
+ *       - in: path
+ *         name: competitionId
+ *         required: true
+ *         description: The Id of the competition
+ *     responses:
+ *      200:
+ *        description: OK
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/CompetitionClubs'
+ *            examples:
+ *              AppearanceExample:
+ *                $ref: '#/components/examples/CompetitionClubsExample'
+ */
 router.get('/competition/:competition_id/clubs', async (req, res) => {
     try {
         const clubs = await gamesController.getClubsByCompetitionId(req.params.competition_id);
