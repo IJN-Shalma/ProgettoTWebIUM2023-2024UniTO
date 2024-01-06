@@ -24,8 +24,9 @@ function Chat() {
         <div className="container d-flex align-items-center justify-content-center m-auto">
             {
                 !inRoom
-                ? <LoginForm setUsername={setUsername} setRoomName={setRoomName} setRoomId={setRoomId} setInRoom={setInRoom} roomId={roomId}/>
-                : <ChatRoom username={username} roomId={roomId} roomName={roomName} setInRoom={setInRoom}/>
+                    ? <LoginForm setUsername={setUsername} setRoomName={setRoomName} setRoomId={setRoomId}
+                                 setInRoom={setInRoom} roomId={roomId}/>
+                    : <ChatRoom username={username} roomId={roomId} roomName={roomName} setInRoom={setInRoom}/>
             }
         </div>
     );
@@ -118,12 +119,12 @@ function ChatRoom({username, roomId, roomName, setInRoom}) {
                     :
                     (
                         <p className="me-auto d-inline chat-message p-2 rounded-2">
-                            <b>{name}</b>{msg}
+                            <b>{name}</b> {msg}
                         </p>
                     )
 
             );
-            setMessages((prevMessages) => [...prevMessages, newMessage]);
+            setMessages((prevMessages) => [newMessage,...prevMessages]);
         });
 
         socket.on('create or join conversation', (name, roomId) => {
@@ -132,7 +133,16 @@ function ChatRoom({username, roomId, roomName, setInRoom}) {
                     <b>{name}{name === username ? " (You)" : null}</b> has joined the conversation
                 </p>
             );
-            setMessages((prevMessages) => [...prevMessages, joinMessage]);
+            setMessages((prevMessages) => [joinMessage, ...prevMessages, ]);
+        });
+
+        socket.on('leave conversation', (name, roomId) => {
+            const joinMessage = (
+                <p className="mx-auto d-inline chat-alert p-2 rounded-2">
+                    <b>{name}</b> has left the conversation
+                </p>
+            );
+            setMessages((prevMessages) => [joinMessage,...prevMessages,]);
         });
 
         return function unmount() {
@@ -152,8 +162,9 @@ function ChatRoom({username, roomId, roomName, setInRoom}) {
         }
     }
 
-    function exit(e){
+    function exit(e) {
         setInRoom(false);
+        leaveRoom(username, roomId);
     }
 
     return (
@@ -163,7 +174,7 @@ function ChatRoom({username, roomId, roomName, setInRoom}) {
                     <h1>{roomName}</h1>
                     <i className="fa-solid fa-right-from-bracket leave-button rounded-1" onClick={exit}></i>
                 </div>
-                <div className="d-flex flex-column mb-3 message-box px-3">
+                <div className="d-flex flex-column-reverse mb-3 message-box px-3">
                     {messages.map((message, i) => (
                         <div key={i} className="w-100 d-flex my-1">{message}</div>
                     ))}

@@ -1,7 +1,5 @@
 module.exports = (io) => {
     io.on('connection', (socket) => {
-        console.log(`user connected ${socket.id}`);
-
         socket.on('chat message', (msg, name, room) => {
             console.log(msg);
             io.in(room).emit('chat message', msg, name, room);
@@ -15,11 +13,8 @@ module.exports = (io) => {
 
         socket.on('leave conversation', (name,room) => {
             socket.leave(room);
+            io.in(room).emit('leave conversation', name, room);
             console.log("User " + name + " left room " + room);
-        });
-
-        socket.on('disconnect', () => {
-            console.log('User disconnected');
         });
     });
 };
