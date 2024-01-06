@@ -6,6 +6,7 @@ function Chat() {
     const [roomId, setRoomId] = useState(null);
     const [roomName, setRoomName] = useState(null);
     const [username, setUsername] = useState(null);
+    const [inRoom, setInRoom] = useState(false);
 
     useEffect(() => {
         if (username && roomId) {
@@ -21,28 +22,30 @@ function Chat() {
 
     return (
         <div className="container d-flex align-items-center justify-content-center m-auto">
-            {!(username && roomId) ?
-                <LoginForm setUsername={setUsername} setRoomName={setRoomName} setRoomId={setRoomId}/> :
-                <ChatRoom username={username} roomId={roomId} roomName={roomName}/>}
+            {
+                !inRoom
+                ? <LoginForm setUsername={setUsername} setRoomName={setRoomName} setRoomId={setRoomId} setInRoom={setInRoom} roomId={roomId}/>
+                : <ChatRoom username={username} roomId={roomId} roomName={roomName} setInRoom={setInRoom}/>
+            }
         </div>
     );
 }
 
-function LoginForm({setUsername, setRoomId, setRoomName}) {
+function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId}) {
     const [usernameInput, setUsernameInput] = useState('');
     const [searchTerm, setSearchTerm] = useState('')
-    const [showSuggestions, setShowSuggestions] = useState(true)
+    const [showSuggestions, setShowSuggestions] = useState(true);
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (usernameInput.trim() !== '') {
+        if (usernameInput.trim() !== '' && roomId) {
+            setInRoom(true);
             setUsername(usernameInput);
         }
     }
 
     function handleSearchChange(event) {
-        const newSearchTerm = event.target.value;
-        setSearchTerm(newSearchTerm);
+        setSearchTerm(event.target.value);
         setShowSuggestions(true);
     }
 
@@ -98,7 +101,7 @@ function LoginForm({setUsername, setRoomId, setRoomName}) {
     );
 }
 
-function ChatRoom({username, roomId, roomName}) {
+function ChatRoom({username, roomId, roomName, setInRoom}) {
     const [messages, setMessages] = useState([]);
     const [messageInput, setMessageInput] = useState('');
 
@@ -115,7 +118,7 @@ function ChatRoom({username, roomId, roomName}) {
                     :
                     (
                         <p className="me-auto d-inline chat-message p-2 rounded-2">
-                            <b>{username}</b> {msg}
+                            <b>{name}</b>{msg}
                         </p>
                     )
 
@@ -149,12 +152,16 @@ function ChatRoom({username, roomId, roomName}) {
         }
     }
 
+    function exit(e){
+        setInRoom(false);
+    }
+
     return (
         <>
             <div className="rounded-1 p-3 box-shadow d-flex flex-column w-100">
                 <div className="d-flex justify-content-between">
                     <h1>{roomName}</h1>
-                    <i className="fa-solid fa-right-from-bracket leave-button rounded-1"></i>
+                    <i className="fa-solid fa-right-from-bracket leave-button rounded-1" onClick={exit}></i>
                 </div>
                 <div className="d-flex flex-column mb-3 message-box px-3">
                     {messages.map((message, i) => (
