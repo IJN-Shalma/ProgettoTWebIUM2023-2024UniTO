@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {socket, sendMessage, joinRoom, leaveRoom} from '../javascript/chat';
+import {Button, Modal} from 'react-bootstrap';
 import axios from "axios";
 
 function Chat() {
@@ -7,17 +8,33 @@ function Chat() {
     const [roomName, setRoomName] = useState(null);
     const [username, setUsername] = useState(null);
     const [inRoom, setInRoom] = useState(false);
+    const usernameRef = useRef();
+    const roomRef = useRef();
+
+    function handleClose(event){
+        if (usernameRef.current) {
+            leaveRoom(usernameRef.current, roomRef.current);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('beforeunload', handleClose);
+
+        return function unmount() {
+            console.log(usernameRef.current + ' unmount')
+            if (usernameRef.current) {
+                leaveRoom(usernameRef.current, roomRef.current);
+            }
+            window.removeEventListener('beforeunload', handleClose);
+        };
+    }, []);
 
     useEffect(() => {
         if (username && roomId) {
+            usernameRef.current = username;
+            roomRef.current = roomId;
             joinRoom(username, roomId);
         }
-
-        return function unmount() {
-            if (username) {
-                leaveRoom(username, roomId);
-            }
-        };
     }, [username, roomId]);
 
     return (
@@ -25,22 +42,43 @@ function Chat() {
             {
                 !inRoom
                     ? <LoginForm setUsername={setUsername} setRoomName={setRoomName} setRoomId={setRoomId}
-                                 setInRoom={setInRoom} roomId={roomId}/>
+                                 setInRoom={setInRoom} roomId={roomId} username={username}/>
                     : <ChatRoom username={username} roomId={roomId} roomName={roomName} setInRoom={setInRoom}/>
             }
         </div>
     );
 }
 
-function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId}) {
+function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId, username}) {
     const [usernameInput, setUsernameInput] = useState('');
     const [searchTerm, setSearchTerm] = useState('')
     const [showSuggestions, setShowSuggestions] = useState(true);
+    const [showError, setShowError] = useState(false);
+
+    useEffect(() => {
+        setUsernameInput(username);
+        setUsername('');
+
+        socket.on('accept', () => {
+            setInRoom(true);
+        })
+
+        socket.on('refuse', ()=> {
+            setInRoom(false);
+            setShowError(true);
+            setUsername('');
+            console.log("refused");
+        })
+
+        return function unmount(){
+            socket.off('accept');
+            socket.off('refuse');
+        }
+    }, []);
 
     function handleSubmit(e) {
         e.preventDefault();
         if (usernameInput.trim() !== '' && roomId) {
-            setInRoom(true);
             setUsername(usernameInput);
         }
     }
@@ -48,6 +86,10 @@ function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId}) {
     function handleSearchChange(event) {
         setSearchTerm(event.target.value);
         setShowSuggestions(true);
+    }
+
+    function handleClose() {
+        setShowError(false);
     }
 
     return (
@@ -97,6 +139,18 @@ function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId}) {
                         Submit
                     </button>
                 </form>
+
+                <Modal show={showError} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Error</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Username already in use!</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={handleClose}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         </>
     );
