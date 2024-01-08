@@ -15,10 +15,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/sql/', sqlRouter);
 app.use('/mongo/', mongoRouter);
-app.get('*', (req, res) => {
-  /*res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));*/
-  res.json({Here: "Soon"})
-});
+const root = path.join(__dirname, 'client', 'build')
+app.use(express.static(root));
+app.get("*", (req, res) => {
+  res.sendFile('index.html', { root });
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,7 +3,7 @@ var debug = require('debug')('expressmainserver:server');
 var http = require('http');
 const { Server } = require('socket.io');
 
-var port = normalizePort(process.env.PORT || '8080');
+var port = normalizePort('8080');
 app.set('port', port);
 
 var server = http.createServer(app);
