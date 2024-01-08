@@ -1,6 +1,5 @@
 package com.example.springbootserver.player;
 
-import com.example.springbootserver.competition.Competition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +24,11 @@ public class PlayerService {
 
     public List<Player> getPlayersByClub(Long clubId) {
         return playerRepository.getPlayersByClubId(clubId);
+    }
+
+    public List<PlayerName> getPlayerNameById(Long id) {return playerRepository.getPlayerNameById(id);}
+
+    public List<Player> getPlayersSuggestions(String term) {
+        return playerRepository.getPlayersSuggestions(term);
     }
 }

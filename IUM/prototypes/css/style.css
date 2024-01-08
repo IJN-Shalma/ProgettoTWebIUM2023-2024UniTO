@@ -13,6 +13,7 @@
     --visited: rgb(153, 48, 48);
     --accent: rgb(255, 132, 0);
     --title: rgb(52, 12, 90);
+    --sub-title:rgb(141, 93, 185);
 }
 
 *:focus-visible {
@@ -240,7 +241,7 @@ th {
 }
 
 .accent {
-    color: var(--title);
+    color: var(--sub-title);
 }
 
 .clickable {

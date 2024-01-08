@@ -1,8 +1,8 @@
 const Appearance = require('../models/appearances');
 
-function findByGameIdAndPlayerId(gameId){
+function findByGameIdAndPlayerId(gameId, playerId){
     return new Promise((resolve, reject) =>{
-        Appearance.find({game_id : gameId})
+        Appearance.find({game_id : gameId, player_id: playerId})
             .then((result) => {
                 resolve(result);
             })
@@ -13,9 +13,23 @@ function findByGameIdAndPlayerId(gameId){
 }
 module.exports.findByGameIdAndPlayerId = findByGameIdAndPlayerId;
 
+
+function findByGameId(gameId){
+    return new Promise((resolve, reject) =>{
+        Appearance.find({game_id : gameId})
+            .then((result) => {
+                resolve(result);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
+module.exports.findByGameId = findByGameId;
+
 function findByPlayerId(playerId){
     return new Promise((resolve, reject) =>{
-        Appearance.find({player_id : playerId})
+        Appearance.find({player_id : playerId}).sort({date:-1}).limit(10)
             .then((result) => {
                 resolve(result);
             })

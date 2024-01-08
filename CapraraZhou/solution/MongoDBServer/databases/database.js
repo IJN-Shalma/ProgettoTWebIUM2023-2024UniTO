@@ -6,5 +6,5 @@ connection = mongoose.connect(mongoDB, {family: 4})
         console.log('Connected to MongoDB');
     })
     .catch((error) => {
-        console.log('Erorr : Connection to MongoDB failed' + JSON.stringify(error));
+        console.log('Error : Connection to MongoDB failed' + JSON.stringify(error));
     });

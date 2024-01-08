@@ -5,17 +5,18 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
+@IdClass(PlayerValuationId.class)
 @Table(name = "player_valuations")
 public class PlayerValuation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "player_id")
     private Long playerId;
 
     @Column(name = "last_season")
     private Integer lastSeason;
 
+    @Id
     @Column(name = "datetime")
     private LocalDateTime datetime;
 
