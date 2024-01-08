@@ -3,7 +3,6 @@ module.exports = (io) => {
 
     io.on('connection', (socket) => {
         socket.on('chat message', (msg, name, room) => {
-            console.log(msg);
             io.in(room).emit('chat message', msg, name, room);
         });
 
@@ -13,7 +12,6 @@ module.exports = (io) => {
                 socket.join(room);
                 socket.emit('accept');
                 io.in(room).emit('create or join conversation', name, room);
-                console.log("User " + name + " joined room " + room);
             }else{
                 socket.emit('refuse');
             }
@@ -23,8 +21,7 @@ module.exports = (io) => {
             socket.leave(room);
             io.in(room).emit('leave conversation', name, room);
             let indexUser = users.indexOf(name);
-            users.splice(indexUser, indexUser);
-            console.log("User " + name + " left room " + room);
+            users.splice(indexUser, 1);
         });
     });
 };

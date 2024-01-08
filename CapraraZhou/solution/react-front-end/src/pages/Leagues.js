@@ -16,7 +16,6 @@ function Leagues() {
     useEffect(()=>{
         axios.get("/sql/competitions/countries")
             .then((response) => {
-                console.log(response.data);
                 setFilters(response.data);
                 setLoading(false);
             })

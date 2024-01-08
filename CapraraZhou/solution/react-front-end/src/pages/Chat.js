@@ -21,7 +21,6 @@ function Chat() {
         window.addEventListener('beforeunload', handleClose);
 
         return function unmount() {
-            console.log(usernameRef.current + ' unmount')
             if (usernameRef.current) {
                 leaveRoom(usernameRef.current, roomRef.current);
             }
@@ -42,22 +41,24 @@ function Chat() {
             {
                 !inRoom
                     ? <LoginForm setUsername={setUsername} setRoomName={setRoomName} setRoomId={setRoomId}
-                                 setInRoom={setInRoom} roomId={roomId} username={username}/>
+                                 setInRoom={setInRoom} roomId={roomId} username={username} roomName={roomName}/>
                     : <ChatRoom username={username} roomId={roomId} roomName={roomName} setInRoom={setInRoom}/>
             }
         </div>
-    );
+    )
 }
 
-function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId, username}) {
+function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId, username, roomName}) {
     const [usernameInput, setUsernameInput] = useState('');
     const [searchTerm, setSearchTerm] = useState('')
     const [showSuggestions, setShowSuggestions] = useState(true);
     const [showError, setShowError] = useState(false);
 
     useEffect(() => {
-        setUsernameInput(username);
-        setUsername('');
+        setUsernameInput(username ? username : '');
+        setSearchTerm(roomName ? roomName : '')
+        setShowSuggestions(!roomName)
+        setUsername(null);
 
         socket.on('accept', () => {
             setInRoom(true);
@@ -67,7 +68,6 @@ function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId, user
             setInRoom(false);
             setShowError(true);
             setUsername('');
-            console.log("refused");
         })
 
         return function unmount(){
@@ -85,7 +85,9 @@ function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId, user
 
     function handleSearchChange(event) {
         setSearchTerm(event.target.value);
-        setShowSuggestions(true);
+        if(event.target.value !== ""){
+            setShowSuggestions(true);
+        }
     }
 
     function handleClose() {
@@ -133,7 +135,6 @@ function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId, user
                         }
 
                     </div>
-
 
                     <button type="submit" className="btn btn-primary">
                         Submit
@@ -216,7 +217,7 @@ function ChatRoom({username, roomId, roomName, setInRoom}) {
         }
     }
 
-    function exit(e) {
+    function exit() {
         setInRoom(false);
         leaveRoom(username, roomId);
     }
@@ -287,7 +288,7 @@ function PlayersSuggestionList({searchTerm, setSearchTerm, setRoomId, setRoomNam
                                 <p>No Results</p>
                                 :
                                 suggestions.map((suggestion, i) => (
-                                    <p onClick={(e) => {
+                                    <p key={i} onClick={() => {
                                         setRoomId(suggestion.id);
                                         setRoomName(suggestion.playerName);
                                         setSearchTerm(suggestion.playerName);
@@ -335,7 +336,7 @@ function ClubsSuggestionList({searchTerm, setSearchTerm, setRoomId, setRoomName,
                                 <p>No Results</p>
                                 :
                                 suggestions.map((suggestion, i) => (
-                                    <p onClick={(e) => {
+                                    <p key={i} onClick={(e) => {
                                         setRoomId(suggestion.id);
                                         setRoomName(suggestion.name);
                                         setSearchTerm(suggestion.name);
@@ -384,7 +385,7 @@ function LeaguesSuggestionList({searchTerm, setSearchTerm, setRoomId, setRoomNam
                                 <p>No Results</p>
                                 :
                                 suggestions.map((suggestion, i) => (
-                                    <p onClick={(e) => {
+                                    <p key={i} onClick={(e) => {
                                         setRoomId(suggestion.competitionId);
                                         setRoomName(suggestion.name);
                                         setSearchTerm(suggestion.name);

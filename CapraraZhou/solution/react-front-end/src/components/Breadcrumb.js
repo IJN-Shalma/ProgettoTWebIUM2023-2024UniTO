@@ -32,6 +32,6 @@ function Breadcrumb() {
             </div>
         </nav>
     );
-};
+}
 
 export default Breadcrumb;
