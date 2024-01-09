@@ -2,6 +2,10 @@ import GameCardList from '../components/GameCardList';
 import IndexLeagueCardList from "../components/IndexLeagueCardList";
 import IndexPlayerList from "../components/IndexPlayerList";
 
+/**
+ * Home
+ * Index component
+ */
 function Home() {
     return (
         <>

@@ -3,6 +3,10 @@ import {Link, useLocation} from "react-router-dom";
 import Breadcrumb from "../components/Breadcrumb";
 import PlayerCardList from "../components/PlayerCardList";
 
+/**
+ * Game Page
+ * @state game - Game object received from other components
+ */
 function Game() {
     const {state} = useLocation();
     const game = state.game;
@@ -16,7 +20,7 @@ function Game() {
                         <h1>{game.competition_id}</h1>
                         <div className="d-flex justify-content-around align-items-top text-center"> {/* Centre Box */}
                             <div className="d-flex flex-column w-25 align-items-center">
-                                <Link to={"/leagues/league/" + game.competition_id + "/club/" + game.home_club_id} state={{clubId: game.home_club_id}} className="button-link">
+                                <Link to={"/leagues/league/" + game.competition_id + "/club/" + game.home_club_id} className="button-link">
                                     <img alt="home-team logo"  src={"https://tmssl.akamaized.net/images/wappen/normquad/" + game.home_club_id + ".png" || "/images/default.png"} className="club-logo"/>
                                     <p>{game.home_club_name || "Unavailable"}</p>
                                 </Link>
@@ -26,7 +30,7 @@ function Game() {
                                 <span>{game.aggregate}</span>
                             </div>
                             <div className="d-flex flex-column w-25 align-items-center">
-                                <Link to={"/leagues/league/" + game.competition_id + "/club/" + game.away_club_id} state={{clubId: game.away_club_id}} className="button-link">
+                                <Link to={"/leagues/league/" + game.competition_id + "/club/" + game.away_club_id} className="button-link">
                                     <img alt="away-team logo"  src={"https://tmssl.akamaized.net/images/wappen/normquad/" + game.away_club_id + ".png" || "/images/default.png"} className="club-logo"/>
                                     <p>{game.away_club_name || "Unavailable"}</p>
                                 </Link>

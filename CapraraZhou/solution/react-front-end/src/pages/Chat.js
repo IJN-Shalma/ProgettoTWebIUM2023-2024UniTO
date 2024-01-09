@@ -3,6 +3,15 @@ import {socket, sendMessage, joinRoom, leaveRoom} from '../javascript/chat';
 import {Button, Modal} from 'react-bootstrap';
 import axios from "axios";
 
+/**
+ * Chat page
+ * @state roomId - Room identifier
+ * @state roomName - Display name for the room
+ * @state username - User input
+ * @state inRoom - boolean, allows to render login form or chatroom
+ * @ref usernameRef - Keeps username reference when component unmounts, allows to leave chat when closing page
+ * @ref roomRef - Keeps room reference when component unmounts, allows to leave chat when closing page
+ */
 function Chat() {
     const [roomId, setRoomId] = useState(null);
     const [roomName, setRoomName] = useState(null);
@@ -48,6 +57,19 @@ function Chat() {
     )
 }
 
+/**
+ * LoginForm component
+ * @param setUsername - Function, called when user submits form
+ * @param setRoomId - Function, needs to be passed to suggestion components below
+ * @param setRoomName - Function, needs to be passed to suggestion components below
+ * @param setInRoom - Function, called on socket login response
+ * @param roomId - Allows to check if was set from below components
+ * @param username - Used to show previous username if exists
+ * @param roomName - Used to show previous room if exists
+ * @state searchTerm - Passed to below components to fetch suggestions
+ * @state usernameInput - Allows to check input before setting the username
+ * @state showSuggestions - Allows control over suggestion list display
+ */
 function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId, username, roomName}) {
     const [usernameInput, setUsernameInput] = useState('');
     const [searchTerm, setSearchTerm] = useState('')
@@ -157,6 +179,15 @@ function LoginForm({setUsername, setRoomId, setRoomName, setInRoom, roomId, user
     );
 }
 
+/**
+ * ChatRoom component
+ * @param username - Display username
+ * @param roomId
+ * @param roomName - Display room name
+ * @param setInRoom - Allows to change gui on logout
+ * @state messages - List of messages in the chat
+ * @state messageInput - Allows to check message before submitting
+ */
 function ChatRoom({username, roomId, roomName, setInRoom}) {
     const [messages, setMessages] = useState([]);
     const [messageInput, setMessageInput] = useState('');
@@ -252,6 +283,14 @@ function ChatRoom({username, roomId, roomName, setInRoom}) {
     );
 }
 
+/**
+ * PlayerSuggestionList component
+ * @param searchTerm - Received from upper component, used to fetch result
+ * @param setSearchTerm - On suggestion click, set upper component input with suggestion name
+ * @param setRoomId - On suggestion click, set upper component state value with suggestion id
+ * @param setRoomName - On suggestion click, set upper component state value with suggestion name
+ * @param setShowSuggestions - On suggestion click, hide other suggestions
+ */
 function PlayersSuggestionList({searchTerm, setSearchTerm, setRoomId, setRoomName, setShowSuggestions}) {
     const [suggestions, setSuggestions] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -302,6 +341,14 @@ function PlayersSuggestionList({searchTerm, setSearchTerm, setRoomId, setRoomNam
     );
 }
 
+/**
+ * ClubSuggestionList component
+ * @param searchTerm - Received from upper component, used to fetch result
+ * @param setSearchTerm - On suggestion click, set upper component input with suggestion name
+ * @param setRoomId - On suggestion click, set upper component state value with suggestion id
+ * @param setRoomName - On suggestion click, set upper component state value with suggestion name
+ * @param setShowSuggestions - On suggestion click, hide other suggestions
+ */
 function ClubsSuggestionList({searchTerm, setSearchTerm, setRoomId, setRoomName, setShowSuggestions}) {
     const [suggestions, setSuggestions] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -350,6 +397,14 @@ function ClubsSuggestionList({searchTerm, setSearchTerm, setRoomId, setRoomName,
     );
 }
 
+/**
+ * LeaguesSuggestionList component
+ * @param searchTerm - Received from upper component, used to fetch result
+ * @param setSearchTerm - On suggestion click, set upper component input with suggestion name
+ * @param setRoomId - On suggestion click, set upper component state value with suggestion id
+ * @param setRoomName - On suggestion click, set upper component state value with suggestion name
+ * @param setShowSuggestions - On suggestion click, hide other suggestions
+ */
 function LeaguesSuggestionList({searchTerm, setSearchTerm, setRoomId, setRoomName, setShowSuggestions}) {
     const [suggestions, setSuggestions] = useState(null);
     const [loading, setLoading] = useState(true);

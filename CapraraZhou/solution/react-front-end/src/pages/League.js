@@ -6,6 +6,13 @@ import ClubCardList from "../components/ClubCardList";
 import axios from "axios";
 import Loading from "../components/Loading";
 
+/**
+ * League Page
+ * @state leagueId - Fetched from URL
+ * @state league - League object received from state or fetched using leagueId
+ * @state years - List of years in which matches have been played
+ * @state currentYear - Filter
+ */
 function League() {
     const {state} = useLocation();
     const [league, setLeague] = useState(null);

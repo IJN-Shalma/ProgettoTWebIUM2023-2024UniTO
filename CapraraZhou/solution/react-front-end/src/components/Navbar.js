@@ -150,7 +150,7 @@ function ClubsSuggestionList({searchTerm, setSearchTerm }) {
                                 :
                                 suggestions.map((suggestion, i) => (
                                     <Link to={"/leagues/league/" + suggestion.domesticCompetitionId + "/club/" + suggestion.id}
-                                          onClick={() => setSearchTerm('')} className="button-link" key={i}>
+                                          state={{club: suggestion}} onClick={() => setSearchTerm('')} className="button-link" key={i}>
                                         <p>{suggestion.name}</p>
                                     </Link>
                                 ))

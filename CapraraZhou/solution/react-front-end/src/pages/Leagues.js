@@ -4,6 +4,12 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import Loading from "../components/Loading";
 
+/**
+ * Leagues page
+ * Lists all competitions, allowing the user to filter by country
+ * @state filters - List of countries fetched from database
+ * @state activeFilter - Name of the country selected
+ */
 function Leagues() {
     const [filters, setFilters] = useState(null);
     const [loading, setLoading] = useState(true);

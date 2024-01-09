@@ -6,6 +6,12 @@ import {Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement,
 import { Line } from 'react-chartjs-2';
 import axios from "axios";
 import Loading from "../components/Loading";
+
+/**
+ * Player page
+ * @state playerId - Fetched from URL
+ * @state player - Player object, received in state from other components or fetched with axios request using playerId
+ */
 function Player() {
     const {state} = useLocation();
     const [player, setPlayer] = useState(null);
@@ -86,6 +92,12 @@ ChartJS.register(
     Legend
 );
 
+/**
+ * PlayerValuationChart component
+ * Line chart made with React ChartJS module, displays player valuation over time
+ * @param playerId - player identifier used to fetch player valuations from database
+ * @state valuations - player valuations received from database
+ */
 function PlayerValuationChart({ playerId }) {
     const [loading, setLoading] = useState(true);
     const [valuations, setValuations] = useState(null);

@@ -1,29 +1,34 @@
-import {useEffect, useState, useRef} from "react";
-import {useParams} from "react-router-dom";
 import axios from "axios";
 import PlayerCardList from "../components/PlayerCardList";
 import GameCardList from "../components/GameCardList";
 import Breadcrumb from "../components/Breadcrumb";
 import Loading from "../components/Loading";
+import {useEffect, useState} from "react";
+import {useLocation, useParams} from "react-router-dom";
 
-
-
-function Club({clubData}) {
+/**
+ * Club page
+ * @state clubId - obtained as param from Url
+ * @state club - Club object fetched using clubId
+ */
+function Club() {
+    const {state} = useLocation();
     const [club, setClub] = useState(null);
-    const {clubId} = useParams();
     const [loading, setLoading] = useState(true);
+    const {clubId} = useParams();
 
     useEffect(() => {
-        if(clubData == null){
-            axios.get('/sql/clubs/' + clubId)
-                .then((response) => {
-                    setClub(response.data);
+        if(state == null){
+            axios.get(`/sql/clubs/` + clubId)
+                .then(result => {
+                    setClub(result.data);
                     setLoading(false);
-                })
-        } else {
-            setClub(clubData);
+                });
+        }else{
+            setClub(state.club);
+            setLoading(false);
         }
-    }, [clubData, clubId]);
+    }, [clubId,state]);
 
     return (
         <>
