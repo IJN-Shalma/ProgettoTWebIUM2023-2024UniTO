@@ -2,9 +2,13 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import PlayerCard from "./PlayerCard";
-import game from "../pages/Game";
-import player from "../pages/Player";
 
+/**
+ * PlayerCardList component
+ * List of players rendered by clubs and games
+ * @param gameId - Id of the game to query lineup of players
+ * @param clubId - Id of the club to get list of players
+ */
 function PlayerCardList({gameId, clubId}) {
     const [playersLineups, setPlayersLineups] = useState(null);
     const [players, setPlayers] = useState(null);

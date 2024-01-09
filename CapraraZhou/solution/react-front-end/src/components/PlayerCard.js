@@ -6,6 +6,12 @@ import {Link} from "react-router-dom";
 /* Pass the component a player object or a lineup with an Id to fetch the player from */
 /* Players might still return as undefined because their id isn't in the players dataset */
 
+/**
+ * PlayerCard component
+ * @param playerLineup - prop received from parent component, if set it is used to fetch player information with axios
+ * @param playerP - player data received as a prop from parent component
+ * @param gameId - if set, player card is rendered in game page and displays player game events
+ */
 function PlayerCard({playerLineup, playerP, gameId}) {
     const [player, setPlayer] = useState(null);
     const [loadingPlayer, setLoadingPlayer] = useState(true);

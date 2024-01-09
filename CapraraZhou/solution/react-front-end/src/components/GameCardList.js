@@ -3,6 +3,13 @@ import {useEffect, useState} from "react";
 import GameCard from "./GameCard";
 import Loading from "./Loading";
 
+/**
+ * GameCardList component
+ * Rendered by ClubCardList component, renders a list of Game Cards
+ * @param request - Query, different pages fetch from different routes
+ * @param type - Passed to GameCard to filter the displayed data
+ */
+
 function GameCardList({request, type}){
     const [games, setGames] = useState(null);
     const [loading, setLoading] = useState(true);

@@ -3,7 +3,13 @@ import {useEffect, useState} from "react";
 import LeagueCard from "./LeagueCard";
 import Loading from "./Loading";
 
-function IndexLeagueCardList({query, filter}){
+/**
+ * LeaguesLeagueCardList component
+ * @param query query to be used in axios fetch request
+ * @param filter filter by county to be used on leagues if set by parent component
+ */
+
+function LeaguesLeagueCardList({query, filter}){
     const [leagues, setLeagues] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -34,4 +40,4 @@ function IndexLeagueCardList({query, filter}){
 }
 
 
-export default IndexLeagueCardList;
+export default LeaguesLeagueCardList;

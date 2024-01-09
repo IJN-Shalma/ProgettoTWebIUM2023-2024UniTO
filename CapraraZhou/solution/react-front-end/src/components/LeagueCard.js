@@ -3,7 +3,11 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import Loading from "./Loading";
 
-
+/**
+ * LeagueCard component
+ * Rendered by LeagueCardList component, displays a clickable box league with a preview of the latest match
+ * @param league - League object, received from upper components
+ */
 function LeagueCard({league}){
     const [game, setGame] = useState(null);
     const [loading, setLoading] = useState(true);

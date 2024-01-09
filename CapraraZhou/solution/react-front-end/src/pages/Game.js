@@ -22,7 +22,7 @@ function Game() {
                             <div className="d-flex flex-column w-25 align-items-center">
                                 <Link to={"/leagues/league/" + game.competition_id + "/club/" + game.home_club_id} className="button-link">
                                     <img alt="home-team logo"  src={"https://tmssl.akamaized.net/images/wappen/normquad/" + game.home_club_id + ".png" || "/images/default.png"} className="club-logo"/>
-                                    <p>{game.home_club_name || "Unavailable"}</p>
+                                    <p><b>{game.home_club_name || "Unavailable"}</b></p>
                                 </Link>
                             </div>
 
@@ -32,7 +32,7 @@ function Game() {
                             <div className="d-flex flex-column w-25 align-items-center">
                                 <Link to={"/leagues/league/" + game.competition_id + "/club/" + game.away_club_id} className="button-link">
                                     <img alt="away-team logo"  src={"https://tmssl.akamaized.net/images/wappen/normquad/" + game.away_club_id + ".png" || "/images/default.png"} className="club-logo"/>
-                                    <p>{game.away_club_name || "Unavailable"}</p>
+                                    <p><b>{game.away_club_name || "Unavailable"}</b></p>
                                 </Link>
                             </div>
                         </div>

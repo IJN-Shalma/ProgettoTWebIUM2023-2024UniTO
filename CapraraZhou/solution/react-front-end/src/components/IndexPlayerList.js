@@ -2,7 +2,12 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import Loading from "./Loading";
-function GameCardList({request, type}){
+
+/**
+ * IndexPlayerList component
+ * Rendered by Home page component, displays top three most valuable players
+ */
+function IndexPlayerList(){
     const [players, setPlayers] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -54,4 +59,4 @@ function GameCardList({request, type}){
     );
 }
 
-export default GameCardList;
+export default IndexPlayerList;

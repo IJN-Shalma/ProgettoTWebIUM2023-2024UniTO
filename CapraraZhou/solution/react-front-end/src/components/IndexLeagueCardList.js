@@ -3,6 +3,10 @@ import {useEffect, useState} from "react";
 import LeagueCard from "./LeagueCard";
 import Loading from "./Loading";
 
+/**
+ * IndexLeagueCardList component
+ * Rendered by Home.js page component, displays information on international competitions
+ */
 function IndexLeagueCardList(){
     const [intLeagues, setIntLeagues] = useState(null);
     const [loading, setLoading] = useState(true);

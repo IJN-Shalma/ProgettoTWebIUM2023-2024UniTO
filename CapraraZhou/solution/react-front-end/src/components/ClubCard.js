@@ -1,5 +1,10 @@
 import {Link} from "react-router-dom";
 
+/**
+ * ClubCard component
+ * Rendered by ClubCardList component
+ * @param club - Club object
+ */
 function ClubCard({club}) {
     return (
         <Link to={"/leagues/league/" + club.domesticCompetitionId + "/club/" + club.id} className="button-link">

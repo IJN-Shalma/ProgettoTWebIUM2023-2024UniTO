@@ -3,6 +3,11 @@ import Loading from "./Loading";
 import axios from "axios";
 import GameCard from "./GameCard";
 
+/**
+ * AppearenceList component
+ * Rendered in Player.js page component, fetches list of player appearances by player id
+ * @param playerId
+ */
 function AppearanceList({playerId}) {
     const [appearances, setAppearances] = useState(null)
     const [loading, setLoading] = useState(true);
@@ -32,6 +37,11 @@ function AppearanceList({playerId}) {
 
 export default AppearanceList;
 
+/**
+ * Appearance component
+ * Rendered by AppearanceList
+ * @param appearance - player match appearance
+ */
 function Appearance({appearance}) {
     const [loadingGame, setLoadingGame] = useState(true);
     const [game, setGame] = useState(null);

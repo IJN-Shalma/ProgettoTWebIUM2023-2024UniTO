@@ -2,6 +2,10 @@ import React, {useEffect, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
 import axios, {Axios} from "axios";
 
+/**
+ * Navbar component
+ * Made with boostrap navbar component
+ */
 function Navbar() {
     const location = useLocation();
     const [url, setUrl] = useState(null);
@@ -66,6 +70,11 @@ function Navbar() {
     );
 }
 
+/**
+ * PlayerSuggestionList component
+ * @param searchTerm - Part of parent state, navbar search bar input value, used to fetch suggestions
+ * @param setSearchTerm - Part of parent state, function used to reset search term on submit
+ */
 function PlayersSuggestionList({searchTerm, setSearchTerm }) {
     const [suggestions, setSuggestions] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -115,6 +124,11 @@ function PlayersSuggestionList({searchTerm, setSearchTerm }) {
     );
 }
 
+/**
+ * ClubsSuggestionList component
+ * @param searchTerm - Part of parent state, navbar search bar input value, used to fetch suggestions
+ * @param setSearchTerm - Part of parent state, function used to reset search term on submit
+ */
 function ClubsSuggestionList({searchTerm, setSearchTerm }) {
     const [suggestions, setSuggestions] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -161,6 +175,11 @@ function ClubsSuggestionList({searchTerm, setSearchTerm }) {
     );
 }
 
+/**
+ * ClubsSuggestionList component
+ * @param searchTerm - Part of parent state, navbar search bar input value, used to fetch suggestions
+ * @param setSearchTerm - Part of parent state, function used to reset search term on submit
+ */
 function LeaguesSuggestionList({searchTerm, setSearchTerm }) {
     const [suggestions, setSuggestions] = useState(null);
     const [loading, setLoading] = useState(true);

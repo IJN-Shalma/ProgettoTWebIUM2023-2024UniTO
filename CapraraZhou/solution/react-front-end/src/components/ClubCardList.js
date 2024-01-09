@@ -3,6 +3,11 @@ import axios from "axios";
 import ClubCard from "./ClubCard";
 import Loading from "./Loading";
 
+/**
+ * ClubCardList component
+ * Rendered by League.js page component, lists all the clubs returned by a query
+ * @param request - Query to fetch clubs in a competition
+ */
 function ClubCardList({request}) {
 
     const [loading, setLoading] = useState(true);

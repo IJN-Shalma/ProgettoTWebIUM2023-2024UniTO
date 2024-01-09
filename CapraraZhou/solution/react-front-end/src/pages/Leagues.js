@@ -1,5 +1,5 @@
 import Breadcrumb from "../components/Breadcrumb";
-import LeaguesLeagueList from "../components/LeaguesLeagueList";
+import LeaguesLeagueList from "../components/LeaguesLeagueCardList";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Loading from "../components/Loading";

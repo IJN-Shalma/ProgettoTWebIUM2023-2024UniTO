@@ -4,6 +4,12 @@ function parseDate(date) {
     return date.getUTCDay() + "/" + (date.getUTCMonth() + 1) + "/" + date.getUTCFullYear();
 }
 
+/**
+ * GameCard component
+ * Rendered by ClubCardList component, display match information in a compact box
+ * @param game - Game to display
+ * @param type - Allows to show / hide information based on page where component is rendered: player, club, index, league
+ */
 function GameCard({game, type}) {
     return (
         <Link to={"/leagues/league/" + game.competition_id + "/game/" + game.game_id} state={{game: game}} className="button-link link-list-item">

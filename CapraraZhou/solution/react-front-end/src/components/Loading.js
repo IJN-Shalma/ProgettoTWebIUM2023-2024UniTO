@@ -1,3 +1,6 @@
+/**
+ * Loading component with bootstrap spinner
+ */
 function Loading(){
     return (
         <div className="w-100 d-flex align-items-center my-2">
