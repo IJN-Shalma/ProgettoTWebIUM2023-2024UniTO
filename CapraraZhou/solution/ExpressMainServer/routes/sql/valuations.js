@@ -13,4 +13,15 @@ router.get('/:playerId', async (req, res) =>{
     }
 });
 
+router.get('/', async (req, res) =>{
+    try {
+        axios.get(`http://localhost:8081/valuations`)
+            .then((response) =>{
+                res.send(response.data);
+            });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;

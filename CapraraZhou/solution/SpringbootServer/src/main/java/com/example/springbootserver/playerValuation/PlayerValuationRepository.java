@@ -10,4 +10,7 @@ import java.util.List;
 public interface PlayerValuationRepository extends JpaRepository<PlayerValuation, Long> {
     @Query(value = "SELECT * FROM player_valuations pv WHERE pv.player_id = :playerId ORDER BY pv.date DESC LIMIT 10", nativeQuery = true)
     List<PlayerValuation> findAllByPlayerId(Long playerId);
+
+    @Query(value = "SELECT * FROM player_valuations pv", nativeQuery = true)
+    List<PlayerValuation> getAllPlayerValuations();
 }
