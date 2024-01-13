@@ -25,4 +25,5 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
 
     @Query(value = "SELECT * FROM players p", nativeQuery = true)
     List<Player> getAll();
+
 }

@@ -3,9 +3,9 @@ const router = express.Router();
 const axios = require('axios');
 
 
-router.get('/club/:clubId', async (req, res) => {
+router.get('/club/:club_id', async (req, res) => {
     try {
-        axios.get(`http://localhost:8082/club_games/club/${req.params.clubId}`)
+        axios.get(`http://localhost:8082/club_games/club/${req.params.club_id}`)
             .then((response) =>{
                 res.send(response.data);
             });

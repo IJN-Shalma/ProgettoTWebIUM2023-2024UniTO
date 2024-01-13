@@ -13,9 +13,9 @@ router.get('/topPlayers', async (req, res) =>{
     }
 });
 
-router.get('/:playersIds', async (req, res) =>{
+router.get('/:players_ids', async (req, res) =>{
     try {
-        axios.get(`http://localhost:8081/players/${req.params.playersIds}`)
+        axios.get(`http://localhost:8081/players/${req.params.players_ids}`)
             .then((response) =>{
                 res.send(response.data);
             });
@@ -24,9 +24,9 @@ router.get('/:playersIds', async (req, res) =>{
     }
 });
 
-router.get('/club/:clubId', async (req, res) =>{
+router.get('/club/:club_id', async (req, res) =>{
     try {
-        axios.get(`http://localhost:8081/players/club/${req.params.clubId}`)
+        axios.get(`http://localhost:8081/players/club/${req.params.club_id}`)
             .then((response) =>{
                 res.send(response.data);
             });

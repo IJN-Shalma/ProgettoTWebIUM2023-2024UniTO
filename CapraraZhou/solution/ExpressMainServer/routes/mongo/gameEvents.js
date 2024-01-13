@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-router.get('/player/:playerId', async (req, res) => {
+router.get('/player/:player_id', async (req, res) => {
     try {
-        axios.get(`http://localhost:8082/game_events/player/${req.params.playerId}`)
+        axios.get(`http://localhost:8082/game_events/player/${req.params.player_id}`)
             .then((response) =>{
                 res.send(response.data);
             });
@@ -13,9 +13,9 @@ router.get('/player/:playerId', async (req, res) => {
     }
 });
 
-router.get('/player/:playerId/type/:type', async (req, res) => {
+router.get('/player/:player_id/type/:type', async (req, res) => {
     try {
-        axios.get(`http://localhost:8082/game_events/player/${req.params.playerId}/type/${req.params.type}`)
+        axios.get(`http://localhost:8082/game_events/player/${req.params.player_id}/type/${req.params.type}`)
             .then((response) =>{
                 res.send(response.data);
             });
@@ -24,9 +24,9 @@ router.get('/player/:playerId/type/:type', async (req, res) => {
     }
 });
 
-router.get('/game/:gameId', async (req, res) => {
+router.get('/game/:game_id', async (req, res) => {
     try {
-        axios.get(`http://localhost:8082/game_events/game/${req.params.gameId}`)
+        axios.get(`http://localhost:8082/game_events/game/${req.params.game_id}`)
             .then((response) =>{
                 res.send(response.data);
             });
@@ -35,9 +35,9 @@ router.get('/game/:gameId', async (req, res) => {
     }
 });
 
-router.get('/game/:gameId/player/:playerId', async (req, res) => {
+router.get('/game/:game_id/player/:player_id', async (req, res) => {
     try {
-        axios.get(`http://localhost:8082/game_events/game/${req.params.gameId}/player/${req.params.playerId}`)
+        axios.get(`http://localhost:8082/game_events/game/${req.params.game_id}/player/${req.params.player_id}`)
             .then((response) =>{
                 res.send(response.data);
             });
@@ -46,9 +46,9 @@ router.get('/game/:gameId/player/:playerId', async (req, res) => {
     }
 });
 
-router.get('/club/:clubId', async (req, res) => {
+router.get('/club/:club_id', async (req, res) => {
     try {
-        axios.get(`http://localhost:8082/game_events/club/${req.params.clubId}`)
+        axios.get(`http://localhost:8082/game_events/club/${req.params.club_id}`)
             .then((response) =>{
                 res.send(response.data);
             });

@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-router.get('/game/:gameId/club/:clubId', async (req, res) => {
+router.get('/game/:game_id/club/:club_id', async (req, res) => {
     try {
-        axios.get(`http://localhost:8082/game_lineups/game/${req.params.gameId}/club/${req.params.clubId}`)
+        axios.get(`http://localhost:8082/game_lineups/game/${req.params.game_id}/club/${req.params.club_id}`)
             .then((response) =>{
                 res.send(response.data);
             });

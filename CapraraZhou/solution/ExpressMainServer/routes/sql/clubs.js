@@ -2,9 +2,9 @@ const express = require('express');
 const axios = require("axios");
 const router = express.Router();
 
-router.get('/competition/:competitionId', async (req, res) =>{
+router.get('/competition/:competition_id', async (req, res) =>{
     try {
-        axios.get(`http://localhost:8081/clubs/competition/${req.params.competitionId}`)
+        axios.get(`http://localhost:8081/clubs/competition/${req.params.competition_id}`)
             .then((response) =>{
                 res.send(response.data);
             });
@@ -13,9 +13,9 @@ router.get('/competition/:competitionId', async (req, res) =>{
     }
 });
 
-router.get('/:clubId', async (req, res) =>{
+router.get('/:club_id', async (req, res) =>{
     try {
-        axios.get(`http://localhost:8081/clubs/${req.params.clubId}`)
+        axios.get(`http://localhost:8081/clubs/${req.params.club_id}`)
             .then((response) =>{
                 res.send(response.data);
             });
