@@ -14,6 +14,19 @@ function findByGameIdAndPlayerId(game_id, player_id){
 module.exports.findByGameIdAndPlayerId = findByGameIdAndPlayerId;
 
 
+function findByYear(year){
+    return new Promise((resolve, reject) =>{
+        Appearance.find({date: { $gte: ""+year+'-01-01', $lte: ""+year+'-12-31' }})
+            .then((result) => {
+                resolve(result);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
+module.exports.findByYear = findByYear;
+
 function findByGameId(game_id){
     return new Promise((resolve, reject) =>{
         Appearance.find({game_id : game_id})

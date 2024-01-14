@@ -146,4 +146,37 @@ router.get('/club/:club_id', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /appearances/club/{club_id}:
+ *   get:
+ *     tags:
+ *       - Appearances
+ *     summary: Get all appearances in a specified year
+ *     parameters:
+ *       - in: path
+ *         name: year
+ *         required: true
+ *         type: number
+ *         description: Year of the appearances
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Appearance'
+ *             examples:
+ *               AppearanceExample:
+ *                 $ref: '#/components/examples/AppearanceExample'
+ */
+router.get('/:year', async (req, res) => {
+    try {
+        const appearances = await appearancesController.findByYear(req.params.year);
+        res.json(appearances);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;

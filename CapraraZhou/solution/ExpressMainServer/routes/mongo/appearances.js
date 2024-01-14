@@ -47,4 +47,15 @@ router.get('/club/:club_id', async (req, res) => {
     }
 });
 
+router.get('/:year', async (req, res) => {
+    try {
+        axios.get(`http://localhost:8082/appearances/${req.params.year}`)
+            .then((response) =>{
+                res.send(response.data);
+            });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;
