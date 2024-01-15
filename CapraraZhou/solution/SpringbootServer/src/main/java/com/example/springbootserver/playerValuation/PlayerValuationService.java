@@ -17,4 +17,8 @@ public class PlayerValuationService {
     public List<PlayerValuation> getPlayerValuations(Long playerId) {
         return playerValuationRepository.findAllByPlayerId(playerId);
     }
+
+    public List<PlayerValuation> getAllPlayerValuations(){
+        return playerValuationRepository.getAllPlayerValuations();
+    }
 }

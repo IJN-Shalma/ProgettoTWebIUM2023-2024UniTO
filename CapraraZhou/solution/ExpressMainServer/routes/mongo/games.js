@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-router.get('/game/:gameId', async (req, res) => {
+router.get('/game/:game_id', async (req, res) => {
     try {
-        axios.get(`http://localhost:8082/games/game/${req.params.gameId}`)
+        axios.get(`http://localhost:8082/games/game/${req.params.game_id}`)
             .then((response) =>{
                 res.send(response.data);
             });
@@ -13,9 +13,9 @@ router.get('/game/:gameId', async (req, res) => {
     }
 });
 
-router.get('/club/:clubId', async (req, res) => {
+router.get('/club/:club_id', async (req, res) => {
     try {
-        axios.get(`http://localhost:8082/games/club/${req.params.clubId}`)
+        axios.get(`http://localhost:8082/games/club/${req.params.club_id}`)
             .then((response) =>{
                 res.send(response.data);
             });
@@ -24,9 +24,9 @@ router.get('/club/:clubId', async (req, res) => {
     }
 });
 
-router.get('/competition/:competitionId', async (req, res) => {
+router.get('/competition/:competition_id', async (req, res) => {
     try {
-        axios.get(`http://localhost:8082/games/competition/${req.params.competitionId}` + (req.query.year ? `?year=${req.query.year}` : ''))
+        axios.get(`http://localhost:8082/games/competition/${req.params.competition_id}` + (req.query.year ? `?year=${req.query.year}` : ''))
             .then((response) =>{
                 res.send(response.data);
             });
@@ -35,9 +35,9 @@ router.get('/competition/:competitionId', async (req, res) => {
     }
 });
 
-router.get('/competition/:competitionId/clubs', async (req, res) => {
+router.get('/competition/:competition_id/clubs', async (req, res) => {
     try {
-        axios.get(`http://localhost:8082/games/competition/${req.params.competitionId}/clubs`)
+        axios.get(`http://localhost:8082/games/competition/${req.params.competition_id}/clubs`)
             .then((response) =>{
                 res.send(response.data);
             });
@@ -46,9 +46,9 @@ router.get('/competition/:competitionId/clubs', async (req, res) => {
     }
 });
 
-router.get('/competition/:competitionId/last_games', async (req, res) =>{
+router.get('/competition/:competition_id/last_games', async (req, res) =>{
     try {
-        axios.get(`http://localhost:8082/games/competition/${req.params.competitionId}/last_games` + (req.query.n ? `?n=${req.query.n}` : ''))
+        axios.get(`http://localhost:8082/games/competition/${req.params.competition_id}/last_games` + (req.query.n ? `?n=${req.query.n}` : ''))
             .then((response) =>{
                 res.send(response.data);
             });
@@ -68,9 +68,9 @@ router.get('/last_games', async (req, res) =>{
     }
 });
 
-router.get('/competition/:competitionId/seasons', async (req, res) =>{
+router.get('/competition/:competition_id/seasons', async (req, res) =>{
     try {
-        axios.get(`http://localhost:8082/games/competition/${req.params.competitionId}/seasons`)
+        axios.get(`http://localhost:8082/games/competition/${req.params.competition_id}/seasons`)
             .then((response) =>{
                 res.send(response.data);
             });

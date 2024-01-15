@@ -31,4 +31,8 @@ public class PlayerService {
     public List<Player> getPlayersSuggestions(String term) {
         return playerRepository.getPlayersSuggestions(term);
     }
+
+    public List<Player> getAllPlayers(){
+        return playerRepository.getAll();
+    }
 }

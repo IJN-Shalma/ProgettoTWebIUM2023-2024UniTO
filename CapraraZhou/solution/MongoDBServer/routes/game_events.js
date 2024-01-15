@@ -153,4 +153,37 @@ router.get('/player/:player_id/type/:type', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /game_events/club/{club_id}:
+ *   get:
+ *     tags:
+ *       - Game events
+ *     summary: Get game events by club id
+ *     parameters:
+ *       - in: path
+ *         name: club_id
+ *         required: true
+ *         type: number
+ *         description: The Id of the club
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/GameEvent'
+ *             examples:
+ *               AppearanceExample:
+ *                 $ref: '#/components/examples/GameEventExample'
+ */
+router.get('/club/:club_id', async (req, res) => {
+    try {
+        const gameEvents = await gameEventsController.findByClubId(req.params.club_id);
+        res.json(gameEvents);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;

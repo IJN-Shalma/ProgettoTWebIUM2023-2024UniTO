@@ -19,6 +19,12 @@ public class PlayerValuationController {
         this.playerValuationService = playerValuationService;
     }
 
+    @Operation(summary = "Get list of all players valuations")
+    @GetMapping("/valuations")
+    public List<PlayerValuation> getAllPlayerValuations(){
+        return playerValuationService.getAllPlayerValuations();
+    }
+
     @Operation(summary = "Get list of player valuations")
     @GetMapping("/valuations/{playerId}")
     public List<PlayerValuation> getPlayerValuations(@PathVariable Long playerId){

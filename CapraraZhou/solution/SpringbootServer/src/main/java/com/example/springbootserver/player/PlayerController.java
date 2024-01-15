@@ -50,4 +50,10 @@ public class PlayerController {
     public List<Player> getPlayerNameBySuggestion(@PathVariable String term) {
         return playerService.getPlayersSuggestions(term);
     }
+
+    @Operation(summary = "Get all players")
+    @GetMapping("/players")
+    public List<Player> getAllPlayers() {
+        return playerService.getAllPlayers();
+    }
 }

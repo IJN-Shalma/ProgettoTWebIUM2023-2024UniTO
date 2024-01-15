@@ -55,3 +55,17 @@ function findByPlayerIdAndType(playerId, type){
 }
 
 module.exports.findByPlayerIdAndType = findByPlayerIdAndType;
+
+function findByClubId(clubId){
+    return new Promise((resolve, reject) =>{
+        GameEvent.find({club_id : clubId})
+            .then((result) => {
+                resolve(result);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
+
+module.exports.findByClubId = findByClubId;

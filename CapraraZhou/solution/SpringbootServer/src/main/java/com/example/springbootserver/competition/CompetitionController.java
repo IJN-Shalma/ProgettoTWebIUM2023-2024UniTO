@@ -56,4 +56,10 @@ public class CompetitionController {
         term = term.toLowerCase();
         return competitionService.getCompetitionsSuggestions(term);
     }
+
+    @Operation(summary = "Get list of competitions by country name")
+    @GetMapping("/competitions/country/{country}")
+    public List<Competition> getCompetitionsByNation(@PathVariable String country) {
+        return competitionService.getCompetitionsByNation(country);
+    }
 }

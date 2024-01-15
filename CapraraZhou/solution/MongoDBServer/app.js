@@ -33,13 +33,10 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-
 app.use('/appearances', appearancesRouter);
 app.use('/club_games', clubGamesRouter);
 app.use('/game_events', gameEventsRouter);
 app.use('/game_lineups', gameLineupsRouter);
 app.use('/games', gamesRouter);
-
-
 
 module.exports = app;
