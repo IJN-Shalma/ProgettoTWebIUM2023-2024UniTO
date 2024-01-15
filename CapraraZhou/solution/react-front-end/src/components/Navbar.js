@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
-import axios, {Axios} from "axios";
+import axios from "axios";
 
 /**
  * Navbar component
@@ -29,7 +29,9 @@ function Navbar() {
         <header>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark navigation mb-3">
                 <div className="container-fluid">
-                    <Link to="/" className="navbar-brand mx-lg-5 title">Football X Data</Link>
+                    <Link to="/" className="navbar-brand mx-lg-1 title">
+                        <img src="/images/logo.png" alt="site logo" width="220em"/>
+                    </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false"

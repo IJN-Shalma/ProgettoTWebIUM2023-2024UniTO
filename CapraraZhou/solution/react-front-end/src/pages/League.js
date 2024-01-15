@@ -71,10 +71,10 @@ function League() {
                                         <p><b>Season</b>:</p>
                                     </div>
                                     <div>
-                                        <select className="form-select d-inline ms-3" onChange={handleSelectChange}>
+                                        <select className="form-select d-inline ms-3" defaultValue={currentYear} onChange={handleSelectChange}>
                                             {
-                                                years.map((year) => (
-                                                    <option value={year} selected={year===currentYear}>{year}</option>
+                                                years.map((year,i) => (
+                                                    <option key={i} value={year} >{year}</option>
                                                 ))
                                             }
                                         </select>

@@ -38,7 +38,7 @@ function LeagueCard({league}){
                             <img alt="League Logo" src={"https://tmssl.akamaized.net/images/logo/header/" + league.competitionId.toLowerCase() + ".png" || "/images/default.png"} className="index-league-logo"/>
                             <h2 className="m-2 accent text-end">{translationDictionary[league.name] || league.name.replaceAll("-", " ")}</h2>
                         </div>
-
+                        <p className="accent mt-2"><b>Last match</b></p>
                         <div className="d-flex flex-column mt-2"> {/* last game */}
                             <div className="d-flex justify-content-between">
                                 <div className="d-flex flex-row align-items-center">

@@ -63,12 +63,12 @@ function GameEventList({game}) {
             :
             (
                 events.map((event) => (
-                    event.minute == "-1"
+                    event.minute === "-1"
                         ?
                             null
                         :
                         (
-                            event.club_id == game.home_club_id
+                            event.club_id === game.home_club_id
                             ?
                                 (
                                     <p key={event.id}>

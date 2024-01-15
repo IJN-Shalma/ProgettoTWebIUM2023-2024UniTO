@@ -1,8 +1,11 @@
 function Footer(){
     return(
-    <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 bg-dark navbar-dark mt-auto">
-        <div className="col-md-4 d-flex align-items-center mx-5">
-            <span className="mb-3 mb-md-0">2023 Caprara Zhou</span>
+    <footer className="d-flex justify-content-between align-items-center py-3 bg-dark navbar-dark mt-auto px-5">
+        <div>
+            Silvio Caprara, Andrea Zhou
+        </div>
+        <div>
+            Progetto IUM-Tweb 2023-2024
         </div>
     </footer>
     )
