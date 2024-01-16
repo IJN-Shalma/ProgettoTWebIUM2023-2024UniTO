@@ -62,4 +62,10 @@ public class CompetitionController {
     public List<Competition> getCompetitionsByNation(@PathVariable String country) {
         return competitionService.getCompetitionsByNation(country);
     }
+
+    @Operation(summary = "Get all competition Ids and names")
+    @GetMapping("/competitions/ids")
+    public List<CompetitionId> getCompetitionIds() {
+        return competitionService.getCompetitionIdName();
+    }
 }

@@ -21,4 +21,7 @@ public interface CompetitionRepository extends JpaRepository<Competition, String
 
     @Query(value = "SELECT * FROM competitions c WHERE LOWER(c.name) LIKE LOWER(concat('%', :term, '%')) LIMIT 2", nativeQuery = true)
     List<Competition> getCompetitionsSuggestions(String term);
+
+    @Query(value = "SELECT name, competition_id as competitionId FROM competitions c", nativeQuery = true)
+    List<CompetitionId> getCompetitionIdName();
 }

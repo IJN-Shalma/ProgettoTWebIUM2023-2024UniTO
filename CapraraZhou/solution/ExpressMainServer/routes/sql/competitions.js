@@ -65,4 +65,13 @@ router.get('/country/:country_name', async (req, res) => {
     });
 });
 
+router.get('/ids', async (req, res) => {
+    axios.get(`http://localhost:8081/competitions/ids`)
+        .then((response) => {
+            res.send(response.data);
+        }).catch(error => {
+        res.status(error.status).json({message: error.message})
+    });
+});
+
 module.exports = router;

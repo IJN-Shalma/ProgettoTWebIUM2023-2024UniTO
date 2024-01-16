@@ -41,4 +41,8 @@ public class CompetitionService {
     public List<Competition> getCompetitionsSuggestions(String term) {
         return competitionRepository.getCompetitionsSuggestions(term);
     }
+
+    public List<CompetitionId> getCompetitionIdName(){
+        return competitionRepository.getCompetitionIdName();
+    }
 }
