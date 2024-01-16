@@ -18,7 +18,7 @@ app.use(express.static(root));
 app.use('/sql/', sqlRouter);
 app.use('/mongo/', mongoRouter);
 
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile('index.html', { root });
 })
 
@@ -29,13 +29,9 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
+  // send error json
   res.status(err.status || 500);
-  res.render('error');
+  res.json({'error':err.message});
 });
 
 module.exports = app;

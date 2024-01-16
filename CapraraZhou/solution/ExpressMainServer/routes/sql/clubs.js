@@ -7,7 +7,7 @@ router.get('/competition/:competition_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 
@@ -17,7 +17,7 @@ router.get('/:club_id', async (req, res) => {
             console.log("DIOMADONNA");
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({'error': error.message});
+        res.status(error.status).json({'error': error.message});
     });
 });
 
@@ -26,7 +26,7 @@ router.get('/suggestions/:term', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 

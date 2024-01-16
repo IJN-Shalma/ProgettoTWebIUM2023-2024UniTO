@@ -8,7 +8,7 @@ router.get('/player/:player_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 
@@ -18,7 +18,7 @@ router.get('/player/:player_id/type/:type', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 
@@ -36,7 +36,7 @@ router.get('/game/:game_id/player/:player_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 
@@ -46,7 +46,7 @@ router.get('/club/:club_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 

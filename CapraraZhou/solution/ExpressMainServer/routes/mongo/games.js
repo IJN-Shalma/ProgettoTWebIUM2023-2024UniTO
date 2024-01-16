@@ -7,7 +7,7 @@ router.get('/game/:game_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 
@@ -16,7 +16,7 @@ router.get('/club/:club_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 
@@ -25,7 +25,7 @@ router.get('/competition/:competition_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 
@@ -34,7 +34,7 @@ router.get('/competition/:competition_id/clubs', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 
@@ -43,7 +43,7 @@ router.get('/competition/:competition_id/last_games', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 
@@ -52,7 +52,7 @@ router.get('/last_games', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 
@@ -61,7 +61,7 @@ router.get('/competition/:competition_id/seasons', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(500).json({message: error.message})
+        res.status(error.status).json({message: error.message})
     });
 });
 

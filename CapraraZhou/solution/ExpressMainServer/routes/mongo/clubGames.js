@@ -8,7 +8,7 @@ router.get('/club/:club_id', async (req, res) => {
             .then((response) =>{
                 res.send(response.data);
             }).catch(error => {
-            res.status(500).json({message: error.message})
+            res.status(error.status).json({message: error.message})
         });
 });
 
