@@ -2,7 +2,7 @@
 
 @supports not selector(:focus-visible) {
     *:focus {
-        outline: solid rgb(255, 0, 0) !important;
+        outline: solid #ff0000 !important;
     }
 }
 
@@ -11,7 +11,7 @@
     --dark: #340c5a;
     --link: rgb(141, 93, 185);
     --visited: rgb(153, 48, 48);
-    --accent: rgb(255, 132, 0);
+    --accent: #FDB102;
     --title: rgb(52, 12, 90);
     --sub-title:rgb(141, 93, 185);
 }
@@ -73,8 +73,8 @@ a:hover {
     position: absolute;
     left: -10000px;
     top: auto;
-    width: 1px;
-    height: 1px;
+    width: 1em;
+    height: 1em;
     overflow: hidden;
 }
 
@@ -175,17 +175,8 @@ th {
     border-bottom: solid 2px var(--bg-1);
 }
 
-.bb-item-list>div:last-child:after {
+.bb-item-list > div:last-child:after {
     border-bottom: solid 0px var(--bg-1);
-}
-
-.round-fa {
-    border-radius: 50%;
-    height: 2em;
-    width: 2em;
-    text-align: center;
-    line-height: 1em;
-    border: 2px solid var(--bg-1);
 }
 
 .navigation {
