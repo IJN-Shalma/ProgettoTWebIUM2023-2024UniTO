@@ -27,7 +27,7 @@ router.get('/game/:game_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(503).json({message: 'Database Offline'})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 
