@@ -18,7 +18,7 @@ app.use(express.static(root));
 app.use('/sql/', sqlRouter);
 app.use('/mongo/', mongoRouter);
 
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile('index.html', { root });
 })
 

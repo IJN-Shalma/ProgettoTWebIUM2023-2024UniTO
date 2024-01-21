@@ -8,7 +8,7 @@ router.get('/player/:player_id', function (req, res, next) {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 
@@ -17,7 +17,7 @@ router.get('/game/:game_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-            res.status(error.status).json({message: error.message})
+            res.status(error.status || 500).json({message: error.message})
     });
 });
 
@@ -26,7 +26,7 @@ router.get('/game/:game_id/player/:player_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 
@@ -35,7 +35,7 @@ router.get('/club/:club_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 
@@ -44,7 +44,7 @@ router.get('/:year', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 

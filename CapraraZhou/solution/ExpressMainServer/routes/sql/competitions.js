@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 
@@ -16,7 +16,7 @@ router.get('/:competition_id', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 
@@ -25,7 +25,7 @@ router.get('/domestic', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 
@@ -34,7 +34,7 @@ router.get('/international', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 
@@ -43,7 +43,7 @@ router.get('/countries', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 
@@ -52,7 +52,7 @@ router.get('/suggestions/:term', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 
@@ -61,7 +61,7 @@ router.get('/country/:country_name', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 
@@ -70,7 +70,7 @@ router.get('/ids', async (req, res) => {
         .then((response) => {
             res.send(response.data);
         }).catch(error => {
-        res.status(error.status).json({message: error.message})
+        res.status(error.status || 500).json({message: error.message})
     });
 });
 

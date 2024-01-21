@@ -7,7 +7,7 @@ router.get('/game/:game_id/club/:club_id', async (req, res) => {
             .then((response) =>{
                 res.send(response.data);
             }).catch(error => {
-            res.status(error.status).json({message: error.message})
+            res.status(error.status || 500).json({message: error.message})
         });
 });
 
