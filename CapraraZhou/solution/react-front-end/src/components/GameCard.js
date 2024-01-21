@@ -17,14 +17,14 @@ function GameCard({game, type}) {
                 {(type === "index" || type === "club" || type === "player") && (<p>{game.competition_id}</p>)}
                 <div className="d-flex justify-content-around align-items-top">
                     <div className="d-flex flex-column w-25 align-items-center">
-                        <img alt="home-team logo" src={"https://tmssl.akamaized.net/images/wappen/normquad/" + game.home_club_id + ".png" || "/images/default.png"} className="club-logo"/>
+                        <img alt={game.home_club_name ? game.home_club_name + " logo" : "home-team logo"} src={"https://tmssl.akamaized.net/images/wappen/normquad/" + game.home_club_id + ".png" || "/images/default.png"} className="club-logo"/>
                         {(type === "league" || type === "club" || type === "player") && (<p>{game.home_club_name || "Unavailable"}</p>)}
                     </div>
                     <div className="game-card-score d-flex align-items-center">
                         <span>{game.aggregate}</span>
                     </div>
                     <div className="d-flex flex-column w-25 align-items-center">
-                        <img alt="away-team logo" src={"https://tmssl.akamaized.net/images/wappen/normquad/" + game.away_club_id + ".png"} className="club-logo"/>
+                        <img alt={game.away_club_name ? game.away_club_name + " logo" : "away-team logo"} src={"https://tmssl.akamaized.net/images/wappen/normquad/" + game.away_club_id + ".png"} className="club-logo"/>
                         {(type === "league" || type === "club" || type === "player") && (
                             <p>{game.away_club_name || "Unavailable"}</p>)}
                     </div>

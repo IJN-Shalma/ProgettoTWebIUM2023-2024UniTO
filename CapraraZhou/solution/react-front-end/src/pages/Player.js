@@ -1,5 +1,5 @@
 import Breadcrumb from "../components/Breadcrumb";
-import {Link, useLocation, useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import AppearanceList from "../components/AppearanceList";
 import {useEffect, useState} from "react";
 import {Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend,} from 'chart.js';
@@ -54,11 +54,6 @@ function Player() {
                                 <p><b>Height</b>: {player.heightInCm + "cm"}</p>
                                 <p><b>Role</b>: {player.subPosition}</p>
                                 <p><b>Club</b>: {player.currentClubName}</p>
-                                <p><b>Goals</b>: {"-"}</p>
-                                <p><b>Average Goals/Game</b>: {"-"}</p>
-                                <p><b>Matches played</b>: {"-"}</p>
-                                <p><b>Assists</b>: {"-"}</p>
-                                <p><b>Average Assists/Game</b>: {"-"}</p>
                             </div>
                         </div>
 
